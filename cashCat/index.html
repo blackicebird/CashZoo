@@ -9,10 +9,15 @@
     <title>CashCat</title>
 
     <link href="lib/touch1.1.0/resources/css-debug/sencha-touch.css" rel="stylesheet" type="text/css">
+    <link href="resources/css/cashCat.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.2a/bootstrap.js"></script>
 <script type="text/javascript" src="lib/touch1.1.0/sencha-touch-debug-w-comments.js"></script>
 <script type="text/javascript" src="lib/touch1.1.0/pkgs/platform/mvc.js"></script>
+<script type="text/javascript" src="lib/indexedDB/Ext.data.proxy.IndexedDB.js"></script>
+<script type="text/javascript" src="lib/indexedDB/Ext.data.proxy.WebDB.js"></script>
+<script type="text/javascript" src="lib/indexedDB/Ext.data.proxy.BrowserDB.js"></script>
 
 <div id="sencha-app">
     <script type="text/javascript" src="app/routes.js"></script>
@@ -20,17 +25,17 @@
 
     <!-- Place your view files here -->
     <div id="sencha-views">
-        <script type="text/javascript" src="app/views/Viewport.js"></script>
+        <script type="text/javascript" src="app/views/home.js"></script>
     </div>
 
     <!-- Place your model files here -->
     <div id="sencha-models">
-
+        <script type="text/javascript" src="app/models/account.js"></script>
     </div>
 
     <!-- Place your controller files here -->
     <div id="sencha-controllers">
-
+        <script type="text/javascript" src="app/controllers/home.js"></script>
     </div>
 </div>
 </body>
