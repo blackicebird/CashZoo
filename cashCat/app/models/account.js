@@ -21,10 +21,10 @@ Ext.regModel("Account", {
         {type: "inclusion", field: "name", list: ["Asset", "Liability", "Income", "Expense", "Equity"]}
     ],
     proxy: {
-        type: "browserdb",
-        dbName: cashCat.dbName,
-        objectStoreName: 'account',
-        dbVersion: '1.19',
+        type: "websqlproxy",
+        dbName: "CashCat",
+        dbTable: 'account',
+        dbVersion: '1.0',
         writer: {
             type: 'json',
             writeAllFields: false
