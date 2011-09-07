@@ -26,52 +26,79 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="91" selection-start="620" selection-end="620" vertical-scroll-proportion="-7.0833335">
+            <state line="23" column="21" selection-start="1261" selection-end="1261" vertical-scroll-proportion="-14.375">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ext.data.proxy.WebDB.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/browserDB/Ext.data.proxy.WebDB.js">
+      <file leaf-file-name="home.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="24" selection-start="4499" selection-end="4499" vertical-scroll-proportion="0.0">
+            <state line="49" column="38" selection-start="1547" selection-end="1547" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/account.js">
+      <file leaf-file-name="linechart.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/src/demos/linechart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="39" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
+            <state line="29" column="23" selection-start="982" selection-end="982" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/app.js">
+      <file leaf-file-name="example-data.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/src/example-data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="27" selection-start="284" selection-end="284" vertical-scroll-proportion="0.36649215">
+            <state line="3" column="0" selection-start="27" selection-end="273" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModelMgr.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/src/platform/src/data/ModelMgr.js">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="254" column="90" selection-start="9035" selection-end="9035" vertical-scroll-proportion="0.0">
+            <state line="8" column="38" selection-start="325" selection-end="325" vertical-scroll-proportion="-5.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/src/platform/src/data/Model.js">
+      <file leaf-file-name="sink.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/kitchensink/resources/css/sink.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="241" column="23" selection-start="7994" selection-end="7994" vertical-scroll-proportion="0.0">
+            <state line="85" column="0" selection-start="1503" selection-end="1532" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cashCat.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/css/cashCat.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="20" selection-start="403" selection-end="403" vertical-scroll-proportion="0.5685921">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="86" selection-start="80" selection-end="86" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Messages.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/bundles/Messages.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="34" selection-start="1567" selection-end="1567" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -87,17 +114,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/routes.js" />
-        <option value="$PROJECT_DIR$/app/controllers/home.js" />
-        <option value="$PROJECT_DIR$/app/views/home.js" />
-        <option value="$PROJECT_DIR$/app/models/id.js" />
-        <option value="$PROJECT_DIR$/lib/indexedDB/Ext.data.proxy.WebDB.js" />
-        <option value="$PROJECT_DIR$/lib/indexedDB/Ext.data.proxy.IndexedDB.js" />
-        <option value="$PROJECT_DIR$/lib/indexedDB/Ext.data.proxy.BrowserDB.js" />
         <option value="$PROJECT_DIR$/lib/browserDB/Ext.data.proxy.WebDB.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/app/models/account.js" />
+        <option value="$PROJECT_DIR$/resources/bundles/Application_zh.properties" />
+        <option value="$PROJECT_DIR$/resources/bundles/Application_zh-CN.properties" />
+        <option value="$PROJECT_DIR$/resources/bundles/Application.properties" />
+        <option value="$PROJECT_DIR$/resources/bundles/Application.js" />
+        <option value="$PROJECT_DIR$/resources/bundles/Application_zh-CN.js" />
         <option value="$PROJECT_DIR$/app/app.js" />
+        <option value="$PROJECT_DIR$/lib/Ext.i18n.Bundle-touch/js/Bundle.js" />
+        <option value="$PROJECT_DIR$/README" />
+        <option value="$PROJECT_DIR$/app/controllers/home.js" />
+        <option value="$PROJECT_DIR$/app/views/app.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app/views/home.js" />
+        <option value="$PROJECT_DIR$/resources/bundles/Messages.js" />
+        <option value="$PROJECT_DIR$/resources/css/cashCat.css" />
       </list>
     </option>
   </component>
@@ -127,8 +159,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -197,6 +227,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -218,6 +284,146 @@
               <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="touch1.1.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oppo-touching-2.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oppo-touching-2.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oppo-touching-2.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="charting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oppo-touching-2.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="charting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oppo-touching-2.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="charting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -247,38 +453,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cashCat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cashCat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/oppo-touching-2.0" />
+      <recent name="$PROJECT_DIR$/resources/bundles" />
       <recent name="$PROJECT_DIR$/public/resources/images" />
       <recent name="$PROJECT_DIR$/lib" />
     </key>
@@ -330,7 +523,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25400457" sideWeight="0.32445922" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25858122" sideWeight="0.6705491" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2631579" sideWeight="0.6705491" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -386,106 +579,106 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/indexedDB/Ext.data.proxy.BrowserDB.js">
+    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/oppo-charting-debug.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="34" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0" />
+        <state line="9075" column="0" selection-start="289753" selection-end="289753" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/indexedDB/Ext.data.proxy.IndexedDB.js">
+    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/src/example-data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="10" selection-start="335" selection-end="341" vertical-scroll-proportion="0.0" />
+        <state line="3" column="0" selection-start="27" selection-end="273" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/src/platform/src/data/ModelMgr.js">
+    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/kitchensink/resources/css/sink.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="90" selection-start="9035" selection-end="9035" vertical-scroll-proportion="0.0" />
+        <state line="85" column="0" selection-start="1503" selection-end="1532" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/src/platform/src/data/Model.js">
+    <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="241" column="23" selection-start="7994" selection-end="7994" vertical-scroll-proportion="0.0" />
+        <state line="0" column="86" selection-start="80" selection-end="86" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/indexedDB/Ext.data.proxy.WebDB.js">
+    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/resources/css/sink.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-5.7393713">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/browserDB/sencha-webdb-example.js">
+    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/chart.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="446" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/docs/resources/ext-all.js">
+    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/chart.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="120324" selection-start="120449" selection-end="120449" vertical-scroll-proportion="0.027726432">
+        <state line="50" column="15" selection-start="1251" selection-end="1251" vertical-scroll-proportion="1.3863217">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/src/data/Connection.js">
+    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/resources/simulator/phone.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="30" selection-start="2641" selection-end="2641" vertical-scroll-proportion="0.6414048">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/resources/css/sink.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="924" column="7" selection-start="12791" selection-end="12798" vertical-scroll-proportion="0.33212996">
+        <state line="7" column="0" selection-start="105" selection-end="105" vertical-scroll-proportion="0.19408503">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="38" selection-start="325" selection-end="325" vertical-scroll-proportion="-5.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="91" selection-start="620" selection-end="620" vertical-scroll-proportion="-7.0833335">
+        <state line="23" column="21" selection-start="1261" selection-end="1261" vertical-scroll-proportion="-14.375">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/ECMAScript.js2">
+    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/src/demos/linechart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="21" selection-start="10533" selection-end="10533" vertical-scroll-proportion="0.44547135">
+        <state line="29" column="23" selection-start="982" selection-end="982" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/sencha-touch-debug-w-comments.js">
+    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/oppo-charting-debug.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9689" column="33" selection-start="343833" selection-end="343833" vertical-scroll-proportion="0.39186692">
+        <state line="10846" column="13" selection-start="350332" selection-end="350337" vertical-scroll-proportion="-1.2364341">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/indexedDB/sample/bdb-cell-editing.js">
+    <entry file="file://$PROJECT_DIR$/resources/bundles/Messages.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="39" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.02617801">
+        <state line="65" column="34" selection-start="1567" selection-end="1567" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/browserDB/Ext.data.proxy.WebDB.js">
+    <entry file="file://$PROJECT_DIR$/app/views/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="24" selection-start="4499" selection-end="4499" vertical-scroll-proportion="0.0">
+        <state line="49" column="38" selection-start="1547" selection-end="1547" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/account.js">
+    <entry file="file://$PROJECT_DIR$/resources/css/cashCat.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="39" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="27" selection-start="284" selection-end="284" vertical-scroll-proportion="0.36649215">
+        <state line="21" column="20" selection-start="403" selection-end="403" vertical-scroll-proportion="0.5685921">
           <folding />
         </state>
       </provider>

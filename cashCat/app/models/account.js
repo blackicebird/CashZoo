@@ -22,7 +22,7 @@ Ext.regModel("Account", {
     ],
     proxy: {
         type: "websqlproxy",
-        dbName: "CashCat",
+        dbName: cashCat.dbName,
         dbTable: 'account',
         dbVersion: '1.0',
         writer: {

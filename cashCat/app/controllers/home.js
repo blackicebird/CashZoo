@@ -1,7 +1,7 @@
 Ext.regController("home",{
     index: function() {
         this.indexView = this.render({
-            xtype: 'cashCatHome'
+            xtype: 'cashCatApp'
         });
     }
 });

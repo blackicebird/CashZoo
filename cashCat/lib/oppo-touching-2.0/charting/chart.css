@@ -1,0 +1,65 @@
+
+/* line 24, ../themes/stylesheets/ext4/default/core/_core.scss */
+.x-hide-visibility {
+  visibility: hidden !important;
+}
+
+/* line 2, ../themes/stylesheets/ext4/default/widgets/_drawcomponent.scss */
+.x-surface {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+}
+/* line 7, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+.x-surface {
+  *display: inline;
+}
+
+/* line 6, ../themes/stylesheets/ext4/default/widgets/_drawcomponent.scss */
+.x-surface tspan {
+  user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+/* line 14, ../themes/stylesheets/ext4/default/widgets/_drawcomponent.scss */
+.x-vml-sprite {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+}
+
+/* line 23, ../themes/stylesheets/ext4/default/widgets/_drawcomponent.scss */
+.x-vml-group {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1000px;
+  height: 1000px;
+}
+
+/* line 32, ../themes/stylesheets/ext4/default/widgets/_drawcomponent.scss */
+.x-vml-measure-span {
+  position: absolute;
+  left: -9999em;
+  top: -9999em;
+  padding: 0;
+  margin: 0;
+  /*        line-height: 1px;*/
+  display: inline;
+}
+
+/* line 45, ../themes/stylesheets/ext4/default/widgets/_drawcomponent.scss */
+.x-vml-base {
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: inline-block;
+}
