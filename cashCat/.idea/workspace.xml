@@ -26,7 +26,7 @@
       <file leaf-file-name="home.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="25" selection-start="3708" selection-end="3708" vertical-scroll-proportion="0.0">
+            <state line="129" column="38" selection-start="4107" selection-end="4107" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -35,25 +35,43 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="52" selection-start="1197" selection-end="1197" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="account.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/account.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="41" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0">
+            <state line="16" column="55" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="account.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/account.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="11" selection-start="838" selection-end="838" vertical-scroll-proportion="0.65445024">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cashCat.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/css/cashCat.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="22" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/account.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="31" selection-start="902" selection-end="902" vertical-scroll-proportion="0.5956679">
+            <state line="219" column="98" selection-start="17905" selection-end="17916" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ext.data.proxy.WebDB.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/browserDB/Ext.data.proxy.WebDB.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="165" column="43" selection-start="4516" selection-end="4516" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -77,19 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cashCat.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/css/cashCat.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Messages.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/bundles/Messages.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="31" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.0">
+            <state line="71" column="18" selection-start="1685" selection-end="1685" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -99,15 +108,6 @@
         <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/oreilly/src/SessionList.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="9" column="95" selection-start="263" selection-end="346" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SessionDetail.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/oreilly/src/SessionDetail.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="17" selection-start="416" selection-end="770" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -123,7 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/resources/bundles/Application_zh.properties" />
         <option value="$PROJECT_DIR$/resources/bundles/Application_zh-CN.properties" />
         <option value="$PROJECT_DIR$/resources/bundles/Application.properties" />
         <option value="$PROJECT_DIR$/resources/bundles/Application.js" />
@@ -131,14 +130,15 @@
         <option value="$PROJECT_DIR$/lib/Ext.i18n.Bundle-touch/js/Bundle.js" />
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/app/controllers/home.js" />
-        <option value="$PROJECT_DIR$/resources/css/cashCat.css" />
-        <option value="$PROJECT_DIR$/app/views/home.js" />
-        <option value="$PROJECT_DIR$/resources/bundles/Messages.js" />
-        <option value="$PROJECT_DIR$/app/app.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/app/views/app.js" />
-        <option value="$PROJECT_DIR$/app/views/account.js" />
+        <option value="$PROJECT_DIR$/app/views/home.js" />
+        <option value="$PROJECT_DIR$/resources/bundles/Messages.js" />
+        <option value="$PROJECT_DIR$/lib/browserDB/Ext.data.proxy.WebDB.js" />
         <option value="$PROJECT_DIR$/app/models/account.js" />
+        <option value="$PROJECT_DIR$/app/app.js" />
+        <option value="$PROJECT_DIR$/resources/css/cashCat.css" />
+        <option value="$PROJECT_DIR$/app/views/account.js" />
       </list>
     </option>
   </component>
@@ -384,6 +384,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="browserDB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashCat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -448,6 +466,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
     <property name="GoToClass.includeJavaFiles" value="false" />
   </component>
@@ -506,7 +525,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25400457" sideWeight="0.32445922" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26773456" sideWeight="0.6705491" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26773456" sideWeight="0.6705491" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -562,52 +581,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/kitchensink/src/demos/nestedlist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="13" selection-start="782" selection-end="782" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/src/demos/linechart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="23" selection-start="982" selection-end="982" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/src/example-data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="27" selection-end="273" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/kitchensink/resources/css/sink.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="0" selection-start="1503" selection-end="1532" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="86" selection-start="80" selection-end="86" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/css/cashCat.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="25" selection-start="3708" selection-end="3708" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/bundles/Messages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="31" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -633,20 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="71" selection-start="572" selection-end="572" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="52" selection-start="1197" selection-end="1197" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/oreilly/src/SessionList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="95" selection-start="263" selection-end="346" vertical-scroll-proportion="0.0">
@@ -654,16 +616,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/account.js">
+    <entry file="file://$PROJECT_DIR$/app/views/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="41" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0">
+        <state line="129" column="38" selection-start="4107" selection-end="4107" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///dos/Users/Leon/My Documents/all.gnucash">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/all.gnucash">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="51" selection-start="891" selection-end="891" vertical-scroll-proportion="-2.8032491">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/bundles/Messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="18" selection-start="1685" selection-end="1685" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/browserDB/sencha-webdb-example.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/browserDB/Ext.data.proxy.WebDB.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="165" column="43" selection-start="4516" selection-end="4516" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="55" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="71" selection-start="572" selection-end="572" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/account.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="31" selection-start="902" selection-end="902" vertical-scroll-proportion="0.5956679">
+        <state line="219" column="98" selection-start="17905" selection-end="17916" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/css/cashCat.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="22" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="11" selection-start="838" selection-end="838" vertical-scroll-proportion="0.65445024">
           <folding />
         </state>
       </provider>

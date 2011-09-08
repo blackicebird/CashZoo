@@ -16,7 +16,7 @@ window.msg.prop = function(name) {
     if (window.msg[name])
         return window.msg[name];
     else
-        return '{' + name + '}';
+        return name;
 };
 
 function enMsg() {
@@ -65,6 +65,28 @@ function zhMsg() {
         asset: '总资产',
         liability: '债务',
         topFiveExpenses: '支出比例统计',
-        back: '返回'
+        back: '返回',
+
+        /** init account begin **/
+        /** init account end **/
+        Asset: '资产',
+        Liability: '负债',
+        Assets: '资产',
+        'Asset account': '资产账户',
+        'Current Assets': '流动资产',
+        'Cash in Wallet': '现金',
+        'Bank CD': '定期储蓄',
+        'Fixed Assets': '固定资产',
+        'Equity': '净值产',
+        'Equity account': '净资产账户',
+        'Liabilities': '负债',
+        'Liabilities account': '负债账户',
+        'Income': '收入',
+        'Income account': '收入账户',
+        'Expense': '支出',
+        'Expense account': '支出账户'
+//        'Expense': '资产账户',
+//        'Expense': '资产账户',
+
     };
 }

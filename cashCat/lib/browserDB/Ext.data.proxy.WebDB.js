@@ -162,7 +162,7 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Object} err Error object.
      */
     onError: function(err, e) {
-//        var error = (e && e.message) || err;
+        var error = (e && e.message) || err;
         throw new Error(error + arguments);
 
     },

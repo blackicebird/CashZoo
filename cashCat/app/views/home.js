@@ -125,10 +125,10 @@ cashCat.views.Home = Ext.extend(Ext.Panel, {
                     xtype: 'toolbar',
                     title: msg.prop('cashCat'),
                     items:[
-                        {
+                        /*{
                             text: msg.prop('close'),
                             ui: 'back'
-                        },
+                        },*/
                         {
                             xtype: 'spacer'
                         },

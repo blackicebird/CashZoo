@@ -8,12 +8,22 @@
 
 cashCat.views.AccountList = Ext.extend(Ext.List, {
     displayField: 'name',
-    itemTpl: '<span class="name">{code}</span> <span class="secondary">{name}</span>',
+    pinHeaders:true,
+    indexBar: {
+        dock    : 'right',
+        overlay : true,
+        alphabet: false
+    },
+    fullscreen: true,
+    loadingText: msg.prop('Loading Accounts...'),
+    grouped: true,
+    itemTpl: '<span class="account-code">{code}</span> <span class="account-name">{name}</span>',
     initComponent: function() {
         var store = new Ext.data.Store({
             model: 'Account',
+            sorters: 'code',
             getGroupString : function(record) {
-                return record.get('parent')[0];
+                return record.get('type');
             }
         });
         store.load();
@@ -47,7 +57,6 @@ cashCat.views.Account = Ext.extend(Ext.Panel, {
                         {
                             text: msg.prop('back'),
                             ui: 'back',
-                            appPanel: this.appPanel,
                             handler: function(btn, event) {
                                 cashCat.mq.fireEvent('back');
                             }
@@ -60,6 +69,8 @@ cashCat.views.Account = Ext.extend(Ext.Panel, {
             ]
         });
         accountList.show();
+        accountList.on('itemtap', function() {
+        });
         cashCat.views.Account.superclass.initComponent.apply(this, arguments);
     }
 });
