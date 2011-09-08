@@ -110,12 +110,20 @@ cashCat.views.TopExpensePiePanel = Ext.extend(Ext.Panel, {
 Ext.reg('topExpensePiePanel', cashCat.views.TopExpensePiePanel);
 
 cashCat.views.Home = Ext.extend(Ext.Panel, {
+    id: 'homeView',
     fullscreen: true,
     cls: 'home-panel',
     layout: {
         type: 'vbox',
         align: 'stretch',
         pack: 'center'
+    },
+    constructor: function(config){
+        this.topExpenseData = config.topExpenseData;
+        this.monthData = config.monthData;
+        this.accountData = config.accountData;
+        
+        cashCat.views.Home.superclass.constructor.call(this, config);
     },
     initComponent: function() {
         Ext.apply(this, {
