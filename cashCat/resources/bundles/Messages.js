@@ -39,7 +39,8 @@ function enMsg() {
         equity: 'Equity',
         asset: 'Assets',
         liability: 'Liabilities',
-        topFiveExpenses: 'Top 5 Expenses'
+        topFiveExpenses: 'Top 5 Expenses',
+        back: 'Back'
     };
 }
 
@@ -63,6 +64,7 @@ function zhMsg() {
         equity: '净资产',
         asset: '总资产',
         liability: '债务',
-        topFiveExpenses: 'TOP 5 支出统计'
+        topFiveExpenses: '支出比例统计',
+        back: '返回'
     };
 }

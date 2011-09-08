@@ -161,18 +161,15 @@ cashCat.views.Home = Ext.extend(Ext.Panel, {
                     items:[
                         {
                             text: msg.prop('income'),
-                            xtype: 'button',
-                            ui: 'round'
+                            xtype: 'button'
                         },
                         {
                             text: msg.prop('transfer'),
-                            xtype: 'button',
-                            ui: 'round'
+                            xtype: 'button'
                         },
                         {
                             text: msg.prop('expense'),
-                            xtype: 'button',
-                            ui: 'round'
+                            xtype: 'button'
                         }
                     ]
                 },
@@ -186,21 +183,21 @@ cashCat.views.Home = Ext.extend(Ext.Panel, {
                             title: msg.prop('monthStatistic'),
                             items:[
                                 {
-                                    xtype: 'numberfield',
+                                    xtype: 'textfield',
                                     name: 'incomeAccount',
                                     label: msg.prop('income'),
                                     value: 11000,
                                     disabled: true
                                 },
                                 {
-                                    xtype: 'numberfield',
+                                    xtype: 'textfield',
                                     name: 'expenseAccount',
                                     label: msg.prop('expense'),
                                     value: 3000,
                                     disabled: true
                                 },
                                 {
-                                    xtype: 'numberfield',
+                                    xtype: 'textfield',
                                     name: 'profit',
                                     label: msg.prop('profit'),
                                     value: 8000,

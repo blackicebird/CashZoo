@@ -11,7 +11,7 @@ Ext.regModel("Account", {
         {name: "memo", type: "string"},
         {name: "editable", type: "boolean", defaultValue: true},
         {name: "visible", type: "boolean", defaultValue: true},
-        {name: "parent", type: "string"},
+        {name: "parent", type: "string", defaultValue: '000'},
         {name: "type", type: "string"}
     ],
     validations: [
