@@ -162,7 +162,7 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Object} err Error object.
      */
     onError: function(err, e) {
-        var error = (e && e.message) || err;
+//        var error = (e && e.message) || err;
         throw new Error(error + arguments);
 
     },
@@ -350,6 +350,7 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
             this.getAllRecords(finishReading,me, extraSQL, selectSQL);
             operation.setSuccessful();
         }
+        console.log('%s from %s', selectSQL, extraSQL);
     },
 
 	/**

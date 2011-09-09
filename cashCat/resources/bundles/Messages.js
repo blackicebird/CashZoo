@@ -66,6 +66,8 @@ function zhMsg() {
         liability: '债务',
         topFiveExpenses: '支出比例统计',
         back: '返回',
+        'Up Level': '上一级',
+        'Create': '添加',
 
         /** init account begin **/
         /** init account end **/
