@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Accordion w/Grid</title>
+
+    <link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+
+    <script type="text/javascript" src="../../bootstrap.js"></script>
+
+    <script type="text/javascript">
+        Ext.require([
+            'Ext.grid.Panel',
+            'Ext.layout.container.Accordion'
+        ]);
+
+        Ext.define('foobar', {
+            extend: 'Ext.data.Model',
+            fields: [ 'xyz' ]
+        });
+        
+        Ext.onReady(function () {
+            var grid = new Ext.grid.Panel({
+                title: 'Grid',
+                store: new Ext.data.Store({
+                    model: 'foobar',
+                    data: [
+                        { xyz: 42 }
+                    ]
+                }),
+                columns: [{ header: 'Xyz', dataIndex: 'xyz' }],
+                tbar: [
+                    { text: 'Grid Button' }
+                ]
+            });
+
+            var subpanel = new Ext.panel.Panel({
+                title: 'Panel 1',
+                tbar: [
+                    { text: 'Panel Button' }
+                ],
+                html: 'Expand Grid and see that headers and 1 row of data are present and '+
+                    'that they are full width.'
+            });
+            var subpanel2 = new Ext.panel.Panel({
+                title: 'Panel 2',
+                tbar: [
+                    { text: 'Panel Button' }
+                ]
+            });
+
+            var panel = new Ext.panel.Panel({
+                renderTo: Ext.getBody(),
+                layout: 'accordion',
+                items: [ subpanel, grid ],
+                //items: [ grid, subpanel ],
+                //items: [ subpanel, subpanel2 ],
+                height: 500
+            });
+        });
+    </script>
+</head>
+    <body>
+    </body>
+</html>

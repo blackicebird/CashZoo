@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>IE8 West Border Collapsed Bug Demo</title>
+        <link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+
+        <script type="text/javascript" src="../../bootstrap.js"></script>
+
+        <script type="text/javascript">
+            //http://www.sencha.com/forum/showthread.php?132409-IE8-Error-in-border-layout-when-west-panel-has-collapsed-true
+            Ext.require([
+                'Ext.container.Viewport',
+                'Ext.layout.container.Border'
+            ]);
+
+            Ext.onReady(function () {
+                var mainPanel = {
+                    flex: 1,
+                    layout: 'border',
+                    defaults: {
+                        header: false
+                    },
+                    items: [{
+                        region: 'north',
+                        height: 80,
+                        collapsible: true,
+                        collapseMode: 'mini',
+                        collapsed: true,
+                        split: true,
+                        html: 'North region'
+                    },{
+                        region: 'west',
+                        width: 200,
+                        collapsible: true,
+                        collapseMode: 'mini',
+                        collapsed: true,
+                        split: true,
+                        html: 'West region'
+                    },{
+                        region: 'center',
+                        html: 'Center region'
+                    }]
+                };
+
+                var topPanel = {
+                    height: 100,
+                    html: 'Top panel'
+                };
+
+                var layout = Ext.create('Ext.container.Viewport', {
+                    renderTo: Ext.getBody(),
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
+                    items: [topPanel, mainPanel]
+                });
+            });
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

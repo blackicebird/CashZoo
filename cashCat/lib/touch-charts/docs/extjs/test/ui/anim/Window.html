@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Test Sample</title>
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />
+    <script type="text/javascript" src="../../../bootstrap.js"></script>
+</head>
+    <body id="docbody">
+        <script>
+            var button = Ext.create('Ext.button.Button', {
+                x: 200,
+                y: 200,
+                text: 'Show window',
+                renderTo: Ext.getBody(),
+                handler: function() {
+                    win.show();
+                }
+            });
+        
+            var win = Ext.create('Ext.window.Window', {
+                height: 300,
+                width: 400,
+                title: 'Animation test',
+                animateTarget: button.getEl(),
+                closeAction: 'hide',
+                
+                layout: 'fit',
+                items: [
+                    {
+                        xtype: 'grid',
+                        columns: [
+                            {flex: 1, header: 'Name',  dataIndex: 'name'},
+                            {flex: 1, header: 'Email', dataIndex: 'email'}
+                        ],
+                        store: {
+                            fields: ['name', 'email'],
+                            data: [
+                                {name: 'Ed Spencer', email: 'ed@sencha.com'}
+                            ]
+                        }
+                    }
+                ]
+            });
+        </script>
+    </body>
+</html>

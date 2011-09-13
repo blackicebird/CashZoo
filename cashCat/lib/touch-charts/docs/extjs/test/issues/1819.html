@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Accordion w/Grid</title>
+
+    <link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+
+    <script type="text/javascript" src="../../bootstrap.js"></script>
+
+    <script type="text/javascript">
+        Ext.require([
+            'Ext.grid.Panel',
+            'Ext.layout.container.Accordion'
+        ]);
+
+        Ext.onReady(function(){
+            var store = Ext.create('Ext.data.ArrayStore', {
+                fields: [{
+                    name: 'company'
+                }, {
+                    name: 'price',
+                    type: 'float'
+                }, {
+                    name: 'change',
+                    type: 'float'
+                }, {
+                    name: 'pctChange',
+                    type: 'float'
+                }, {
+                    name: 'lastChange',
+                    type: 'date',
+                    dateFormat: 'n/j h:ia'
+                }],
+                data: [['3m Co', 71.72, 0.02, 0.03, '9/1 12:00am'], ['Alcoa Inc', 29.01, 0.42, 1.47, '9/1 12:00am'], ['Altria Group Inc', 83.81, 0.28, 0.34, '9/1 12:00am']]
+            });
+
+            var grid = Ext.create('Ext.grid.Panel', {
+                store: store,
+                columns: [{
+                    text: 'Company',
+                    width: 75,
+                    sortable: true,
+                    dataIndex: 'company'
+                }, {
+                    text: 'Price',
+                    width: 75,
+                    sortable: true,
+                    dataIndex: 'price'
+                }],
+                title: 'Array Grid'
+            });
+
+            var viewport = Ext.create('Ext.Viewport', {
+                id: 'border-example',
+                layout: 'border',
+                items: [{
+                    region: 'west',
+                    id: 'west-panel',
+                    title: 'West',
+                    width: 200,
+                    layout: 'accordion',
+                    items: [{
+                        title: 'Navigation'
+                    }]
+                }, {
+                    region: 'center',
+                }]
+
+            });
+            Ext.getCmp('west-panel').add(grid);
+        });
+    </script>
+</head>
+    <body>
+    </body>
+</html>

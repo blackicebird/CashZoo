@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Charles Minard’s flow map of Napoleon’s March</title>
+        <link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />
+        <script type="text/javascript" src="../../../bootstrap.js"></script>
+    </head>
+    <script>
+        Ext.onReady(function() {
+            Ext.create('Ext.draw.Component', {
+                renderTo: Ext.getBody(),
+                viewBox: false,
+                height: 240,
+                width: 320,
+                items: [{
+                    type: 'image',
+                    src: 'bd.jpg',
+                    height: 240,
+                    width: 320,
+                    rotate: {
+                        degrees: 45
+                    }
+                }]
+            });
+        });
+    </script>
+    <body>
+</body>

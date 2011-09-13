@@ -1,0 +1,24 @@
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">  
+<title>Test mask size matching to parentNode</title>  
+<link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />  
+<link rel="stylesheet" type="text/css" href="../../shared/example.css" />   
+<script type="text/javascript" src="../../../bootstrap.js"></script> 
+<script type="text/javascript"> 
+Ext.require(['*']);
+Ext.onReady(function() {
+    var w = new Ext.window.Window({
+        title: 'Masked',
+        bodyStyle: 'padding:10px',
+        html:'Text within padding 10',
+        width: 400,
+        height: 200
+    });
+    w.show();
+    w.body.mask();
+});</script> 
+</head>  
+<body> 
+</body>  
+</html>

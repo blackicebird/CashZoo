@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>3046</title>
+		<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css">
+		<script type="text/javascript" src="../../bootstrap.js"></script>
+		<script>
+		Ext.onReady(function(){
+		    Ext.QuickTips.init();
+	        var textArea =     Ext.create('Ext.form.field.TextArea', {
+                listeners: {
+                    change: {fn: function() { alert('Change event fired.'); }}
+                }
+            });
+
+            var button = Ext.create('Ext.Button', {
+                listeners: {
+                    click: {fn: function() { textArea.setValue('text'); }}
+                },
+                text: 'Set Value'
+            });
+
+            Ext.create('Ext.form.Panel', {
+                renderTo: Ext.getBody(),
+                items: [textArea],
+                buttons: [button]
+            });
+		});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

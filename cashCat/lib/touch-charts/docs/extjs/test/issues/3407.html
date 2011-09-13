@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Order of dockedItems (EXTJSIV-3407)</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript">
+Ext.require([
+    'Ext.container.Viewport'
+]);
+Ext.onReady(function() {
+
+    Ext.create('Ext.container.Viewport', {
+        layout : 'fit',
+        items  : {
+            xtype       : 'panel',
+            frame       : true,
+            html        : 'I would expect the bottom Toolbar to have the complete width of this Panel with the left Container being on top.<br><br>However, not matter the order the left Container gets the entire height and the bottom Toolbar gets the leftover width.',
+            dockedItems : [
+                {
+                    xtype : 'toolbar',
+                    dock  : 'bottom',
+                    items : [
+                        {
+                            text  : 'Add'
+                        }
+                    ]
+                },
+                {
+                    xtype : 'container',
+                    dock  : 'left',
+                    width : 200
+                }
+            ]
+        }
+    });
+
+});
+</script>
+</head>
+<body>
+</body>
+</html>

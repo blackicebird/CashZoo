@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">  
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">  
+<title>Tree Grid Scroller Bug Example</title>  
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />  
+<link rel="stylesheet" type="text/css" href="../shared/example.css" />   
+<script type="text/javascript" src="../../bootstrap.js"></script> 
+<script type="text/javascript"> 
+Ext.onReady(function(){
+    Ext.create('Ext.panel.Panel', {
+        layout: 'accordion',
+        width: 400,
+        height: 400,
+        renderTo: document.body,
+        items: [{
+            title: 'Item 1',
+            html: "Item 1's content"
+        },{
+            title: 'Item 2',
+            html: "Item 2's content"
+        },{
+            title: 'Item 3',
+            hidden: true,
+            id: 'item-3',
+            html: "Item 3's content"
+        },{
+            title: 'Item 4',
+            html: "Item 4's content"
+        },{
+            title: 'Item 5',
+            html: "Item 5's content"
+        }],
+        bbar: [{
+            text: 'Show Item 3',
+            handler: function(b) {
+                var p = Ext.getCmp('item-3');
+                if (p.isVisible()) {
+                    p.hide();
+                    b.setText('Show Item 3');
+                } else {
+                    p.show();
+                    b.setText('Hide item 3');
+                }
+            }
+        }]
+    });
+});
+</script> 
+</head>  
+<body> 
+</body>  
+</html>

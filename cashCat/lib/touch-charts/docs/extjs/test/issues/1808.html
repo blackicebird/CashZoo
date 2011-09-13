@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <title>EXTJSIV-1808</title>
+        <link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+        <script type="text/javascript" src="../../bootstrap.js"></script>
+        
+        <script type="text/javascript" charset="utf-8">
+            Ext.require(['Ext.draw.Component']);
+
+            Ext.onReady(function () {
+                Ext.applyIf(Ext.draw.Component.prototype, {
+                    // not used, won't work in IE until bug [OPEN-EXTJSIV-1808] is fixed
+                    'setViewBox': function () {
+                        var me = this,
+                            bbox = me.surface.items.getBBox(),
+                            width = bbox.width,
+                            height = bbox.height,
+                            x = bbox.x,
+                            y = bbox.y;
+                        me.surface.setViewBox(x, y, width, height);
+                    }
+                });
+
+                var cmp = Ext.create('Ext.draw.Component', {
+                    viewBox: false,
+                    listeners: {
+                        render: function () {
+                            this.surface.add([{
+                                type: 'path',
+                                id: "red",
+                                group: "path",
+                                stroke: "#00f",
+                                "stroke-width": 3,
+                                fill: "#f00",
+                                path: 'M60 10L100 10L100 50L60 50L60 10Z'
+                            }, {
+                                type: 'rect',
+                                id: "yellow",
+                                group: "coord",
+                                x: 10,
+                                y: 10,
+                                width: 25,
+                                height: 50,
+                                stroke: "#00f",
+                                "stroke-width": 3,
+                                fill: "#FF0"
+                            }, {
+                                type: 'rect',
+                                id: "green",
+                                group: "coord",
+                                x: 50,
+                                y: 60,
+                                width: 20,
+                                height: 60,
+                                stroke: "#00f",
+                                "stroke-width": 3,
+                                fill: '#0f0'
+                            }]);
+                            this.surface.items.show(true);
+                        }
+                    }
+                });
+
+                Ext.create('Ext.Window', {
+                    width: 300,
+                    height: 300,
+                    layout: 'fit',
+                    items: [cmp]
+                }).show();
+
+                cmp.setViewBox();
+            });
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Fieldsets in HBox</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript">
+
+Ext.require('Ext.form.*');
+
+Ext.onReady(function(){
+    var myForm = Ext.widget('form', {
+        title: 'Test Title',
+        border: 0,
+        width: 481,
+        renderTo: Ext.getBody(),
+        bodyPadding: 5,
+        fieldDefaults: {
+            labelAlign: 'left',
+            labelWidth: 90,
+            msgTarget: 'qtip'
+        },
+        items: [
+            {
+                xtype: 'fieldset',
+                title: 'Fieldset 1',
+                defaultType: 'textfield',
+                collapsible: true,
+                collapsed: true,
+                layout: 'anchor',
+                defaults: {
+                    anchor: '100%',
+                    labelWidth: 100
+                },
+                items: [
+                    {
+                        xtype: 'container',
+                        layout: 'hbox',
+                        defaults: {
+                            margins: '0 5 0 5'
+                        },
+                        items: [
+                            {
+                                xtype: 'fieldset',
+                                title: 'Sub Fieldset 1',
+                                layout: 'anchor',
+                                flex : 1,
+                                defaults: {
+                                    anchor: '100%'
+                                },
+                                items: [
+                                    {
+                                        xtype: 'numberfield',
+                                        fieldLabel: 'Testing'
+                                    },
+                                    {
+                                        xtype: 'numberfield',
+                                        fieldLabel: 'Testing'
+                                    }
+
+                                ]
+                            },
+                            {
+                                xtype: 'fieldset',
+                                title: 'Sub Fieldset 2',
+                                layout: 'anchor',
+                                flex : 1,
+                                defaults: {
+                                    anchor: '100%'
+                                },
+                                items: [
+                                    {
+                                        xtype: 'numberfield',
+                                        fieldLabel: 'Testing'
+
+                                    },
+                                    {
+                                        xtype: 'numberfield',
+                                        fieldLabel: 'Testing'
+                                    }
+                                ]
+                            }
+
+                        ]
+                    }
+                ]
+
+            }
+        ]
+    });
+
+});
+
+</script>
+</head>
+<body>
+    <p></p>
+</body>
+</html>

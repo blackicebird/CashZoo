@@ -1,0 +1,25 @@
+@import '../../../themes/stylesheets/touch-charts/default/variables';
+@import '../../../themes/stylesheets/touch-charts/default/mixins';
+
+$font-family: Helvetica, Arial, sans-serif !default;
+
+$chart-blue: #115fa6 !default;
+$chart-green: #94ae0a !default;
+$chart-red: #a61120 !default;
+$chart-orange: #ff8809 !default;
+$chart-yellow: #ffd13e !default;
+$chart-purple: #a61187 !default;
+$chart-teal: #24ad9a !default;
+$chart-grey: #7c7474 !default;
+$chart-brown: #a66111 !default;
+$charts-active-color: hsla(hue($active-color), saturation($active-color), 50, 1) !default;
+$pie-grouping-color: $charts-active-color !default;
+
+$axis-stroke-color: #ccc;
+/*$grid-stroke-color: */
+
+$text-color: #666 !default;
+$title-color: #333 !default;
+
+$default-fill-alpha: 1 !default;
+$default-stroke-alpha: 1 !default;

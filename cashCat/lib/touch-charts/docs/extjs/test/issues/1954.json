@@ -1,0 +1,59 @@
+{
+	"text":".",
+	"children": 
+	[
+	{
+        name:'Test',
+        iconCls:'name-folder',
+        expanded: true,
+        children:[{
+			name:'Test',
+			iconCls:'name-folder',
+			expanded: true,
+			children:[{
+				name:'Test',
+				iconCls:'name-folder',
+				expanded: true,
+				children:[{
+					name:'Test',
+					iconCls:'name-folder',
+					expanded: true,
+					children:[{
+						name:'Test',
+						iconCls:'name-folder',
+						expanded: true,
+						children:[{
+							name:'Test',
+							iconCls:'name-folder',
+							expanded: true,
+							children:[{
+								name:'Test',
+								iconCls:'name-folder',
+								expanded: true,
+								children:[
+								{
+									name:'Test',
+									iconCls:'name-folder',
+									expanded: true,
+									children:[{
+										name:'Test',
+										iconCls:'name-folder',
+										expanded: true,
+										children:[
+										{
+											name:'Test',
+											iconCls:'name',
+											expanded: true,
+											leaf:true
+										}]
+									}]
+								}]
+							}]
+						}]
+					}]
+				}]
+			}]
+        }]
+	}
+	]
+}

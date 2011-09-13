@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title>
+			Touch Charts Release Notes
+		</title>
+		<link rel="stylesheet" type="text/css" href="examples/resources/shared/css/style.css" media="all">
+	</head>
+	<body>
+		<p>
+			<a href="examples" id="logo" name="logo">Touch Charts Examples</a>
+		</p>
+		<div id="releases">
+			<div class="release">
+				<h1>
+					Release Notes for Touch Charts 1.0.0
+				</h1>
+				<p class="notes">
+					Release Notes: Release Notes: August 9, 2011<br>
+					Version Number: 1.0.0
+				</p>
+				<ul>
+					<li>General Notes
+						<ul>
+							<li>This release is shipping with the current (1.1.1) head branch of Sencha Touch. Version 1.1.1+ of Sencha Touch fixes several issues with MultiTouch detection and orientation problems on non-iOS devices. Touch Charts will work with 1.1.0, but does not support Android Tablets on that release.
+							</li>
+						</ul>
+					</li>
+					<li>Fixes / Changes since last release
+						<ul>
+                            <li>Added :highlight to allow styling of the highlights via SASS.
+                            </li>
+                            <li>Added ability to start with a default zoom (startZoom) and pan (startPan) values for the PanZoom interaction.
+                            </li>
+                            <li>Defered drag event initialization so that a chart without drag interactions can be used within a Carousel.
+                            </li>
+                            <li>Added Linux versions of Fashion.
+                            </li>
+							<li>Added Pan/Zoom interaction to the line example.
+							</li>
+                            <li>Stock example now uses a time axis.
+                            </li>
+                            <li>Removed custom theme from the Column example.
+                            </li>
+                            <li>Docked legends now hide if swiped in the direction they came from (side-docked only).
+                            </li>
+                            <li>Reformatted some tab/spaces in the Line example and properly case the series titles.
+                            </li>
+                            <li>Phone chart controls now use regular buttons with masks and can be styled via SASS.
+                            </li>
+                            <li>Legend style sheets are much simpler and have a shadow.
+                            </li>
+                            <li>Legend sheet animations are now faster.
+                            </li>
+                            <li>Fix lineWidth in the Canvas engine.
+                            </li>
+                            <li>Fix highlight configuration order.
+                            </li>
+						</ul>
+					</li>
+					<li>Known Issues
+						<ul>
+							<li>Mixins for Touch 1.1.0 are not currently being detected properly in the documentation application and are not displaying in their main class.
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="release">
+				<h1>
+					Release Notes for Touch Charts 1.0.0.rc
+				</h1>
+				<p class="notes">
+					Release Notes: Release Notes: August 2, 2011<br>
+					Version Number: 1.0.0.rc
+				</p>
+				<ul>
+					<li>General Notes
+						<ul>
+							<li>This release is shipping with the current (1.1.1) head branch of Sencha Touch. Version 1.1.1+ of Sencha Touch fixes several issues with MultiTouch detection and orientation problems on non-iOS devices. Touch Charts will work with 1.1.0, but does not support Android Tablets on that release.
+							</li>
+						</ul>
+					</li>
+					<li>Fixes / Changes since last release
+						<ul>
+							<li>Changed PieRotate interaction to Rotate, and make it apply to radar series/radial axes as well as pies.
+							</li>
+                            <li>Allow interactions with no custom config to be specified with just their type as a String value rather than having to wrap in an Object.  For example interactions: ['rotate'] is now valid.
+                            </li>
+                            <li>Radial Axes are now a bit thicker and display better on devices.
+                            </li>
+                            <li>Circles now display properly on Blackberry devices.
+                            </li>
+                            <li>Loading mask in the Energy app now displays the throbber properly.
+                            </li>
+                            <li>The help icon now displays properly in the Column example.
+                            </li>
+                            <li>Fix Radar styling issues.
+                            </li>
+                            <li>Added a workaround for iOS limitation on the size of a canvas element (a bit less that 4 million pixels).  You can now zoom very deep into charts without losing the display.
+                            </li>
+                            <li>Streamlined the Combo example.
+                            </li>
+                            <li>You can now split joined legend items by double-tapping on them.
+                            </li>
+                            <li>Fix issues with the Win32 Fashion executable.
+                            </li>
+                            <li>A marker now always displays in the location of a highlight.
+                            </li>
+                            <li>Pie labels will now be hidden if they do not fit within the pie slice.  This behavior can be changed to use a callout label as well.
+                            </li>
+                            <li>Pie callouts can now be styled properly.
+                            </li>
+                            <li>Added a loadmask to be displayed on tabswitch in the Energy App.
+                            </li>
+                            <li>Fixed the initial slider position in the Energy App.
+                            </li>
+                            <li>Axes no longer clip when they aren't in a zoomed state.
+                            </li>
+                            <li>Legends are no longer scrollable unless necessary.
+                            </li>
+                            <li>Prevented unnecessary redraws during layout operations.
+                            </li>
+                            <li>Fix animation issue which was occasionally causing a 1 degree gap in Pie charts.
+                            </li>
+                            <li>When tap-holding legend items, prevent items from becoming draggable which do not have another matching item with which they can be combined.
+                            </li>
+                            <li>Fix image sprites.
+                            </li>
+                            <li>Add new Shape 'image' which allows images to be used as markers.
+                            </li>
+                            <li>Guides have been updated to reflect Touch Charts specifically.
+                            </li>
+                            <li>Added info and comparison interactions to the WorldData app</li>
+						</ul>
+					</li>
+					<li>Known Issues
+						<ul>
+							<li>Mixins for Touch 1.1.0 are not currently being detected properly in the documentation application and are not displaying in their main class.
+							</li>
+							<li>Linux versions of Fashion to be added
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<hr>
+			<div class="release">
+				<h1>
+					Release Notes for Touch Charts 1.0.0.beta
+				</h1>
+				<p class="notes">
+					Release Notes: Release Notes: July 21, 2011<br>
+					Version Number: 1.0.0.beta
+				</p>
+				<h2>
+					Initial Public Release
+				</h2>
+				<ul>
+					<li>General Notes
+						<ul>
+							<li>This release is shipping with the current (1.1.1) head branch of Sencha Touch. Version 1.1.1+ of Sencha Touch fixes several issues with MultiTouch detection and orientation problems on non-iOS devices. Touch Charts will work with 1.1.0, but does not support Android Tablets on that release.
+							</li>
+						</ul>
+					</li>
+					<li>Known Issues
+						<ul>
+							<li>Radar Axis does not display properly on BlackBerry
+							</li>
+							<li>Mixins for Touch 1.1.0 are not currently being detected properly in the documentation application and are not displaying in their main class.
+							</li>
+							<li>Zooming too far into a chart on an iPad causes a display issue
+							</li>
+							<li>Styling of the Radar Chart in the Energy App is not correct
+							</li>
+						</ul>
+					</li>
+					<li>Forthcoming
+						<ul>
+							<li>Default gestures for interactions are still under review and may change before release
+							</li>
+							<li>SASS syntax is still under review and may change before release
+							</li>
+							<li>Additional markers will be added during an ItemInfo interaction to better highlight what was selected
+							</li>
+							<li>Collision detection on the pie will hide/move text when it cannot fit within a slice
+							</li>
+							<li>Callout examples are to be added back in
+							</li>
+							<li>Styling Guide to be added to the documentation
+							</li>
+							<li>Linux versions of Fashion to be added
+							</li>
+							<li>Spin a radar chart
+							</li>
+							<li>Double-tap on a grouped legend item will ungroup the items
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

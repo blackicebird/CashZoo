@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Failed test case</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+</head>
+<body>
+    <script type="text/javascript" charset="utf-8">
+        Ext.onReady(function(){
+            var win,
+                button = Ext.get('show-btn');
+
+            button.on('click', function(){
+
+                if (!win) {
+                    win = Ext.create('widget.window', {
+                      title: 'Layout Window',
+                      closable: true,
+                      closeAction: 'hide',
+                      width: 600,
+                      height: 350,
+                      layout: 'border',
+
+                      items: [
+                      {
+                        xtype: 'form',
+                        region: 'north',
+                        title: 'North',
+
+                        defaults: {
+                          labelWidth: 170,
+                          anchor: '100%'
+                        },
+
+                        defaultType: 'textfield',
+                        items: [
+                          {
+                            fieldLabel: 'Name',
+                            id: 'language_name',
+                            name: 'language_name'
+                          },{
+                            fieldLabel: 'Key',
+                            id: 'language_key',
+                            name: 'language_key'
+                          }
+                        ]
+                      },
+                      {
+                        title: 'Center',
+
+                        xtype: 'panel',
+                        region: 'center',
+
+                        autoScroll: true,
+
+                        html: 'line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>line N<br>',
+                      },
+                      {
+                        xtype: 'form',
+                        title: 'South',
+                        region: 'south',
+
+                        defaults: {
+                          anchor: '100%',
+                          hideLabels: true
+                        },
+
+                        items: [
+                          {
+                            xtype: 'combo',
+                            id: 'copy_source',
+                            name: 'copy_source',
+                            store: [],
+
+                            triggerAction: 'all',
+                            forceSelection: true,
+                            //editable: false,
+                            selectOnFocus: true
+                          }
+                        ]
+                      }
+                      ]
+                    });
+                }
+
+                button.dom.disabled = true;
+                if (win.isVisible()) {
+                    win.hide(this, function() {
+                        button.dom.disabled = false;
+                    });
+                } else {
+                    win.show(this, function() {
+                        button.dom.disabled = false;
+                    });
+                }
+            });
+        });
+        
+    </script>
+    <!-- EXAMPLES -->
+    <h1>Windows with Layouts</h1>
+    <p>This example shows how Ext containers can be nested in windows to create advanced layouts.</p>
+    <input type="button" id="show-btn" value="Layout Window"/><br/><br/>
+    <p>Note that the js is not minified so it is readable. See <a href="layout.js">layout.js</a> for the full source code.</p>
+    
+</body>
+</html>

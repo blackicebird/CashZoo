@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title id="page-title">Test Page</title>
+			
+                <link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />
+                <script type="text/javascript" src="../../../bootstrap.js"></script>
+		<script type="text/javascript">
+        
+        Ext.require(['Ext.draw.*', 'Ext.Window']);
+
+        
+        Ext.onReady(function () {  
+
+		var canvas = Ext.create('Ext.draw.Component', {
+			viewBox: false
+		});
+	
+		Ext.define('Test.Control.Event', {
+			extend: 'Ext.draw.Sprite',
+			
+			constructor: function() {
+				this.callParent([{
+					type: 'circle',
+					x: 150,
+					y: 150,
+					radius: 100,
+					fill: '#cc5',
+					stroke: 'red',
+					surface: canvas.surface
+				}]);
+				
+			}
+		});
+	
+	    //create a window to place the draw component in
+	    Ext.create('Ext.Window', {
+		width: 1000,
+		height: 500,
+		layout: 'fit',
+		items: [canvas]
+	    }).show();
+	    
+	    var s = canvas.surface.add(new Test.Control.Event());
+	    
+	    s.show(true);
+        });  
+		</script>
+	</head>
+	<body>
+		<div id="grid-example"></div> 
+	</body>
+</html>

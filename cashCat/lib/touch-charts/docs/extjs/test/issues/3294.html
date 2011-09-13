@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Failed test case</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+</head>
+<body>
+    <script type="text/javascript" charset="utf-8">
+    Ext.onReady(function() {
+        console.log(Ext.ComponentManager.getCount());
+
+        var c = Ext.create('Ext.container.Viewport',{
+         items:[{
+           activeItem: 1
+           ,items: [{
+               html: 'Active Tab'
+              ,title: 'A panel'
+              ,xtype: 'panel'
+           },{
+              columns: [{ text: 'id', dataIndex: 'id' }]
+              ,store: Ext.create('Ext.data.ArrayStore',{
+                 fields: ['id']
+                 ,data: [[1],[2],[3]]
+              })
+              ,title: 'Users'
+              ,xtype: 'gridpanel'   
+           }]
+           ,xtype: 'tabpanel'
+         }]
+        });
+
+        Ext.Function.defer(function(){
+            console.log(Ext.ComponentManager.getCount());
+            c.destroy(); 
+            console.log(Ext.ComponentManager.getCount());
+            Ext.ComponentManager.each(function(key,item){ try{ Ext.destroy(item); }catch(e){ console.log(e); } });
+            //console.log(Ext.ComponentMgr.getCount());
+        }, 3000);
+        
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Failed test case</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+</head>
+<body>
+    <script type="text/javascript" charset="utf-8">
+       Ext.onReady(function() {
+
+           var yourData = [
+                [1, 'item1']
+               ,[2, 'item2']
+           ];
+
+           var combo = Ext.create('Ext.form.ComboBox', {
+               store: Ext.create('Ext.data.ArrayStore', {
+                    id:0
+                   ,fields:
+                       [
+                           'myId',   //numeric value is the key
+                           'myText' //the text value is the value
+                       ]
+                   ,data:yourData
+               })
+               ,valueField:'myId'
+               ,displayField:'myText'
+               ,mode:'local',
+               // rest of config
+               renderTo: 'simpleCombo',
+               width: 320,
+               queryMode: 'local',
+               name: "ID",
+               value: 1,
+               multiSelect: false
+           });
+
+           Ext.get('form1').on('submit',function(){
+               var val = combo.getValue();
+               alert(val);
+           })
+
+           //var val = combo.getValue();
+           //alert(val);
+       });
+    </script>
+    <form id="form1" method="POST">
+        <div id="simpleCombo"></div>
+        <input type="submit" />
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Changing Series Titles</title>
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />
+    <script type="text/javascript" src="../../../bootstrap.js"></script>
+    <script type="text/javascript" src="../example-data.js"></script>
+    <script type="text/javascript">
+        Ext.require('Ext.chart.*');
+        Ext.require(['Ext.Window', 'Ext.fx.target.Sprite', 'Ext.layout.container.Fit']);
+
+        Ext.onReady(function () {
+            var win = Ext.create('Ext.Window', {
+                width: 800,
+                height: 600,
+                hidden: false,
+                shadow: false,
+                maximizable: true,
+                style: 'overflow: hidden;',
+                title: 'Radar Chart',
+                renderTo: Ext.getBody(),
+                layout: 'fit',
+                tbar: [{
+                    text: 'Reload Data',
+                    handler: function() {
+                        store1.loadData(generateData());
+                    }
+                }, {
+                    enableToggle: true,
+                    pressed: true,
+                    text: 'Animate',
+                    toggleHandler: function(btn, pressed) {
+                        var chart = Ext.getCmp('chartCmp');
+                        chart.animate = pressed ? { easing: 'ease', duration: 500 } : false;
+                    }
+                }, {
+                    text: 'Change Series Title',
+                    handler: function() {
+                        var index = prompt('Index of the series to change (0-3)'),
+                            title = prompt('New series title');
+                        this.up('window').down('chart').series.getAt(index).setTitle(title);
+                    }
+                }],
+                items: {
+                    id: 'chartCmp',
+                    xtype: 'chart',
+                    theme: 'Category2',
+                    animate: true,
+                    store: store1,
+                    insetPadding: 20,
+                    legend: {
+                        position: 'right'
+                    },
+                    axes: [{
+                        type: 'Radial',
+                        position: 'radial',
+                        label: {
+                            display: true
+                        }
+                    }],
+                    series: [{
+                        type: 'radar',
+                        xField: 'name',
+                        yField: 'data1',
+                        title: 'Data 1',
+                        showInLegend: true,
+                        showMarkers: true,
+                        markerConfig: {
+                            radius: 5,
+                            size: 5
+                        },
+                        style: {
+                            'stroke-width': 2,
+                            fill: 'none'
+                        }
+                    },{
+                        type: 'radar',
+                        xField: 'name',
+                        yField: 'data2',
+                        showInLegend: true,
+                        showMarkers: true,
+                        title: 'Data 2',
+                        markerConfig: {
+                            radius: 5,
+                            size: 5
+                        },
+                        style: {
+                            'stroke-width': 2,
+                            fill: 'none'
+                        }
+                    },{
+                        type: 'radar',
+                        xField: 'name',
+                        yField: 'data3',
+                        showMarkers: true,
+                        showInLegend: true,
+                        title: 'Data 3',
+                        markerConfig: {
+                            radius: 5,
+                            size: 5
+                        },
+                        style: {
+                            'stroke-width': 2,
+                            fill: 'none'
+                        }
+                    }]
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Changing Series Titles</h1>
+</body>
+</html>

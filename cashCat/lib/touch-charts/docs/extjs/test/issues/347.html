@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+         <link rel="stylesheet" type="text/css" href="347.css" />
+        <script type="text/javascript" src="../../bootstrap.js"></script>
+        <script type="text/javascript" src="347.js"></script>
+</head>
+<body>
+    <div class="test-block">
+        <h1 style="font-size:16px">Context: TextNode Insertion: div</h1>
+        <h2>beforeBegin</h2>
+        <div id='textnode1'>TEXTNODE</div>
+        <h2>afterBegin</h2>
+        <div id='textnode2'>TEXTNODE</div>
+        <h2>beforeEnd</h2>
+        <div id='textnode3'>TEXTNODE</div>
+        <h2>afterEnd</h2>
+        <div id='textnode4'>TEXTNODE</div>
+    </div>
+
+    <div class="test-block">
+        <h1>Context: Table - Insertion : row or div</h1>
+        <h2>beforeBegin (div)</h2>
+        <div id='table1'><table class="context"><tr><td>first row</td></tr></table></div>
+        <h2>afterBegin (row)</h2>
+        <div id='table2'><table class="context"><tr><td>first row</td></tr></table></div>
+        <h2>beforeEnd (row)</h2>
+        <div id='table3'><table class="context"><tr><td>first row</td></tr></table></div>
+        <h2>afterEnd (div)</h2>
+        <div id='table4'><table class="context"><tr><td>first row</td></tr></table></div>
+    </div>
+    
+    <div class="test-block">
+        <h1>Context: Div - Insertion of a div</h1>
+        <h2>beforeBegin</h2>
+        <div id='div1'><div class="context"></div></div>
+        <h2>afterBegin</h2>
+        <div id='div2'><div class="context"></div></div>
+        <h2>beforeEnd</h2>
+        <div id='div3'><div class="context"></div></div>
+        <h2>afterEnd</h2>
+        <div id='div4'><div class="context"></div></div>
+    </div>
+</body>
+</html>

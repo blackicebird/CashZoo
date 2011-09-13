@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Collapsed Panel Width</title>
+
+    <link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+
+    <script type="text/javascript" src="../../bootstrap.js"></script>
+
+    <script type="text/javascript">
+        Ext.require([
+            'Ext.grid.Panel',
+            'Ext.layout.container.Accordion'
+        ]);
+
+        Ext.define('foobar', {
+            extend: 'Ext.data.Model',
+            fields: [ 'xyz' ]
+        });
+        
+        Ext.onReady(function () {
+            var view = Ext.widget('viewport', {
+                layout: 'anchor',
+                autoScroll: true,
+                items: [
+                    {
+                        xtype: 'panel',
+                        anchor: '100%',
+                        title: 'panel 1 expanded',
+                        collapsible: true,
+                        collapsed: false,
+                        titleCollapse: true,
+                        animCollapse: false,
+                        html: 'Test content panel 1'
+                    },
+                    {
+                        xtype: 'panel',
+                        anchor: '100%',
+                        title: 'panel 2 collapsed',
+                        collapsible: true,
+                        collapsed: true,
+                        titleCollapse: true,
+                        animCollapse: false,
+                        html: 'Test content panel 2'
+                    }
+                ]
+            });
+        });
+    </script>
+</head>
+    <body>
+    </body>
+</html>

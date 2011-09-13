@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript">
+
+Ext.require([
+    'Ext.grid.*',
+    'Ext.data.*',
+    'Ext.selection.CheckboxModel'
+]);
+
+Ext.onReady(function() {
+   Ext.create('Ext.form.FormPanel', {
+      renderTo: Ext.getBody(),
+      width: 600,
+       resizable: true,
+      fieldDefaults: {
+         labelAlign: 'top',
+         msgTarget: 'side',
+          allowBlank: false
+      },
+      defaults:{
+         bodyStyle: 'padding:10px'
+      },
+      items:[
+         {
+            title: 'Test',
+            defaults: {
+               border: false,
+               layout: 'hbox'
+            },
+            items: [
+               { items:
+                  { fieldLabel: 'Simple Field 1', name: 'field1', xtype: 'textfield', flex: 1 }
+               },
+               { items:
+                  { fieldLabel: 'Field with a very long name with spaces', name: 'field2', xtype: 'textfield', flex: 1 }
+               },
+               {
+                  defaults: { xtype: 'textfield', flex: 1, margin: '0 5 0 0' },
+                  items: [
+                     { fieldLabel: 'Field with a very long name with spaces', name: 'field4' },
+                     { fieldLabel: 'FieldWithAVeryLongNameWithoutSpaces', name: 'field5', margin: '0' }
+                  ]
+               }
+            ]
+         }
+      ]
+   });
+});  
+</script>
+</head>
+<body>
+
+</body>
+</html>

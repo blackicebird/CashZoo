@@ -1,0 +1,25 @@
+
+/**
+ * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
+ * 
+ *     @include pictos-iconmask('attachment');
+ *
+ * @param {string} $name The name of the icon to be included. This is to match the name of the icon file (located at resources/themes/images/default/pictos) without its extention (.png).
+ */
+@mixin chart-iconmask($name) {
+  .x-tab img.#{$name}, .x-button img.x-icon-mask.#{$name} {
+    -webkit-mask-image: inline_image($name + "_chart.png");
+  }
+}
+
+// Hack: Please map color to fill in charts parser
+
+@mixin readable-color($color, $contrast: 100) {
+    @if lightness(lighten($color, 100 - $contrast)) > 30 {
+        color: $color;
+        fill: $color;
+    } @else {
+        color: darken(lighten($color, 100 - $contrast), 30);
+        fill: darken(lighten($color, 100 - $contrast), 30);
+    }
+}

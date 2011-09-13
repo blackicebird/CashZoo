@@ -1,0 +1,12 @@
+[
+    {
+        name: 'Ed Spencer',
+        email: 'ed@sencha.com',
+        phone: '555 666 7777'
+    },
+    {
+        name: 'Aaron Conran',
+        email: 'aaron@sencha.com',
+        phone: '555 123 1234'
+    }
+]

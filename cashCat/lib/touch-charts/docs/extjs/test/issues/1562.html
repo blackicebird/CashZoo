@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Border Layout Test for IE8</title>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+
+    <script type="text/javascript" src="../../bootstrap.js"></script>
+
+    <script type="text/javascript">
+        Ext.require(['*']);
+
+        Ext.onReady(function () {
+            var viewPort = new Ext.Viewport({
+                layout: 'border', items: [
+                    {
+                        region: 'north',
+                        title: 'North',
+                        height: 100
+                    },
+                    {
+                        region: 'south',
+                        collapsible: true,
+                        collapsed: true,
+                        height: 100,
+                        //split: true,
+                        title: 'Messages'
+                    },
+                    {
+                        region: 'west',
+                        collapsible: true,
+                        collapsed: true,
+                        width: 200,
+                        title: 'West'
+                    },
+                    {
+                        region: 'east',
+                        collapsible: true,
+                        collapsed: true,
+                        width: 200,
+                        title: 'East'
+                    },
+                    {
+                        region: 'center',
+                        html: 'Hello World IE'
+                    }
+                ]
+            });
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

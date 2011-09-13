@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Test case harness</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+
+<style type="text/css" media="screen">
+    body {
+        margin: 10px 20px;
+    }
+    
+    body h1 {
+        font-size: 20px;
+    }
+    
+    body p, body h1 {
+        font-family: helvetica;
+        margin-bottom: 10px;
+    }
+    
+    body ol {
+        margin: 10px 0;
+    }
+    
+    body ol li {
+        list-style: decimal;
+        font-family: helvetica;
+        margin-left: 40px;
+    }
+</style>
+</head>
+<body>
+    <h1>Test case harness</h1>
+    <p>This is a simple test harness that just includes Ext JS bootstrap and an empty script tag for you to insert test case code.</p>
+    <p>Use this harness to verify that a test case produces a bug but please do not commit any changes to this file. Instead, follow this process</p>
+    
+    <ol>
+        <li>Create a ticket with the issue in Jira</li>
+        <li>Create a new .html file in this test/issues folder named after the Jira ticket number (e.g. Jira issue 1234 would be 1234.html)</li>
+        <li>Copy/paste the contents of template.html into your new 1234.html, then copy the test case itself into the empty &lt;script&gt; tag</li>
+        <li>Push the new file into git and create a pull request to the current patch branch</li>
+    </ol>
+    
+    <script type="text/javascript" charset="utf-8">
+        //temporarily put your test case here to verify it, then follow the instructions above
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<title>Sencha Touch Charts Examples</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<link rel="apple-touch-icon-precomposed" href="resources/shared/img/apple-touch-icon.png">
+
+<style type="text/css">
+
+html {
+    border-top: 20px solid #043554;
+}
+
+body {
+    background: #004D82 url(resources/shared/img/_bg-blue.gif) repeat;
+    color: #444;
+    font: normal 12px/1.5 HelveticaNeue,Helvetica,Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#logo {
+    background: url(resources/shared/img/logo-screen-noglow.png) no-repeat;
+    height: 72px;
+    margin: 0;
+    position: relative;
+    width: 155px;
+    z-index: 99;
+}
+
+#logo a {
+    display: block;
+    height: 100%;
+    text-indent: -9999px;
+    width: 100%;
+}
+
+
+ol, p {
+    margin: 0 0 1em;
+    padding: 0;
+}
+
+a:link,
+a:visited {
+    color: #126499;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: #0464BB;
+    text-decoration: underline;
+}
+
+.container {
+    margin: 0 auto;
+    width: 728px;
+}
+
+#page {
+    background: #fff;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.296875) 0px 1px 2px;
+    -moz-box-shadow:    rgba(0, 0, 0, 0.296875) 0px 1px 2px;
+    box-shadow:         rgba(0, 0, 0, 0.296875) 0px 1px 2px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius:    5px;
+    -o-border-radius:      5px;
+    border-radius:         5px;
+    margin: 0 auto;
+}
+
+#tuts {
+    padding: 24px 63px 0;
+}
+
+ul.list {
+    font-size: 16px;
+    line-height: 20px;
+    list-style-type: none;
+    margin: 12px 0px 24px;
+    padding: 0px;
+}
+
+.list #tut_offline_apps a {
+    background: url(resources/shared/img/offline.png) no-repeat 0px 0.3em;
+}
+
+.list #tut_phonegap a {
+    background: url(resources/shared/img/phonegap.png) no-repeat 0px 0.3em;
+}
+
+.list a {
+    display: block;
+    font-weight: bold;
+    padding: 0.5em 0px 0.5em 2.4em;
+}
+
+ol#grid {
+    list-style: none;
+    overflow: auto;
+    padding: 0 60px;
+}
+
+ol#grid li {
+    float: left;
+    position: relative;
+}
+
+ol#grid li a {
+    background: transparent;
+    -webkit-border-radius: 12px;
+    -moz-border-radius:    12px;
+    border-radius:         12px;
+
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.153);
+    -moz-box-shadow:    0 0 10px rgba(0,0,0,0.153);
+    box-shadow: 0 0 10px rgba(0,0,0,0.153);
+
+    color: #0464BB;
+    display: block;
+    height: 72px;
+    margin: 0 121px 68px 0;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.333);
+    vertical-align: middle;
+    width: 72px;
+}
+
+ol#grid li a img {
+    border: none;
+    -webkit-transition: opacity 0.23s ease-in-out;
+    -moz-transition:    opacity 0.23s ease-in-out;
+    transition:         opacity 0.23s ease-in-out;
+}
+
+ol#grid li a:hover,
+ol#grid li a:focus,
+ol#grid li a:active {
+    background: #000;
+}
+
+ol#grid li a:hover img,
+ol#grid li a:focus img,
+ol#grid li a:active img {
+    opacity: 0.65;
+}
+
+    ol#grid li a,
+    ol#grid li:nth-child(5n) a {
+        margin: 0 104px 87px 0;
+    }
+    ol#grid li:nth-child(2n) a {
+        margin-right: 105px;
+    }
+    ol#grid li:nth-child(4n) a {
+        margin-right: 0;
+    }
+
+ol#grid li a span {
+    color: #314E64;
+    font-weight: bold;
+    letter-spacing: -0.01em;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    white-space: nowrap;
+}
+
+#footer {
+    color: #E2E5FF;
+    font-weight: bold;
+}
+
+#footer p {
+    padding: 0 13px;
+}
+
+#footer em {
+    font-style: normal;
+    padding-left: 20px;
+}
+
+#footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+    /* iPad landscape */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+
+        .container {
+            margin: 0 20px;
+            width: 984px;
+        }
+
+        #tuts {
+            padding: 24px 70px 0;
+        }
+        
+        ol#grid {
+            list-style: none;
+            overflow: auto;
+            padding: 42px 70px 30px;
+        }
+        ol#grid li a,
+        ol#grid li:nth-child(2n) a,
+        ol#grid li:nth-child(4n) a {
+            margin: 0 121px 68px 0;
+        }
+        ol#grid li:nth-child(5n) a {
+            margin-right: 0;
+        }
+
+    }
+
+    /* iPad portrait */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+
+        .container {
+            margin: 0 20px;
+            width: 728px;
+        }
+
+        #tuts {
+            padding: 24px 63px 0;
+        }
+
+        ol#grid {
+            padding: 47px 63px 0;
+        }
+        ol#grid li a,
+        ol#grid li:nth-child(5n) a {
+            margin: 0 104px 87px 0;
+        }
+        ol#grid li:nth-child(2n) a {
+            margin-right: 105px;
+        }
+        ol#grid li:nth-child(4n) a {
+            margin-right: 0;
+        }
+
+    }
+
+    /* iPhone landscape */
+    @media only screen and (max-device-width: 480px) and (orientation: landscape) {
+        
+        html {
+            border-top: 2px solid #043554;
+        }
+
+        .container {
+            width: 480px;
+        }
+
+        #page {
+            -webkit-box-shadow: rgba(0, 0, 0, 0.296875) 0px 1px 2px;
+            -moz-box-shadow:    rgba(0, 0, 0, 0.296875) 0px 1px 2px;
+            box-shadow:         rgba(0, 0, 0, 0.296875) 0px 1px 2px;
+            -webkit-border-radius: 0;
+            -moz-border-radius:    0;
+            -o-border-radius:      0;
+            border-radius:         0;
+        }
+                
+        #tuts {
+            padding: 17px 36px 0;
+        }
+
+        ol#grid {
+            padding: 17px 36px;
+        }
+        ol#grid li a,
+        ol#grid li:nth-child(2n) a,
+        ol#grid li:nth-child(5n) a {
+            -webkit-box-shadow: none;
+            margin: 0 40px 31px 0;
+            text-shadow: none;
+        }
+        ol#grid li:nth-child(4n) a {
+            margin-right: 0;
+        }
+
+        #footer {
+            font-size: 10px;
+        }
+        
+    }
+    
+    /* iPhone portrait */
+    @media only screen and (max-device-width: 480px) and (orientation: portrait) {
+        
+        html {
+            border-top: 2px solid #043554;
+        }
+
+        .container {
+            width: 320px;
+        }
+
+        #page {
+            -webkit-box-shadow: rgba(0, 0, 0, 0.296875) 0px 1px 2px;
+            -moz-box-shadow:    rgba(0, 0, 0, 0.296875) 0px 1px 2px;
+            box-shadow:         rgba(0, 0, 0, 0.296875) 0px 1px 2px;
+            -webkit-border-radius: 0;
+            -moz-border-radius:    0;
+            -o-border-radius:      0;
+            border-radius:         0;
+        }
+        
+        #tuts {
+            padding: 17px 17px 0;
+        }
+
+        h1 {
+            font-size: 17px;
+        }
+
+        ol#grid {
+            padding: 17px;
+        }
+        ol#grid li a,
+        ol#grid li a img {
+            height: 57px;
+            width:  57px;
+        }
+        ol#grid li a,
+        ol#grid li:nth-child(5n) a {
+            -webkit-box-shadow: none;
+            margin: 0 19px 31px 0;
+            text-shadow: none;
+        }
+        ol#grid li a span {
+            display: block;
+            font-size: 11px;
+            line-height: 11px;
+        }
+        ol#grid li:nth-child(2n) a {
+            margin-right: 20px;
+        }
+        ol#grid li:nth-child(4n) a {
+            margin-right: 0;
+        }
+
+        #footer em {
+            padding-left: 10px;
+        }
+
+    }
+
+</style>
+
+</head>
+<body>
+
+<div id="content">
+    <div id="header" class="container">
+        <h5 id="logo"><a href="http://www.sencha.com">Sencha</a></h5>
+    </div>
+    <div id="page" class="container">
+        <div id="tuts">
+            <h1>Sencha Touch Charts Sample Apps</h1>
+        </div>
+        <ol id="grid">
+            <li><a id="EnergyApp" href="EnergyApp/">
+                <img src="EnergyApp/icon-ipad.png" alt="Energy App" height="72" width="72">
+                <span>Energy App</span>
+            </a></li>
+            <li><a id="WorldData" href="WorldData/">
+                <img src="WorldData/img/icon-ipad.png" alt="World Data" height="72" width="72">
+                <span>World Data</span>
+            </a></li>
+            <li><a id="Combo" href="Combo/">
+                <img src="Combo/icon-ipad.png" alt="Combo" height="72" width="72">
+                <span>Combo</span>
+            </a></li>
+        </ol>
+    </div>
+    <div id="page" class="container">
+        <div id="tuts">
+            <h1>Sencha Touch Charts Demos &amp; Examples</h1>
+        </div>
+        <ol id="grid">
+            <li><a id="Stock" href="Stock/">
+                <img src="Stock/icon-ipad.png" alt="Stock" height="72" width="72">
+                <span>Stock</span>
+            </a></li>
+            <li><a id="Area" href="Area/">
+                <img src="Area/icon-ipad.png" alt="Area" height="72" width="72">
+                <span>Area</span>
+            </a></li>
+            <li><a id="Bar" href="Bar/">
+                <img src="Bar/icon-ipad.png" alt="Bar" height="72" width="72">
+                <span>Bar</span>
+            </a></li>
+            <li><a id="Column" href="Column/">
+                <img src="Column/icon-ipad.png" alt="Column" height="72" width="72">
+                <span>Column</span>
+            </a></li>
+            <li><a id="Gauge" href="Gauge/">
+                <img src="Gauge/icon-ipad.png" alt="Gauge" height="72" width="72">
+                <span>Gauge</span>
+            </a></li>
+            <li><a id="Line" href="Line/">
+                <img src="Line/icon-ipad.png" alt="Line" height="72" width="72">
+                <span>Line</span>
+            </a></li>
+            <li><a id="Pie" href="Pie/">
+                <img src="Pie/icon-ipad.png" alt="Pie" height="72" width="72">
+                <span>Pie</span>
+            </a></li>
+            <li><a id="Radar" href="Radar/">
+                <img src="Radar/icon-ipad.png" alt="Radar" height="72" width="72">
+                <span>Radar</span>
+            </a></li>
+            <li><a id="Scatter" href="Scatter/">
+                <img src="Scatter/icon-ipad.png" alt="Scatter" height="72" width="72">
+                <span>Scatter</span>
+            </a></li>
+        </ol>
+    </div>
+    <div id="footer" class="container">
+        <p id="copyright">&copy; 2011 <a href="http://www.sencha.com/">Sencha Inc.</a> <em>Last updated: July 15, 2011</em></p>
+    </div>
+</div>
+
+</body>
+</html>

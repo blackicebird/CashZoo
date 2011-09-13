@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EXTJSIV-1849</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript">
+
+    Ext.require([
+        'Ext.form.*',
+        'Ext.panel.Panel'
+    ]);
+
+    Ext.onReady(function() {
+
+        var items = [],
+            i = 0;
+
+        for (; i < 500; ++i) {
+            items.push({
+                xtype: 'textfield',
+                fieldLabel: 'Field ' + i
+            });
+        }
+
+        var form = Ext.create('Ext.form.Panel', {
+            width: 400,
+            height: 400,
+            renderTo: document.body,
+            autoScroll: true
+        });
+
+        Ext.create('Ext.button.Button', {
+            renderTo: document.body,
+            text: 'Add',
+            handler: function(){
+                form.add(items);
+            }
+        });
+
+    });
+
+
+</script>
+</head>
+<body>
+    <p><a href="https://sencha.jira.com/browse/EXTJSIV-1849">Jira Ticket</a></p>
+</body>
+</html>

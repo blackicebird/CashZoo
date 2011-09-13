@@ -34,80 +34,77 @@ window.generateData = function(n, floor) {
         });
     }
     return data;
-}
+};
 window.store1 = new Ext.data.JsonStore({
     fields: ['name', 'data1', 'data2', 'data3', 'data4', 'data5', 'data6', 'data7', 'data9', 'data9'],
     data: generateData()
 });
-
-cashCat.views.TopExpensePiePanel = Ext.extend(Ext.Panel, {
-    layout: {
-        type: 'vbox',
-        align: 'stretch',
-        pack: 'center'
-    },
-    doComponentLayout: function(width, height, isSetSize) {
-        this.display(width, height - 50);
-        cashCat.views.TopExpensePiePanel.superclass.doComponentLayout.apply(this, arguments);
-    },
-    display: function(width, height) {
-        if (this.chart != null) {
-            return;
-        }
-        this.chart = new Ext.chart.Chart({
-            animate: false,
-            //store: store1,
-            shadow: true,
+cashCat.views.topExpensePanel = new Ext.Panel({
+    flex: 4,
+    title: 'Pie Chart',
+    layout: 'fit',
+    iconCls: 'pie',
+    items: [
+        new Ext.chart.Chart({
+            cls: 'piecombo1',
+            theme: 'Demo',
+            store: store1,
+            animate: true,
             legend: {
-                position: 'right'
+                position: {
+                    portrait: 'right',
+                    landscape: 'left'
+                }
             },
-            insetPadding: 10,
-            theme: 'Base:gradients',
+            interactions: ['rotate', 'reset'],
             series: [
                 {
                     type: 'pie',
                     field: 'data1',
+                    donut: 0,
                     showInLegend: true,
-                    //donut: donut,
-                    tips: {
-                        trackMouse: true,
-//                        width: 140,
-//                        height: 28,
-                        renderer: function(storeItem, item) {
-                            //calculate percentage.
-                            var total = 0;
-                            store1.each(function(rec) {
-                                total += rec.get('data1');
-                            });
-                            this.setTitle(storeItem.get('name') + ': ' + Math.round(storeItem.get('data1') / total * 100) + '%');
-                        }
-                    },
+                    highlightDuration: 500,
                     highlight: {
                         segment: {
-                            margin: 1
+                            margin: 20
                         }
                     },
                     label: {
-                        field: 'name',
-                        display: 'rotate',
-                        contrast: true,
-                        font: '12px Arial'
+                        field: 'name'
+                    },
+                    listeners: {
+                        'labelOverflow': function(label, item) {
+                            item.useCallout = true;
+                        }
+                    },
+                    callouts: {
+                        renderer: function(callout, storeItem) {
+                            callout.label.setAttributes({
+                                text: storeItem.get('name')
+                            }, true);
+                        },
+                        filter: function() {
+                            return false;
+                        },
+                        box: {
+                            //no config here.
+                        },
+                        lines: {
+                            'stroke-width': 2,
+                            offsetFromViz: 20
+                        },
+                        label: {
+                            font: 'italic 14px Arial'
+                        },
+                        styles: {
+                            font: '14px Arial'
+                        }
                     }
                 }
             ]
-
-        });
-        this.chart.setSize(width, height);
-        this.add({
-            cls: 'txtCenter',
-            html: msg.prop('topFiveExpenses')
-        });
-        this.add(this.chart);
-        this.chart.bindStore(window.store1, true);
-    }
-
+        })
+    ]
 });
-Ext.reg('topExpensePiePanel', cashCat.views.TopExpensePiePanel);
 
 cashCat.views.Home = Ext.extend(Ext.Panel, {
     id: 'homeView',
@@ -118,11 +115,11 @@ cashCat.views.Home = Ext.extend(Ext.Panel, {
         align: 'stretch',
         pack: 'center'
     },
-    constructor: function(config){
+    constructor: function(config) {
         this.topExpenseData = config.topExpenseData;
         this.monthData = config.monthData;
         this.accountData = config.accountData;
-        
+
         cashCat.views.Home.superclass.constructor.call(this, config);
     },
     initComponent: function() {
@@ -134,9 +131,9 @@ cashCat.views.Home = Ext.extend(Ext.Panel, {
                     title: msg.prop('cashCat'),
                     items:[
                         /*{
-                            text: msg.prop('close'),
-                            ui: 'back'
-                        },*/
+                         text: msg.prop('close'),
+                         ui: 'back'
+                         },*/
                         {
                             xtype: 'spacer'
                         },
@@ -148,10 +145,11 @@ cashCat.views.Home = Ext.extend(Ext.Panel, {
                 }
             ],
             items:[
-                {
-                    flex: 4,
-                    xtype: 'topExpensePiePanel'
-                },
+                cashCat.views.topExpensePanel,
+//                {
+//                    flex: 4,
+//                    xtype: 'topExpensePiePanel'
+//                },
                 {
                     flex: 1,
                     xtype: 'panel',

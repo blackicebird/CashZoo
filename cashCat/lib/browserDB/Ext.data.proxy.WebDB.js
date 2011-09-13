@@ -35,7 +35,7 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
      * @cfg {String} dbSize
      * Max storage size in bytes
      */
-    dbSize: 5*1024*1024,
+    dbSize: 10*1024*1024,
 
     /**
      * @cfg {String} dbTable
@@ -103,6 +103,12 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
             db;
 
         me.db = db = openDatabase(me.dbName, me.dbVersion, me.dbDescription, me.dbSize);
+        db.onError = function(tx, e){
+            console.log("errors: %s", e.message);
+        };
+        db.onSuccess = function(tx, r) {
+            console.log("well done");
+        };
 
         //take care of the table
         db.transaction(function(tx) {
@@ -122,7 +128,7 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
                           args,
                           Ext.createDelegate(me.addInitialData, me),  //on success
                           Ext.createDelegate(me.onError, me));        // on error
-            }
+            };
             if (Ext.debug) {
                 console.log(query, args);
             }
@@ -162,7 +168,7 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
 	 * @param {Object} err Error object.
      */
     onError: function(err, e) {
-//        var error = (e && e.message) || err;
+        var error = (e && e.message) || err;
         throw new Error(error + arguments);
 
     },
@@ -394,7 +400,7 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
             i;
 
         for (i = 0; i < length; i++) {
-            Ext.Array.remove(newIds, records[i].getId());
+//            Ext.Array.remove(newIds, records[i].getId());
             this.removeRecord(records[i], false);
         }
 
@@ -442,7 +448,7 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
                 if (typeof callback == 'function') {
                     callback.call(scope || me, result, me);
                 }
-            }
+            };
 
         me.db.transaction(function(tx){
             var query = 'SELECT * FROM ' + me.dbTable + ' where '+me.pkField+' = ?';
@@ -484,7 +490,7 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
                 if (typeof callback == 'function') {
                     callback.call(scope || me, results, me);
                 }
-            }
+            };
 
         me.db.transaction(function(tx){
             var query = 'SELECT ' + selectSQL + ' FROM ' + me.dbTable + extraSQL;
@@ -592,14 +598,25 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
 
         me.db.transaction(function(tx){
             var query = 'DELETE FROM ' + me.dbTable + ' WHERE ' + me.pkField +' = ?';
-            var args = [id];
+            var args = [parseInt(id)];
             if (Ext.debug) {
                 console.log(query, args);
             }
             tx.executeSql(query,
                 args,
-                Ext.emptyFn,  //on success
-                Ext.createDelegate(me.onError, me));        // on error
+                function(){
+                    console.log("delete operation was executed successfully!");
+                },
+                function(){
+                    console.log("delete operation was failed!");
+                }
+//                Ext.emptyFn,  //on success
+//                Ext.createDelegate(me.onError, me)
+            );        // on error
+        },function(){
+            console.log("it encountered some errors.")
+        },function(){
+            console.log("it executed.")
         });
 
         return true;

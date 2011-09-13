@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript">
+Ext.require(['*']);
+Ext.onReady(function() {
+    new Ext.window.Window({
+        renderTo: "window-container",
+        closable: false,
+        constrain: true,
+        modal: true,
+        title: 'Constrained+Modal',
+        width: 200,
+        height: 100
+    }).show();
+})
+</script>
+</head>
+<body>
+    <p style="margin: 10px">There should be a constrained, modal Window inside the DIV below</p>
+    <div id="window-container" style="position:relative;margin:20px;border:1px solid black;height:400px;width:600px;padding:10px">
+        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Changing Axis Titles</title>
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />
+    <script type="text/javascript" src="../../../bootstrap.js"></script>
+    <script type="text/javascript" src="../example-data.js"></script>
+    <script type="text/javascript">
+        Ext.require('Ext.chart.*');
+        Ext.require(['Ext.Window', 'Ext.fx.target.Sprite', 'Ext.layout.container.Fit']);
+
+        Ext.onReady(function () {
+            var win = Ext.create('Ext.Window', {
+                width: 800,
+                height: 600,
+                hidden: false,
+                maximizable: true,
+                title: 'Bar Chart',
+                renderTo: Ext.getBody(),
+                layout: 'fit',
+                tbar: [{
+                    text: 'Reload Data',
+                    handler: function() {
+                        store1.loadData(generateData());
+                    }
+                }, {
+                    text: 'Change Axis Titles',
+                    handler: function() {
+                        var left = prompt('Set Left Axis Title'),
+                            bottom = prompt('Set Bottom Axis Title'),
+                            chart = win.down('chart');
+                        chart.axes.getAt(1).setTitle(left);
+                        chart.axes.getAt(0).setTitle(bottom);
+                    }
+                }],
+                items: {
+                    id: 'chartCmp',
+                    xtype: 'chart',
+                    animate: true,
+                    shadow: true,
+                    store: store1,
+                    axes: [{
+                        type: 'Numeric',
+                        position: 'bottom',
+                        fields: ['data1'],
+                        label: {
+                            renderer: Ext.util.Format.numberRenderer('0,0')
+                        },
+                        title: 'Number of Hits',
+                        grid: true,
+                        minimum: 0
+                    }, {
+                        type: 'Category',
+                        position: 'left',
+                        fields: ['name'],
+                        title: 'Month of the Year'
+                    }],
+                    background: {
+                      gradient: {
+                        id: 'backgroundGradient',
+                        angle: 45,
+                        stops: {
+                          0: {
+                            color: '#ffffff'
+                          },
+                          100: {
+                            color: '#eaf1f8'
+                          }
+                        }
+                      }
+                    },
+                    series: [{
+                        type: 'bar',
+                        axis: 'bottom',
+                        highlight: true,
+                        tips: {
+                          trackMouse: true,
+                          width: 140,
+                          height: 28,
+                          renderer: function(storeItem, item) {
+                            this.setTitle(storeItem.get('name') + ': ' + storeItem.get('data1') + ' views');
+                          }
+                        },
+                        label: {
+                          display: 'insideEnd',
+                            field: 'data1',
+                            renderer: Ext.util.Format.numberRenderer('0'),
+                            orientation: 'horizontal',
+                            color: '#333',
+                          'text-anchor': 'middle'
+                        },
+                        xField: 'name',
+                        yField: ['data1']
+                    }]
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Changing Axis Titles</h1>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tests for fieldStyle</title>
+
+    <!-- ExtJS -->
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />
+    <script type="text/javascript" src="../../../bootstrap.js"></script>
+
+    <!-- Shared -->
+    <link rel="stylesheet" type="text/css" href="../shared/example.css" />
+
+    <!-- Example -->
+    <script type="text/javascript">
+        Ext.require([
+            'Ext.tab.*',
+            'Ext.form.*'
+        ]);
+        Ext.onReady(function() {
+            var tabs = Ext.createWidget('tabpanel', {
+                renderTo: Ext.getBody(),
+                width: 450,
+                activeTab: 0,
+                defaults :{
+                    bodyPadding: 10
+                },
+                items: [
+                    {
+                        title: 'TAB1',
+                        items: [
+                            {
+                                xtype: 'textfield', fieldLabel: 'TEST 1',id: "fld01",
+                                value: 'should be blue'
+                            },
+                            {
+                                xtype: 'textfield', fieldLabel: 'TEST 2',id: "fld02",
+                                value: 'should be red',
+                                fieldStyle: 'border-color:red;' //as string
+                            }
+                        ]
+                    },
+                    // This tab's contents are hidden by default, so the fields won't be rendered by the time
+                    // the setFieldStyle call happens below. This tests that setFieldStyle stores the value and
+                    // applies it when the field is rendered.
+                    {
+                        title: 'TAB2',
+                        items: [
+                            {
+                                xtype: 'textfield', fieldLabel: 'TEST 3',id: "fld03",
+                                value: 'should be yellow'
+                            },
+                            {
+                                xtype: 'textfield', fieldLabel: 'TEST 4',id: "fld04",
+                                value: 'should be green',
+                                fieldStyle: {'border-color':'green'} //as object
+                            }
+                        ]
+                    }
+                ]
+            });
+
+            // Setting after the fact
+            Ext.getCmp("fld01").setFieldStyle('border-color:blue;'); //as string
+            Ext.getCmp("fld03").setFieldStyle({"border-color": 'yellow'}); //as object
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

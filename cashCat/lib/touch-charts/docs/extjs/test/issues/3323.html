@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ext.tab.Panel History - EXTJSIV-3323</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+Ext.require('Ext.tab.Panel');
+
+Ext.onReady(function() {
+    Ext.create('Ext.tab.Panel', {
+        renderTo : Ext.getBody(),
+        width    : 800,
+        height   : 400,
+        defaults : {
+            closable : true
+        },
+        items    : [
+            {
+                title : 'Tab One',
+                html  : 'Tab One'
+            },
+            {
+                title : 'Tab Two',
+                html  : 'Tab Two'
+            },
+            {
+                title : 'Tab Three',
+                html  : 'Tab Three'
+            },
+            {
+                title : 'Tab Four',
+                html  : 'Tab Four'
+            },
+            {
+                title : 'Tab Five',
+                html  : 'Tab Five'
+            }
+        ]
+    });
+});
+
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

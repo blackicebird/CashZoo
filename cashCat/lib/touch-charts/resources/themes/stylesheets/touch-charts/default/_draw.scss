@@ -1,0 +1,13 @@
+@mixin touch-charts-draw {
+    .x-android-3 .x-surface-wrap, .x-android-3 .x-surface-wrap > * {
+        -webkit-perspective: 1;
+    }
+
+    .x-surface-wrap > * {
+        position: relative;
+    }
+
+    .x-layout-box > .x-draw-component {
+        position: relative;
+    }
+}

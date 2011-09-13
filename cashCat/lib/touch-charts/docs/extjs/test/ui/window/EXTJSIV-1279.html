@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">  
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../../bootstrap.js"></script>
+<script type="text/javascript"> 
+Ext.require('*');
+
+Ext.onReady(function(){
+    new Ext.tab.Panel({
+        title: 'A TabPanel',
+        height: 600,
+        width: 800,
+        renderTo: document.body,
+        items: [{
+            title: 'Tab One',
+            html: "<p>Tab One's content</p>",
+            items: { xtype: 'window', id: 'cw', title: "Tab One's Window", height: 300, width: 500, constrain: true }
+        }, {
+            title: 'Tab Two',
+            html: 'tab 2 content'
+        }],
+        bbar: {
+            items: {
+            text: 'Window',
+            handler: function() { Ext.getCmp('cw').show(); }
+            }
+        }
+    });
+});
+</script>
+</head>
+<body>
+</body>
+</html>

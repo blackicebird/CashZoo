@@ -1,0 +1,192 @@
+//$base-color: red;
+
+$base-color: desaturate(lighten(#79afd4, 24), 20);
+$font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
+$font-weight: 300;
+
+@import 'compass';
+@import 'ext4/default/all';
+
+/*searchpanel styling*/
+.x-panel-searchpanel {
+    background: $base-color;
+    @include border-radius(10px);
+    
+    .x-panel-body-searchpanel {
+        background: transparent;
+    }
+    
+    .x-search {
+        position: relative;
+        overflow: hidden;
+        
+        color: lighten(#000, 40);
+        font-size: 16px;
+        line-height: 16px;
+        @include single-text-shadow($color: #fff, $hoff: 0, $voff: 1px, $blur: 0);
+        
+        height: 30px;
+    }
+    
+    .x-search-over {
+        color: lighten(#000, 20);
+        
+        .x-delete {
+            @include opacity(.2);
+        }
+    }
+    
+    .x-item-selected {
+        color: #000;
+        font-weight: bold;
+        line-height: 14px;
+    }
+    
+    .x-delete {
+        @include opacity(0);
+        
+        position: absolute;
+        top: 0px;
+        right: 6px;
+        
+        background: transparent url(../images/delete.png) top right no-repeat;
+        
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/*search title*/
+.search-title {
+    font-size: 24px;
+    text-align: center;
+    
+    padding-bottom: 5px;
+}
+
+/*search field*/
+.x-toolbar-searchtoolbar {
+    background: transparent;
+    
+    .x-form-field {
+        @include border-radius(13px);
+        bborder-color: darken($base-color, 10);
+        
+        padding: 1px 8px;
+        
+        height: 26px;
+        
+        font-size: 16px;
+        @include single-box-shadow(
+            $color: #ccc,
+            $voff: 1px,
+            $inset: true
+        );
+        
+        background: #fff url(../images/search.jpg) 97% 4px no-repeat;
+    }
+    
+    .x-form-focus {
+        border-color: darken($base-color, 30);
+        
+        background-image: url(../images/search_black.jpg);
+    }
+}
+
+/*timeline styling*/
+.timeline {
+    padding-right: 10px;
+    
+    table {
+        margin: 45px 0 0 0;
+    }
+    
+    /*need to make it transparent to look pretty with framed panel*/
+    .x-mask {
+        background: transparent;
+    }
+    
+    .tweet {
+        font-size: 17px;
+        
+        line-height: 24px;
+    }
+    
+    .tweet, .image {
+        padding-bottom: 10px;
+    }
+    
+    .image {
+        /*force the sizing of avatars*/
+        img {
+            width: 60px;
+            height: 60px;
+            
+            margin-right: 10px;
+            
+            @include border-radius(5px);
+        }
+    }
+    
+    .user,
+    .hash {
+        @include inline-block;
+        @include border-radius(10px);
+        
+        padding: 2px 4px;
+        
+        @include background-gradient(#ddd, 'recessed');
+        
+        line-height: 20px;
+        font-size: 17px;
+        color: #666;
+        @include single-text-shadow($color: #fff, $hoff: 0, $voff: 1px, $blur: 0);
+        
+        position: relative;
+        top: -2px;
+        
+        cursor: pointer;
+    }
+    
+    a {
+        color: #777;
+    }
+}
+
+/*search grid styling*/
+.x-grid-row {
+    line-height: 11px;
+}
+
+.x-grid-cell-inner {
+    font-size: 14px;
+    line-height: 15px;
+    
+    padding: 2px 2px;
+}
+
+.x-form-text {
+    height: 22px;
+}
+
+/*shows when no searches have been created*/
+.no-searches {
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    
+    padding: 100px;
+}
+
+/*remove the mask background*/
+.x-mask {
+    background: transparent;
+}
+
+h2,
+img,
+.x-delete,
+.x-search,
+.x-item-selected {
+    cursor: pointer;
+}

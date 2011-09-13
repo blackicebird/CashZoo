@@ -1,0 +1,22 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+ <script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript">
+Ext.require(['*']);
+Ext.onReady(function(){
+    var win = Ext.create('Ext.window.Window', {
+        title  : 'LoadMask Test',
+        width  : 300,
+        height : 300
+    }).show();
+
+    var lm = Ext.create('Ext.LoadMask', Ext.getBody(), {
+        msg : 'Is the mask above or below?'
+    }).show();
+});
+</script>
+</head>
+<body>
+</body>
+</html>

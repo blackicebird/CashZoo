@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Failed test case</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript" src="../../examples/example-data.js"></script>
+</head>
+<body>
+    <script type="text/javascript" charset="utf-8">
+    Ext.require('Ext.chart.Chart');
+    Ext.onReady(function() {
+            var win = Ext.create('Ext.chart.Chart', { 
+                renderTo : Ext.getBody(), 
+                width : 800, 
+                height : 400, 
+                animate : true, 
+                store : store1, 
+                mask: true, 
+                listeners: { 
+                    select: { 
+                        fn: function(me, selection) { 
+                            me.setZoom(selection); 
+                            me.mask.hide(); 
+                        } 
+                    } 
+                }, 
+                axes : [ { 
+                    type : 'Numeric', 
+                    //minimum : 0, 
+                    //maximum : 10, 
+                    position : 'bottom', 
+                    fields : [ 'data1' ], 
+                    minorTickSteps : 1, 
+                    grid : { 
+                        odd : { 
+                            opacity : 1, 
+                            fill : '#ddd', 
+                            stroke : '#bbb', 
+                            'stroke-width' : 0.5 
+                        } 
+                    } 
+                }, { 
+                    type : 'Numeric', 
+                    //minimum : 0, 
+                    //maximum : 10, 
+                    position : 'left', 
+                    fields : [ 'data2' ], 
+                    minorTickSteps : 1, 
+                    grid : { 
+                        odd : { 
+                            opacity : 0, 
+                            fill : '#ddd', 
+                            stroke : '#bbb', 
+                            'stroke-width' : 0.5 
+                        } 
+                    } 
+                } ], 
+                series : [ { 
+                    type : 'scatter', 
+                    highlight : { 
+                        size : 8, 
+                        radius : 8 
+                    }, 
+                    axis : 'left', 
+                    xField : 'data1', 
+                    yField : 'data2', 
+                    markerConfig : { 
+                        type : 'circle', 
+                        size : 6, 
+                        radius : 6, 
+                        'stroke-width' : 0 
+                    }, 
+                    tips : { 
+                        trackMouse : true, 
+                        width : 140
+                    } 
+                } ] 
+            });
+        });
+    </script>
+</body>
+</html>

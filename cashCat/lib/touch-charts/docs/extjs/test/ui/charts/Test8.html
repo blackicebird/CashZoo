@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title id="page-title">Test Page</title>
+			
+                <link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />
+                <script type="text/javascript" src="../../../bootstrap.js"></script>
+		<script type="text/javascript">
+        
+        Ext.require(['Ext.chart.*', 'Ext.draw.*', 'Ext.Window']);
+
+        
+ Ext.onReady(function() {
+	var myData =
+			[
+				['Users_1','4'],
+				['Users_2','1'],
+				['Users_3','3']
+			];
+
+	var store = new Ext.data.ArrayStore({
+		fields: [
+			{name: 'vad'},
+			{name: 'antal'}
+		],
+		data: myData
+	});
+
+	var panel_usr = Ext.create('widget.panel',
+	{
+		width: 580,
+		height: 300,
+		renderTo: Ext.getBody(),
+		title: 'Users',
+		layout: 'fit',
+		items: {
+			xtype: 'chart',
+			insetPadding: 20,
+			region: 'center',
+			animate: false,
+			shadow: true,     
+			store: {
+			    fields: ['id', 'left'],
+			    data: [
+				{ id: 1, left: 1 },
+				{ id: 2, left: 2 },
+				{ id: 3 },
+				{ id: 4 }
+			    ]                    
+			},
+			    axes: [{
+				type: 'Numeric',
+				position: 'left',
+				fields: ['left'],
+				decimals: 2,
+				title: 'Left'
+			    }, {
+				type: 'Category',                        
+				position: 'bottom',                        
+				fields: ['id'],
+				title: 'Bottom'
+			    }],
+			    series: [{
+				type: 'line',
+				xField: 'id',
+				yField: 'left',
+				axis: 'left'
+			    }]                                 
+		    }
+		
+	});
+});
+		</script>
+	</head>
+	<body>
+		<div id="grid-example"></div> 
+	</body>
+</html>

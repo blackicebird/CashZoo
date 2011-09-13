@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Failed test case</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+</head>
+<body>
+    <script type="text/javascript" charset="utf-8">
+        Ext.require([
+            'Ext.data.*',
+            'Ext.grid.*',
+            'Ext.tree.*'
+        ]);
+
+        Ext.onReady(function () {
+            //we want to setup a model and store instead of using dataUrl
+            Ext.define('costCentre', {
+                extend: 'Ext.data.Model',
+                fields: [
+                    { name: 'name', type: 'string' },
+                ]
+            });
+
+            var store = Ext.create('Ext.data.TreeStore', {
+                model: 'costCentre',
+                proxy: {
+                    type: 'ajax',
+                    url: '1954.json'
+                },
+                folderSort: true
+            });
+
+            var tree = Ext.create('Ext.tree.Panel', {
+                title: 'Test',
+                animate: true,
+                width: 100,
+                height: 150,
+                autoScroll: true,
+                renderTo: Ext.getBody(),
+                rootVisible: false,
+                store: store,
+                singleExpand: true,
+                displayField: 'name'
+            });
+        });
+    </script>
+</body>
+</html>

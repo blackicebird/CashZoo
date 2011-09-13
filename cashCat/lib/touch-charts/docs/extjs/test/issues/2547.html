@@ -1,0 +1,28 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+ <script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript">
+Ext.require(['*']);
+
+Ext.onReady(function(){ 
+  new Ext.panel.Panel({ 
+    renderTo: Ext.getBody(), style:'margin:10px;', bodyPadding: 10, 
+    title: 'Normal Panel', collapsible: true, 
+    items: [ 
+      { title: 'Nested Panel', html: 'Some Content' } 
+    ] 
+  }); 
+  new Ext.panel.Panel({ 
+    renderTo: Ext.getBody(), style:'margin:10px;', bodyPadding: 10, 
+    title: 'Normal Panel', collapsible: true, collapsed: true, 
+    items: [ 
+      { title: 'Nested Panel', html: 'Some Content' } 
+    ] 
+  }); 
+});
+</script>
+</head>
+<body>
+</body>
+</html>

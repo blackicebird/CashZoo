@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+    <head>
+        <title>Test setValue setting to a value not represented in the Store.</title>
+        <link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+        <script type="text/javascript" src="../../bootstrap.js"></script>
+        <script type="text/javascript">
+            Ext.require(['*']);
+            Ext.onReady(function(){
+                c = Ext.create('Ext.form.field.ComboBox', {
+                    fieldLabel: 'Country',
+                    store: ["England", "France"],
+                    forceSelection: false,
+                    renderTo: document.body,
+                    style: {
+                        margin: '5px'
+                    }
+                });
+                
+                Ext.create('Ext.Button', {
+                    renderTo: document.body,
+                    text: 'Set value to "USA"',
+                    handler: function() {
+                        c.setValue("USA");
+                        alert('getValue() returns: ' + c.getValue());
+                    }
+                })
+            });
+        </script>
+    </head>
+    <body style="padding: 10px">
+        <p>The ComboBox is configured <code>forceSelection: false</code>, so it will accept the value "USA" from the setValue call
+        and return that value in the subsequent getValue call.</p>
+    </body>
+</html>

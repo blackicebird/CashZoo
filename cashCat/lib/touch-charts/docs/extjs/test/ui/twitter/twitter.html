@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Twitter Search</title>
+
+    <link rel="stylesheet" type="text/css" href="resources/css/twitter.css" />
+
+    <script type="text/javascript" src="../../bootstrap.js"></script>
+    <script type="text/javascript">
+        Ext.Loader.enableSyncMode(true)
+                  .requirePackages('mvc');
+		
+		try {
+		    var supports = 'localStorage' in window && window['localStorage'] !== null;
+		    if (supports) {
+		        Ext.supports.localStorage = true;
+		    }
+		} catch (e) {
+		    Ext.supports.localStorage = false;
+		}
+    </script>
+    <script type="text/javascript" src="lib/TwitterProxy.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/routes.js"></script>
+    <script type="text/javascript" src="app/views/Viewport.js"></script>
+    <script type="text/javascript" src="app/views/SearchToolbar.js"></script>
+    <script type="text/javascript" src="app/views/SearchPanel.js"></script>
+    <script type="text/javascript" src="app/views/Timeline.js"></script>
+    <script type="text/javascript" src="app/models/Search.js"></script>
+    <script type="text/javascript" src="app/models/Tweet.js"></script>
+    <script type="text/javascript" src="app/controllers/searches.js"></script>
+    <script type="text/javascript" src="app/stores/Searches.js"></script>
+</head>
+
+<body>
+
+</body>
+</html>

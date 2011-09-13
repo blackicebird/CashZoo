@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Frameset Ext4 Quicktip Bug Demo</title>
+        <link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+
+        <script type="text/javascript" src="../../bootstrap.js"></script>
+
+        <script type="text/javascript">
+            // http://www.sencha.com/forum/showthread.php?131183-Initializing-QuickTips-on-Frameset-Only-page-breaks
+            Ext.require([
+                'Ext.tip.QuickTipManager'
+            ]);
+
+            Ext.onReady(function(){
+                var status = 'FAIL';
+
+                // uncomment to test "unhandled" error:
+                //Ext.tip.QuickTipManager.init(); // should fail w/helpful error
+
+                try {
+                    Ext.tip.QuickTipManager.init(); // should fail w/helpful error
+                } catch (e) {
+                    if (e.message.indexOf('QuickTipManager') >= 0) {
+                        status = 'PASS';
+                    } else if (e.msg.indexOf('QuickTipManager') >= 0) {
+                        status = 'PASS'; // old WebKits don't allow us to set e.message
+                    } else {
+                        status += ': ' + e.message;
+                    }
+                }
+
+                doc.document.getElementById('passfail').innerHTML = status;
+            });
+        </script>
+    </head>
+    <frameset>
+        <frame src="1654_doc.html" name="doc" />
+        <frame src="about:blank" />
+    </frameset>
+</html>

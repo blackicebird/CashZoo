@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Accordion Viewport (EXTJSIV-3557)</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript">
+Ext.require([
+    'Ext.panel.Panel',
+    'Ext.container.Viewport',
+    'Ext.layout.container.Accordion'
+]);
+Ext.onReady(function() {
+    var vp = new Ext.container.Viewport({
+        layout: 'accordion',
+        items: [
+            {
+                xtype: 'panel',
+                collapsed: false,
+                title: 'My Panel'
+            },
+            {
+                xtype: 'panel',
+                collapsed: true,
+                title: 'My Panel'
+            },
+            {
+                xtype: 'panel',
+                collapsed: true,
+                title: 'My Panel'
+            },
+            {
+                xtype: 'panel',
+                collapsed: true,
+                title: 'My Panel'
+            }
+        ]
+    });
+});
+</script>
+</head>
+<body>
+</body>
+</html>

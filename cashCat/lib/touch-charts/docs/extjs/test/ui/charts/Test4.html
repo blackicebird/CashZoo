@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title id="page-title">Test Page</title>
+			
+                <link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />
+                <script type="text/javascript" src="../../../bootstrap.js"></script>
+		<script type="text/javascript">
+        
+        Ext.require(['Ext.draw.*', 'Ext.Window']);
+
+Ext.onReady(function() {
+       var canvas = Ext.create('Ext.draw.Component', {
+               viewBox: false,
+               gradients: [
+                       {
+                               type: 'linear',
+                               id: "g1",
+                               stops: {
+                                       0: {
+                                               color: "#009900"
+                                       },
+                                       100: {
+                                               color: "#FFFFFF"
+                                       }
+                               }
+                       }
+               ],
+               items: [
+                       {
+                               type: 'rect',
+                               x: 300,
+                               y: 50,
+                               height: 100,
+                               width: 200,
+                               fill: 'url(#g1)',
+                               stroke: "black",
+                               'stroke-width': 2
+                       },
+                       {
+                               type: 'circle',
+                               x: 200,
+                               y: 260,
+                               radius: 50,
+                               fill: '#ff6600'
+                       }
+               ]
+       });
+
+
+       var win = Ext.create('Ext.window.Window', {
+               title: 'Sprites',
+               width: 600,
+               height: 400,
+               x: 200,
+               y: 200,
+               layout: 'fit',
+               hidden: false,
+               maximizable: true,
+               renderTo: Ext.getBody(),
+               items: [canvas],
+               dockedItems: [
+                       {
+                               xtype: 'toolbar',
+                               dock: 'top',
+                               items: ['->', {
+                                       text: 'Add text sprite',
+                                       handler: function() {
+                                               var textsprite = new Ext.draw.Sprite({
+                                                       type : 'text',
+                                                       text : 'Simple text 123',
+                                                       font : '12px Arial',
+                                                       x : 200,
+                                                       y : 40,
+                                                       width : 100,
+                                                       height : 100
+                                               });
+                                               canvas.surface.add(textsprite).show(true);
+                                       }
+                               }
+                               ]
+                       }
+               ]
+       }).show();
+});
+		</script>
+	</head>
+	<body>
+		<div id="grid-example"></div> 
+	</body>
+</html>

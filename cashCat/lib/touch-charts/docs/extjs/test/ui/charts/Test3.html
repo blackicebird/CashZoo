@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title id="page-title">Test Page</title>
+			
+                <link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />
+                <script type="text/javascript" src="../../../bootstrap.js"></script>
+                <script type="text/javascript" src="../example-data.js"></script>
+		<script type="text/javascript">
+        
+        Ext.require(['Ext.data.*', 'Ext.chart.*']);
+        // myArray is an array with values ranging from about 500 to about 1600
+        
+        var date = new Date();
+        var data = [];
+        for(var i=0; i<20; i++) {
+            data.push({
+                date: Ext.Date.add(date, Ext.Date.DAY, i),
+                value: 500 + (Math.random() * 600) >> 0
+            });
+        }
+        
+        Ext.onReady(function () {  
+            // Set up a model to use in our Store
+            Ext.regModel('User', {
+                fields: [ 'date', 'value']
+            });
+        
+            var myStore = new Ext.data.Store({
+                model: 'User',
+                data : data
+            });
+          
+            var win = Ext.create('Ext.Window', {
+                width: 800,
+                height: 600,
+                hidden: false,
+                maximizable: true,
+                title: 'Line Chart',
+                renderTo: Ext.getBody(),
+                layout: 'fit',
+                items: {
+                    xtype: 'chart',
+                    id: 'chartCmp',
+                    store: myStore,
+                    axes: [{
+                        type: 'Numeric',
+                        position: 'left',
+                        fields: 'value',
+                        alwaysShowZero: false,
+                        minimum: 500,  // <<<<<<<<<< Test with values 400 or -400; in both cases, unexpected result
+                        maximum: 1000
+                    }, {
+                        type: 'Time',
+                        position: 'bottom',
+                        fields: 'date',
+                        title: 'Day',
+                        dateFormat: 'M d',
+                        groupBy: 'year,month,day',
+                        aggregateOp: 'sum',
+        
+                    }],
+                    series: [{
+                        type: 'line',
+                        xField: 'date',
+                        yField: 'value'
+                        ,showMarkers: false
+                    }]
+                }
+            });
+        });  
+		</script>
+	</head>
+	<body>
+		<div id="grid-example"></div> 
+	</body>
+</html>

@@ -1,0 +1,11 @@
+@if $include-chart-icons {
+    @include chart-iconmask('area');
+    @include chart-iconmask('bar');
+    @include chart-iconmask('column');
+    @include chart-iconmask('gauge');
+    @include chart-iconmask('line');
+    @include chart-iconmask('mixed');
+    @include chart-iconmask('pie');
+    @include chart-iconmask('radar');
+    @include chart-iconmask('scatter');
+}

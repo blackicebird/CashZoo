@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Failed test case</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript" src="../../examples/example-data.js"></script>
+</head>
+<body>
+<script type="text/javascript" charset="utf-8">
+Ext.require('Ext.form.FieldSet');
+Ext.onReady(function() {
+
+Ext.create("Ext.window.Window", {
+    width    : 500,
+    height   : 500,
+    defaults : {
+        height      : 50,
+        collapsible : true
+    },
+    items    :[
+        {
+            xtype : "panel",
+            title : "Panel 1"
+        },
+        {
+            xtype : "panel",
+            title : "Panel 2"
+        },
+        {
+            xtype : "fieldset",
+            title : "Fieldset 1"
+        },
+        {
+            xtype : "fieldset",
+            title : "Fieldset 2"
+        }
+    ]
+}).show();
+
+});
+</script>
+</body>
+</html>

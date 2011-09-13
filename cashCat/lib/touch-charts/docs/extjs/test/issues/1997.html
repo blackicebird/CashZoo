@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript" src="1997.js"></script>
+</head>
+<body>
+	Test to load a large dataset, then a small dataset then back to a large dataset.
+	When the small dataset is small enough were the scrollbars are not needed the grid will throw an error 
+	when you load a data set that is too big to fit in the grid.
+	Once the grid is loaded type 10 into the search box,  let the data load.
+	Next type 100 into the search box and see that the scrollbars do not return
+	You should see an error like this in the console:
+	<pre>
+		owner is undefined
+		getSizeCalculation()PagingScroller.js (line 175)
+		determineScrollbars()Table.js (line 758)
+		(?)()Function.js (line 313)
+		[Break On This Error] view = owner.getView(),
+	</pre>
+</body>
+</html>

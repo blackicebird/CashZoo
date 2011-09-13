@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>3346</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+</head>
+<body>
+    <script type="text/javascript" charset="utf-8">
+        //your test case goes here
+Ext.define('Model',
+	{extend : 'Ext.data.Model', 
+	hasMany : {
+		model : 'Model', 
+		associationKey : 'items', 
+		reader : {type : 'xml', selector : 'item', record : 'item', root : '.'}
+	}, 
+	idProperty : 'value', 
+	fields :  [ {name : 'label', mapping : 'label'}, {name : 'value'}]
+	}, function () {
+console.info(Model.prototype.associations.items[0].associatedModel); // return a function -> correct
+
+Ext.define('ModelExtend', {extend: 'Model'})
+console.info(Model.prototype.associations.items[0].associatedModel); // 
+	}
+);
+        
+    </script>
+</body>
+</html>

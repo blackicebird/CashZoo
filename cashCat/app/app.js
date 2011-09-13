@@ -1,3 +1,4 @@
+Ext.debug = true;
 Ext.regApplication(({
     name: 'cashCat',
     launch: function() {

@@ -1,0 +1,221 @@
+chart[cls=area1] {
+  axis {
+    &[position=left] {
+      grid {
+        even {
+          opacity: 1;
+          fill: #ddd;
+          stroke: #bbb;
+          stroke-width: 1;
+        }
+      }
+    }
+
+    &[position=bottom] {
+      label {
+        rotate: 45;
+      }
+    }
+  }
+
+  series {
+    opaciy: 0.93;
+  }
+}
+
+chart[cls=bar1] {
+  axis {
+    &[position=bottom] {
+      grid {
+        stroke: #ccc;
+      }
+    }
+  }
+}
+
+chart[cls=column1] {
+
+  background: #111;
+
+  axis {
+    stroke: #eee;
+    fill: #eee;
+
+    label {
+      fill: #fff;
+    }
+
+    title {
+      fill: #fff;
+    }
+
+    &[position=left] {
+      grid {
+        odd {
+          stroke: #555;
+        }
+        even {
+          stroke: #555;
+        }
+      }
+    }
+  }
+
+  series {
+    label {
+      fill: #fff;
+      font: 17px Arial;
+      display: insideEnd;
+      text-anchor: middle;
+      orientation: horizontal;
+    }
+  }
+}
+
+chart[cls=barcombo1] {
+  axis[position=bottom] {
+    grid {
+      stroke: #ccc;
+    }
+  }
+}
+
+chart[cls=piecombo1] {
+  padding: 20;
+  series {
+    label {
+      display: rotate;
+      contrast: true;
+      font: 14px Arial;
+    }
+  }
+}
+
+chart[cls=gaugecombo1] {
+  padding: 30;
+  axis {
+    label {
+      font: 15px Arial;
+    }
+    stroke: #ccc;
+  }
+}
+
+chart[cls=radarcombo1] {
+  padding: 20;
+  axis {
+    label {
+      font: 11px Arial;
+      text-anchor: middle;
+    }
+    stroke: #ccc;
+    fill: none;
+  }
+  series {
+    opacity: 0.4;
+  }
+}
+
+chart[cls=line1] {
+  axis[position=left] {
+    grid {
+      odd {
+        opacity: 1;
+        fill: #ddd;
+        stroke: #bbb;
+        stroke-width: 0.5;
+      }
+    }
+  }
+  marker {
+    size: 4;
+    radius: 4;
+    stroke-width: 0;
+  }
+
+  series {
+    &:nth-child(1) {
+      marker {
+        type: image;
+        height: 46;
+        width: 46;
+        src: "../resources/shared/img/iphone.png";
+      }
+    }
+
+    &:nth-child(2) {
+      marker {
+        type: image;
+        height: 46;
+        width: 46;
+        src: "../resources/shared/img/android.png";
+      }
+    }
+
+    &:nth-child(3) {
+      marker {
+        type: image;
+        height: 46;
+        width: 46;
+        src: "../resources/shared/img/ipad.png";
+      }
+    }
+  }
+}
+
+chart[cls=pie1] {
+  padding: 10;
+  series {
+    label {
+      display: rotate;
+      contrast: true;
+      font: 18px Helvetica, Arial, sans-serif;
+    }
+  }
+}
+
+chart[cls=radar1] {
+  padding: 20;
+  axis {
+    label {
+      font: 11px Arial;
+      text-anchor: middle;
+    }
+    stroke: #ccc;
+    fill: none;
+  }
+  series {
+    opacity: 0.4;
+  }
+}
+
+chart[cls=scatter1] {
+  padding: 40;
+  axis[position=left] {
+    grid {
+      odd {
+        opacity: 1;
+        fill: #ddd;
+        stroke: #bbb;
+        stroke-width: 0.5;
+      }
+    }
+  }
+  marker {
+    size: 8;
+    radius: 8;
+  }
+}
+
+chart[cls=stock1] {
+  axis {
+    label {
+      font: 12px Arial;
+    }
+    &[position=left] {
+      grid {
+        stroke: #ccc;
+      }
+    }
+  }
+}

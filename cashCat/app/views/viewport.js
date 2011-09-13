@@ -9,10 +9,12 @@
 cashCat.views.Viewport = Ext.extend(Ext.TabPanel, {
     id: 'viewport',
     fullscreen: true,
-    sortable: true,
+    sortable: false,
     cardSwitchAnimation: {
         type: 'slide',
-        cover: true
+        cover: false,
+        duration: 550,
+        delay: 100
     },
     defaults: {
         scroll: 'vertical'

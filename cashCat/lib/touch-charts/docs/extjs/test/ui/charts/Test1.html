@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title id="page-title">Test Page</title>
+			
+                <link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />
+                <script type="text/javascript" src="../../../bootstrap.js"></script>
+
+		<script type="text/javascript">
+         Ext.require(['Ext.data.*', 'Ext.chart.*']);
+         Ext.onReady(function () {
+            Ext.regModel('Plot', {
+               fields: [
+                  {name: 'x',  type: 'date'},
+                  {name: 'y',  type: 'float'} 
+               ]
+            });
+
+            var store = new Ext.data.Store({
+               model: 'Plot',
+               data : [
+                  { x: 1, y: 9.13, z: 3.18 },
+                  { x: 2, y: 7.15, z: 4.18 },
+                  { x: 3, y: 9.13, z: 3.18 },
+                  { x: 4, y: 1.2, z: 1.2 },
+                  { x: 5, y: 1.2, z: 1.2 }
+               ]
+            });
+   
+             var win = Ext.create('Ext.Window', {
+                 width: 800,
+                 height: 600,
+                 hidden: false,
+                 maximizable: true,
+                 title: 'Line Chart',
+                 renderTo: Ext.getBody(),
+                 layout: 'fit',
+                 items: {
+                     xtype: 'chart',
+                     store: store,
+                     axes: [{
+                         type: 'Numeric',
+                         position: 'left',
+			 minimum: 0,
+			 majorTickSteps: 20,
+                         fields: [ 'y', 'z' ]
+                     }],
+                     series: [{
+                         type: 'line',
+                         axis: 'left',
+                         xField: 'x',
+                         yField: 'y'
+                     }, {
+                         type: 'line',
+                         axis: 'left',
+                         xField: 'x',
+                         yField: 'z'
+                     }]
+                 }
+             });
+         });
+		</script>
+	</head>
+	<body>
+		<div id="grid-example"></div> 
+	</body>
+</html>

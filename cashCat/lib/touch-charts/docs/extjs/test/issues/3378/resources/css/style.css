@@ -1,0 +1,12 @@
+.HL {
+    background: #ffff99;
+    color: #000000;
+    /*font-weight: bold;*/
+    /*color: #FF0000;*/
+}
+
+.x-selectable, .x-selectable * {
+    -moz-user-select: text!important;
+    -webkit-user-select: text!important;
+    -khtml-user-select: text!important;
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript">
+
+
+function Const() {
+   this.arrayCombo = [
+      ['1', 'Value 1'],
+      ['2', 'Value 2'],
+      ['3', 'Value 3']
+   ];
+}
+Const = new Const;
+
+Ext.define('App.myForm', {
+   extend: 'Ext.Window',
+   requires: ['Ext.form.*', 'Ext.tab.*'],
+
+   initComponent : function(){
+
+      this.formPanel = Ext.create('Ext.form.FormPanel', {
+         bodyStyle: 'padding:10px',
+         frame: true,
+         items: {
+            xtype: 'tabpanel',
+            activeTab: 0,
+            defaults:{
+               bodyStyle: 'padding:10px'
+            },
+            items:[
+               {
+                  title:'Dados Pessoais',
+                  defaults: {
+                     border: false,
+                     layout: 'hbox'
+                  },
+                  items: this.buildForm1()
+               },
+               {
+                  title:'Dados dos Pais',
+                  defaults: {
+                     border: false,
+                     layout: 'hbox'
+                  },
+                  items: this.buildForm2()
+               },
+               {
+                  title:'Dados Complementares',
+                  defaults: {
+                     border: false,
+                     layout: 'hbox'
+                  },
+                  items: this.buildForm3()
+               }
+            ]
+         },
+         buttons: this.buildButtons()
+      });
+
+      Ext.apply(this, {
+         title: 'Cadastro de Intercambistas',
+         iconCls: 'user',
+         width: 600,
+         autoHeight: true,
+         closable  : true,
+         modal     : true,
+         draggable : false,
+         resizable : false,
+         items: [ this.formPanel ]
+      });
+
+      App.myForm.superclass.initComponent.call(this);
+   },
+
+   buildButtons: function(){
+      return [
+         {  text: 'Reset', scope: this,
+            handler: function(b) {
+               this.formPanel.getForm().reset();
+            }
+         },
+         {  text: 'Clear Invalid', scope: this,
+            handler: function(b) {
+               this.formPanel.getForm().clearInvalid();
+            }
+         },
+         {  text: 'Validate', scope: this,
+            handler: function(b) {
+               var form = this.formPanel.getForm();
+               if (!form.isValid()) {
+                  Ext.Msg.alert('AtenÁ„o', 'Preencha todos os campos corretamente!');
+               }else{
+                  Ext.Msg.alert('OK', 'OK!');
+               }
+            }
+         }
+      ]
+   },
+
+   buildForm1: function() {
+      return [
+         { name: 'int_id', xtype: 'hidden' },
+         { items: { fieldLabel: 'Nome', name: 'int_nome', allowBlank: false, maxLength: '100', xtype: 'textfield', flex: 1 } },
+         {  defaults: { allowBlank: false },
+            items: [
+               { fieldLabel: 'Nascimento', name: 'int_nascimento', xtype: 'datefield', flex: 2, margins: '0 5 0 0' },
+               { fieldLabel: 'E-mail', name: 'int_email', maxLength: '100', xtype: 'textfield', vtype: 'email', flex: 5 }
+            ]
+         },
+         {  defaults: { flex: 1, xtype: 'textfield', allowBlank: false },
+            items: [
+               { fieldLabel: 'Telefone', name: 'int_telefone', margins: '0 5 0 0' },
+               { fieldLabel: 'Celular', name: 'int_celular' }
+            ]
+         },
+         {  defaults: { xtype: 'textfield', allowBlank: false },
+            items: [
+               { fieldLabel: 'EndereÁo', name: 'int_endereco', maxLength: '100', flex: 3, margins: '0 5 0 0' },
+               { fieldLabel: 'Bairro', name: 'int_bairro', maxLength: '50', flex: 2 }
+            ]
+         },
+         {  defaults: { xtype: 'textfield', allowBlank: false, margins: '0 5 0 0' },
+            items: [
+               { fieldLabel: 'Cidade', name: 'int_cidade', maxLength: '50', flex: 6 },
+               { fieldLabel: 'Estado', name: 'int_estado', xtype: 'combo', flex: 4,
+                  store: new Ext.data.ArrayStore({ fields: ['valor','texto'], data: Const.arrayCombo })
+               },
+               { fieldLabel: 'CEP', name: 'int_cep', maxLength: '10', flex: 3, margins: '0' }
+            ]
+         }
+      ];
+   },
+
+   buildForm2: function() {
+      return [
+         { xtype: 'fieldset', title: 'Dados da M„e', layout: 'anchor', defaults: { border: false, layout: 'hbox' }, items: [
+            {  defaults: { xtype: 'textfield' },
+               items: [
+                  { fieldLabel: 'Nome', name: 'int_mae_nome', maxLength: '100', xtype: 'textfield', flex: 3, margins: '0 5 0 0' },
+                  { fieldLabel: 'OcupaÁ„o', name: 'int_mae_ocupacao', maxLength: '20', flex: 2 }
+               ]
+            },
+            {  defaults: { flex: 1, xtype: 'textfield' },
+               items: [
+                  { fieldLabel: 'Telefone', name: 'int_mae_telefone', margins: '0 5 0 0' },
+                  { fieldLabel: 'Celular', name: 'int_mae_celular', margins: '0 5 0 0' },
+                  { fieldLabel: 'E-mail', name: 'int_mae_email', maxLength: '100', vtype: 'email', flex: 2 }
+               ]
+            },
+            {  defaults: { xtype: 'textfield' },
+               items: [
+                  { fieldLabel: 'Clube', name: 'int_mae_club', maxLength: '50', xtype: 'textfield', flex: 1 }
+               ]
+            }
+         ]},
+         { xtype: 'fieldset', title: 'Dados do Pai', layout: 'anchor', defaults: { border: false, layout: 'hbox' }, items: [
+            {  defaults: { xtype: 'textfield' },
+               items: [
+                  { fieldLabel: 'Nome', name: 'int_pai_nome', maxLength: '100', xtype: 'textfield', flex: 3, margins: '0 5 0 0' },
+                  { fieldLabel: 'OcupaÁ„o', name: 'int_pai_ocupacao', maxLength: '20', flex: 2 }
+               ]
+            },
+            {  defaults: { flex: 1, xtype: 'textfield', margins: '0 5 0 0' },
+               items: [
+                  { fieldLabel: 'Telefone', name: 'int_pai_telefone' },
+                  { fieldLabel: 'Celular', name: 'int_pai_celular' },
+                  { fieldLabel: 'E-mail', name: 'int_pai_email', maxLength: '100', vtype: 'email', flex: 2, margins: '0 0 0 0' }
+               ]
+            },
+            {  defaults: { xtype: 'textfield' },
+               items: [
+                  { fieldLabel: 'Clube', name: 'int_pai_club', maxLength: '50', xtype: 'textfield', flex: 1 }
+               ]
+            }
+         ]}
+      ];
+   },
+
+   buildForm3: function() {
+      return [
+         {  defaults: { flex: 1, xtype: 'combo' },
+            items: [
+               { fieldLabel: 'SituaÁ„o dos Pais', name: 'int_situacao_pais', margins: '0 5 0 0',
+                  store: new Ext.data.ArrayStore({ fields: ['valor','texto'], data: Const.arrayCombo })
+               },
+               { fieldLabel: 'Mora Com', name: 'int_mora_com',
+                  store: new Ext.data.ArrayStore({ fields: ['valor','texto'], data: Const.arrayCombo })
+               }
+            ]
+         },
+         { items: { fieldLabel: 'Pratica Esportes? Quais?', name: 'int_esportes', xtype: 'textfield', flex: 1, labelSeparator: '' } },
+         { items: { fieldLabel: 'Bebidas Alcoolicas? Quais?', name: 'int_bebidas', xtype: 'textfield', flex: 1, labelSeparator: '' } },
+         { items: { fieldLabel: 'Uso de Drogas? Quais?', name: 'int_drogas', xtype: 'textfield', flex: 1, labelSeparator: '' } },
+         {  defaults: { flex: 1, xtype: 'combo', labelSeparator: '' },
+            items: [
+               { fieldLabel: 'Fumante?', name: 'int_fumante', margins: '0 5 0 0',
+                  store: new Ext.data.ArrayStore({ fields: ['valor','texto'], data: Const.arrayCombo })
+               },
+               { fieldLabel: 'Ficaria sem namorar?', name: 'int_sem_namoro',
+                  store: new Ext.data.ArrayStore({ fields: ['valor','texto'], data: Const.arrayCombo })
+               }
+            ]
+         }
+      ];
+   }
+});
+
+Ext.onReady(function() {
+    Ext.QuickTips.init();
+    Ext.apply(Ext.form.BaseField.prototype, {
+       labelAlign: 'top',
+       msgTarget: "qtip",
+       anchor: "100%"
+    });
+    Ext.apply(Ext.form.ComboBox.prototype, {
+       forceSelection: true,
+       queryMode: 'local',
+       typeAhead: true,
+       valueField: 'valor',
+       displayField: 'texto'
+    });
+
+
+   var myForm = Ext.create('App.myForm');
+   myForm.show();
+});
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

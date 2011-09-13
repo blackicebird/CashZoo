@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title id="page-title">Test Page</title>
+			
+                <link rel="stylesheet" type="text/css" href="../../../resources/css/ext-all.css" />
+                <script type="text/javascript" src="../../../bootstrap.js"></script>
+                <script type="text/javascript" src="../example-data.js"></script>
+		<script type="text/javascript">
+         Ext.require(['Ext.data.*', 'Ext.chart.*']);
+         Ext.onReady(function () {
+            store1.loadData(generateData(190));
+            
+            var panel1 = Ext.create('widget.panel', {
+                width: 800,
+                height: 400,
+                title: 'Line Chart',
+                renderTo: Ext.getBody(),
+                layout: 'fit',
+                items: {
+                    xtype: 'chart',
+                    animate: true,
+                    shadow: true,
+                    store: store1,
+                    axes: [{
+                        type: 'Numeric',
+                        position: 'left',
+                        fields: ['data1'],
+                        title: "A Title"
+                    }, {
+                        type: 'Category',
+                        position: 'bottom',
+                        fields: ['name'],
+                        title: false,
+                        label: {
+                            rotate: {
+                                degrees: 0
+                            }
+                        }
+                    }],
+                    series: [{
+                        type: 'line',
+                        axis: 'left',
+                        gutter: 80,
+                        xField: 'name',
+                        yField: ['data1']
+                    }]
+                }
+            });
+         });
+		</script>
+	</head>
+	<body>
+		<div id="grid-example"></div> 
+	</body>
+</html>

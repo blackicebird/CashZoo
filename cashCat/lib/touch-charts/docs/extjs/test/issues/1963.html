@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript">
+
+Ext.require(['Ext.data.*', 'Ext.chart.*', 'Ext.panel.*']);
+
+Ext.onReady(function() {
+
+    var store1 = Ext.create('Ext.data.JsonStore', {
+        fields: ['name', 'total', 'unique'],
+
+        data: [
+            { name: '04/03/2011', total: 0, unique: 0},
+            { name: '04/04/2011', total: 1, unique: 0},
+            { name: '04/05/2011', total: 1, unique: 0},
+            { name: '04/06/2011', total: 16, unique: 2},
+            { name: '04/07/2011', total: 1, unique: 0},
+            { name: '04/08/2011', total: 1, unique: 0},
+            { name: '04/09/2011', total: 1, unique: 1},
+            { name: '04/10/2011', total: 0, unique: 0}
+        ]
+/*
+        data: window.storedata = [
+            { name: '04/03/2011', total: Math.random() * 16, unique: 0},
+            { name: '04/04/2011', total: Math.random() * 16, unique: 0},
+            { name: '04/05/2011', total: Math.random() * 16, unique: 0},
+            { name: '04/06/2011', total: Math.random() * 16, unique: 2},
+            { name: '04/07/2011', total: Math.random() * 16, unique: 0},
+            { name: '04/08/2011', total: Math.random() * 16, unique: 0},
+            { name: '04/09/2011', total: Math.random() * 16, unique: 1},
+            { name: '04/10/2011', total: Math.random() * 16, unique: 0}
+        ]
+*/
+    });
+
+    Ext.create('Ext.panel.Panel', {
+        border: false,
+        height: 250,
+        layout: 'fit',
+        items: [{
+            animate: true,
+            axes: [{
+                fields: ['total'],
+                grid: true,
+                minimum: 0,
+                position: 'left',
+                title: 'Number of Hits',
+                type: 'Numeric'
+            }, {
+                fields: ['name'],
+                grid: true,
+                position: 'bottom',
+                type: 'Category'
+            }],
+            height: 250,
+            highlight: true,
+            series: [{
+                fill: true,
+                highlight: true,
+                smooth: true,
+                type: 'line',
+                xField: 'name',
+                yField: 'total'
+            }],
+            store: store1,
+            xtype: 'chart'
+        }],
+        renderTo: Ext.getBody(),
+        width: 700
+    });
+});
+</script>
+</head>
+<body>
+
+</body>
+</html>

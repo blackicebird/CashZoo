@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Accordion w/Grid</title>
+
+    <link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+
+    <script type="text/javascript" src="../../bootstrap.js"></script>
+
+    <script type="text/javascript">
+
+        Ext.require([
+            '*'
+        ]);
+
+        Ext.define('Item', {
+            extend: 'Ext.data.Model',
+            fields: ['allow_qty', 'assm_id', 'assm_num', 'group_by', 'astd_qty', 'errors', 'fault', 'faulttip', 'nsn', 'pct', 'sran', 'sub_assm', 'sub_org_id', 'total']
+        });
+
+        Ext.onReady(function(){
+
+            var data = [],
+                i = 0;
+
+            for (; i < 500; ++i) {
+                data.push({
+                    assm_id: 'assm_id' + i,
+                    assm_num: 'assm_num' + i,
+                    sub_org_id: 'sub_org_id' + i,
+                    sub_assm: 'sub_assm' + i,
+                    nsn: 'nsn' + i,
+                    pct: 'pct' + i,
+                    fault: 'fault' + i
+                });
+            }
+
+            var cbrn_ac_grid_panel = new Ext.grid.GridPanel({
+                invalidateScrollerOnRefresh: false,
+                title: 'Allowance Currency Information',
+                store: {
+                    model: 'Item',
+                    data: data
+                },
+                columns: [{
+                    text: 'Sub Org',
+                    dataIndex: 'sub_org_id',
+                    flex: 1
+                }, {
+                    header: 'Assemblage',
+                    dataIndex: 'assm_id',
+                    width: 100
+                }, {
+                    header: 'Assemblage #',
+                    dataIndex: 'assm_num',
+                    width: 100
+                }, {
+                    header: 'Sub Assemblage',
+                    dataIndex: 'sub_assm',
+                    width: 100
+                }, {
+                    header: 'Currency %',
+                    dataIndex: 'pct',
+                    width: 100
+                }, {
+                    header: 'NSN',
+                    dataIndex: 'nsn',
+                    align: 'right',
+                    width: 100
+                }, {
+                    header: 'Error',
+                    align: 'right',
+                    dataIndex: 'fault',
+                    width: 100
+                }]
+            });
+
+            Ext.create('Ext.Viewport', {
+                id: 'kpi-viewport',
+                layout: 'border',
+                items: [{
+                    region: 'center',
+                    title: 'CBRN KPI',
+                    html: 'center'
+                }, {
+                    region: 'south',
+                    collapsible: true,
+                    collapsed: false,
+                    height: 300,
+                    title: 'KPI Description',
+                    layout: 'fit',
+                    split: true,
+                    items: [cbrn_ac_grid_panel]
+                }]
+            });
+        });
+
+        /* original test case... no data in grid (bad URL?)
+        Ext.require('*');
+        Ext.onReady(function() {
+
+            Ext.define('cbrn_ac_chart', {
+                extend: 'Ext.data.Model',
+                fields: [
+                    {name:'pct',             type:'auto'        },
+                    {name:'p_pct',             type:'auto'        },
+                    {name:'yyyymm',         type:'auto'     },
+                    {name:'jmar_dt',         type:'string'   }
+
+                ]
+            });
+
+            Ext.define('cbrn_ac_grid', {
+                extend: 'Ext.data.Model',
+                fields: [
+                    {name:'allow_qty',             type:'auto'        },
+                    {name:'assm_id',             type:'auto'        },
+                    {name: 'assm_num',             type:'auto'     },
+                    {name:'group_by',             type:'auto'        },
+                    {name:'astd_qty',             type:'auto'        },
+                    {name:'errors',             type:'auto'        },
+                    {name:'fault',                 type:'auto'     },
+                    {name: 'faulttip',             type:'auto'     },
+                    {name:'nsn',                 type:'auto'        },
+                    {name:'pct',                 type:'auto'        },
+                    {name:'sran',                 type:'auto'     },
+
+                    {name:'sub_assm',             type:'auto'        },
+                    {name:'sub_org_id',         type:'auto'        },
+                    {name:'total',                 type:'auto'     }
+                ]
+            });
+
+            var cbrn_ac_chart_store = new Ext.data.Store({
+                model: 'cbrn_ac_chart',
+                proxy: {
+                    type: 'ajax',
+                    actionMethods: {
+                        create : 'POST',
+                        read   : 'POST',
+                        update : 'POST',
+                        destroy: 'POST'
+                    },
+                    extraParams:{'dodaac':'FM2300'},
+                    url: '/apps/cm/model/kpi-v-ii.cfm?remoteEvent=allow_curr_chart',
+                    reader: {
+                        type: 'json',
+                        root: 'data'
+                    }
+                },
+                autoLoad: true
+            });
+
+            var cbrn_ac_grid_store = new Ext.data.Store({
+                model: 'cbrn_ac_grid',
+                groupField:'group_by',
+                pageSize: 50,
+                // allow the grid to interact with the paging scroller by buffering
+                buffered: true,
+                // never purge any data, we prefetch all up front
+                purgePageCount: 0,
+                proxy: {
+                    type: 'ajax',
+                    actionMethods: {
+                        create : 'POST',
+                        read   : 'POST',
+                        update : 'POST',
+                        destroy: 'POST'
+                    },
+                    extraParams:{'dodaac':'FM2300'},
+                    url: '/apps/cm/model/kpi-v-ii.cfm?remoteEvent=allow_curr_grid',
+                    reader: {
+                        type: 'json',
+                        root: 'data'
+                    }
+                },
+                autoLoad: true
+            });
+
+            var cbrn_ac_chart_panel = new Ext.chart.Chart({
+                hidden: false,
+                layout: 'fit',
+                animate:false,
+                   id: 'cbrn_ac_chart_',
+                   style: 'background:#fff',
+                   store: cbrn_ac_chart_store,
+                   axes: [{
+                    type: 'Numeric',
+                    position: 'left',
+                    minorTickSteps: 1,
+                    fields: ['p_pct','pct'],
+                    title: 'Percentage',
+                    grid:true
+                },{
+                    type: 'Category',
+                    position: 'bottom',
+                    fields: ['yyyymm'],
+                    title: 'Year / Month'
+                   }],
+                series: [{
+                    type: 'line',
+                       xField:'yyyymm',
+                    yField:'p_pct',
+                    tips: {
+                        trackMouse: true,
+                        width: 450,
+                        height: 55,
+                        renderer: function(storeItem, item) {
+                            this.setTitle('Overall Peer Group Percentage: ' +  storeItem.get('p_pct') + ' Year / Month: ' +  storeItem.get('yyyymm'));
+                        }
+                    },
+                    style: {
+                        fill: '#000CFC',
+                        opacity: 0.75
+                    }
+                },{
+                    type: 'line',
+                    yField:'pct',
+                    xField:'jmar_dt',
+                    tips: {
+                        trackMouse: true,
+                        width: 450,
+                        height: 55,
+                        renderer: function(storeItem, item) {
+                            this.setTitle('Percentage: ' +  storeItem.get('pct') + ' Year / Month: ' +  storeItem.get('yyyymm'));
+                        }
+                    },
+                    style: {
+                        fill: '#000CFC',
+                        opacity: 0.75
+                    }
+                }]
+            });
+
+            var cbrn_ac_grid_panel = new Ext.grid.GridPanel({
+                id:'cbrn_ac_grid_panel',
+                height:300,
+                invalidateScrollerOnRefresh: false,
+                loadMask: true,
+                viewConfig: {
+                    trackOver: true
+                },
+                title:'Allowance Currency Information',
+                store: cbrn_ac_grid_store,
+                features: [{
+                    ftype: 'groupingsummary',
+                    groupHeaderTpl: 'Sub Org and Assemblage {name}',
+                    enableGroupingMenu:false
+                }],
+                verticalScroller: {
+                    xtype: 'paginggridscroller',
+                    activePrefetch: false
+                },
+                columns: [{
+                        header: '',
+                        hidden:true,
+                        dataIndex: 'group_by',
+                        width:100
+                    },{
+                        text: 'Sub Org',
+                        sortable: true,
+                        dataIndex: 'sub_org_id',
+                        hideable: false,
+                        flex:1,
+                        summaryType: 'count',
+                        summaryRenderer: function(v, params, data) {
+                               return ((v === 0 || v > 1) ? '(' + v + ') Error Records' : '(1) Error Record');
+                        }
+                    },{
+                        header: 'Assemblage',
+                        sortable: true,
+                        summaryType: 'count',
+                        summaryRenderer: function(v, params, data) {
+                               return '&nbsp; ';
+                        },
+                        dataIndex: 'assm_id',
+                        width:100
+                    },{
+                        header: 'Assemblage #',
+                        sortable: true,
+                        summaryType: 'count',
+                        summaryRenderer: function(v, params, data) {
+                               return '&nbsp; ';
+                        },
+                        dataIndex: 'assm_num',
+                        width:100
+                    },{
+                        header: 'Sub Assemblage',
+                        sortable: true,
+                        dataIndex: 'sub_assm',
+                        summaryType: 'count',
+                        summaryRenderer: function(v, params, data) {
+                               return '&nbsp; ';
+                        },
+                        width:100
+                    },{
+                        header: 'Currency %',
+                        sortable: true,
+                        dataIndex: 'pct',
+
+                        summaryType: 'average',
+                        summaryRenderer: function(v, params, data) {
+                               return v + '%';
+                        },
+                        width:100
+                    },{
+                        header: 'NSN',
+                        sortable: true,
+                        dataIndex: 'nsn',
+                        summaryType: 'count',
+                        summaryRenderer: function(v, params, data) {
+                               return '&nbsp; ';
+                        },
+                        align:'right',
+                        width:100
+                    },{
+                        header: 'Error',
+                        sortable: true,
+                        align:'right',
+                        summaryType: 'count',
+                        summaryRenderer: function(v, params, data) {
+                               return '&nbsp; ';
+                        },
+                        dataIndex: 'fault',
+                        width:100
+                    }]
+             });
+
+            Ext.create('Ext.Viewport', {
+                id:'kpi-viewport',
+                layout: {
+                    type: 'border',
+                    padding: 5
+                },
+                defaults: {
+                    split: true
+                },
+                items: [{
+                    region:'center',
+                    id:'vp-center-card',
+                    margins: '5 0 0 0',
+                    title: 'CBRN KPI',
+                    layout: 'card',
+                    activeItem:0,
+                    border: true,
+                    items:[cbrn_ac_chart_panel]
+                },{
+                    region:'south',
+                    id:'east-region',
+                    margins:'5 2 0 0',
+                    cmargins:'5 2 0 0',
+                    collapsible: true,
+                    collapsed:false,
+                    title:'KPI Description',
+                    layout:'fit',
+                    split:true,
+                    width:'20%',
+                    items:[cbrn_ac_grid_panel]
+                }]
+            });
+        });
+        /**/
+    </script>
+</head>
+    <body>
+    </body>
+</html>

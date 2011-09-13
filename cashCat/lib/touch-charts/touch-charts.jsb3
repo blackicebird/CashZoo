@@ -1,0 +1,127 @@
+{
+    "projectName": "Touch Charts",
+    "licenseText": "Copyright(c) 2011 Sencha Inc.\nlicensing@sencha.com\nhttp://www.sencha.com/touchlicense",
+    "packages": [
+        {
+            "name"  : "Chart Animation",
+            "target": "pkgs/chart-anim.js",
+            "id"    : "chart_anim",
+            "files" : [
+                {"path": "src/fx/",           "name": "Queue.js"},
+                {"path": "src/fx/",           "name": "Manager.js"},
+                {"path": "src/fx/",           "name": "CubicBezier.js"},
+                {"path": "src/fx/",           "name": "Easing.js"},
+                {"path": "src/fx/",           "name": "PropertyHandler.js"},
+                {"path": "src/fx/",           "name": "Animator.js"},
+                {"path": "src/fx/",           "name": "Anim.js"},
+                {"path": "src/fx/target/",    "name": "Target.js"},
+                {"path": "src/fx/target/",    "name": "Sprite.js"},
+                {"path": "src/fx/target/",    "name": "CompositeSprite.js"},
+                {"path": "src/fx/",           "name": "Animate.js"}
+            ]
+        },
+        {
+            "name"  : "Chart Draw",
+            "target": "pkgs/chart-draw.js",
+            "id"    : "chart_draw",
+            "files" : [
+                {"path": "src/draw/",           "name": "DrawLayout.js"},
+                {"path": "src/draw/",           "name": "Color.js"},
+                {"path": "src/draw/",           "name": "Draw.js"},
+                {"path": "src/draw/",           "name": "CompositeSprite.js"},
+                {"path": "src/draw/",           "name": "Sprite.js"},
+                {"path": "src/draw/",           "name": "Matrix.js"},
+                {"path": "src/draw/",           "name": "Surface.js"},
+                {"path": "src/draw/engine/",    "name": "Canvas.js"},
+                {"path": "src/draw/engine/",    "name": "CanvasEventsSprite.js"},
+                {"path": "src/draw/engine/",    "name": "CanvasEventsManager.js"},
+                {"path": "src/draw/",           "name": "Component.js"}
+            ]
+        },
+        {
+            "name"  : "Chart Charts",
+            "target": "pkgs/chart-chart.js",
+            "id"    : "chart_chart",
+            "files" : [
+                {"path": "src/chart/",           "name": "Shape.js"},
+                {"path": "src/chart/",           "name": "Toolbar.js"},
+                {"path": "src/chart/",           "name": "Legend.js"},
+                {"path": "src/chart/theme/",     "name": "Theme.js"},
+                {"path": "src/chart/theme/",     "name": "ThemeList.js"},
+                {"path": "src/chart/theme/",     "name": "Base.js"},
+                {"path": "src/chart/theme/",     "name": "Style.js"},
+                {"path": "src/chart/theme/",     "name": "LabelStyle.js"},
+                {"path": "src/chart/theme/",     "name": "HighlightStyle.js"},
+                {"path": "src/chart/theme/",     "name": "MarkerStyle.js"},
+                {"path": "src/chart/theme/",     "name": "TitleStyle.js"},
+                {"path": "src/chart/theme/",     "name": "CalloutStyle.js"},
+                {"path": "src/chart/theme/",     "name": "GridStyle.js"},
+                {"path": "src/chart/theme/",     "name": "EvenStyle.js"},
+                {"path": "src/chart/theme/",     "name": "OddStyle.js"},
+                {"path": "src/chart/",           "name": "Chart.js"},
+                {"path": "src/chart/",           "name": "Panel.js"},
+                {"path": "src/chart/",           "name": "Callout.js"},
+                {"path": "src/chart/",           "name": "Highlight.js"},
+                {"path": "src/chart/",           "name": "Label.js"},
+                {"path": "src/chart/",           "name": "Transformable.js"},
+                {"path": "src/chart/axis/",      "name": "Abstract.js"},
+                {"path": "src/chart/axis/",      "name": "Axis.js"},
+                {"path": "src/chart/axis/",      "name": "Category.js"},
+                {"path": "src/chart/axis/",      "name": "Gauge.js"},
+                {"path": "src/chart/axis/",      "name": "Numeric.js"},
+                {"path": "src/chart/axis/",      "name": "Radial.js"},
+                {"path": "src/chart/axis/",      "name": "Time.js"},
+                {"path": "src/chart/series/",    "name": "ItemEvents.js"},
+                {"path": "src/chart/series/",    "name": "Series.js"},
+                {"path": "src/chart/series/",    "name": "Cartesian.js"},
+                {"path": "src/chart/series/",    "name": "Bar.js"},
+                {"path": "src/chart/series/",    "name": "Column.js"},
+                {"path": "src/chart/series/",    "name": "Gauge.js"},
+                {"path": "src/chart/series/",    "name": "Line.js"},
+                {"path": "src/chart/series/",    "name": "Pie.js"},
+                {"path": "src/chart/series/",    "name": "Radar.js"},
+                {"path": "src/chart/series/",    "name": "Scatter.js"},
+                {"path": "src/chart/series/",    "name": "Area.js"},
+                {"path": "src/chart/interactions/",    "name": "Manager.js"},
+                {"path": "src/chart/interactions/",    "name": "Abstract.js"},
+                {"path": "src/chart/interactions/",    "name": "DelayedSync.js"},
+                {"path": "src/chart/interactions/",    "name": "PanZoom.js"},
+                {"path": "src/chart/interactions/",    "name": "PieGrouping.js"},
+                {"path": "src/chart/interactions/",    "name": "Rotate.js"},
+                {"path": "src/chart/interactions/",    "name": "ItemCompare.js"},
+                {"path": "src/chart/interactions/",    "name": "ItemHighlight.js"},
+                {"path": "src/chart/interactions/",    "name": "ItemInfo.js"},
+                {"path": "src/chart/interactions/",    "name": "Reset.js"},
+                {"path": "src/chart/interactions/",    "name": "ToggleStacked.js"}
+            ]
+        }
+    ],
+    "builds": [
+        {
+            "name": "Touch Charts",
+            "target": "touch-charts.js",
+            "debug": true,
+            "options": {
+              "minVersion": 1.1
+           },
+            "packages": [
+                "chart_anim",
+                "chart_draw",
+                "chart_chart"
+            ]
+        }
+    ],
+    "resources": [
+        {"src": "resources/"},
+        {"src": "src/"},
+        {"src": "jsbuilder/"},
+        {"src": "examples/"},
+        {"src": "touch-charts.jsb3"},
+        {"src": "license.txt"},
+        {"src": "license.inc"},
+        {"src": "release-notes.html"},
+        {"src": "sencha-touch.js"},
+        {"src": "sencha-touch-debug.js"},
+        {"src": "index.html"}
+    ]
+}

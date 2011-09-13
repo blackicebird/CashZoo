@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Alignment test</title>
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<!--<script>
+Ext.onReady(function() {
+    var cachebuster = new Date().getTime();
+    var quirks = document.getElementById('quirks');
+    var strict = document.getElementById('strict');
+    var trans = document.getElementById('trans');
+    quirks.src = "912-quirks.html?nocache&" + cachebuster;
+    strict.src = "912-strict.html?nocache&" + cachebuster;
+    trans.src = "912-trans.html?nocache&" + cachebuster;
+});
+</script>-->
+</head>
+<!--<frameset rows="33%,34%,33%">
+    <frame id="quirks" />
+    <frame id="strict" />
+    <frame id="trans" />
+</frameset>-->
+<body>
+    <p>While using frames to compare the different modes sounds like a good idea, it isn't. There are caching problems when frequently refreshing and the IE developer tool seems to have a bug where when you open it will apply the current mode to all frames.</p>
+    <a target="_blank" href="912-quirks.html?nocache">Quirks</a>
+    <a target="_blank" href="912-strict.html?nocache">Strict</a>
+    <a target="_blank" href="912-trans.html?nocache">Trans</a>
+</body>
+</html>

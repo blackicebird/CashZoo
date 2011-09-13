@@ -1,0 +1,42 @@
+@import 'include/variables';
+
+$base-color: #5D6056;
+$text-color: lighten($base-color, 20%);
+$title-color: darken($base-color, 10%);
+$stroke-color: lighten($base-color, 40%);
+
+chart {
+  
+  colors: darken($chart-red, 20%) darken($chart-red, 20%) darken($chart-yellow, 20%);
+  
+  background: lighten($base-color, 50%);
+        
+  
+  series {
+    &:highlight {
+        radius: 5;
+        stroke-width: 3;
+        stroke: #fff;
+    }
+  }
+  
+  
+  axis {
+    stroke: $stroke-color;
+    fill: $stroke-color;
+    
+/*    &[position="bottom"] {
+        label {
+            rotate: 270;
+        }
+    }*/
+    
+    label {
+      fill: $text-color;
+    }
+    
+    title {
+      fill: $title-color;
+    }
+  }
+}

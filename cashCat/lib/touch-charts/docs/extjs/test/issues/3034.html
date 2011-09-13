@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EXTJSIV-3034</title>
+		<link rel="stylesheet" type="text/css" href="/ext-4.0.2a/resources/css/ext-all.css">
+		<script type="text/javascript" src="/ext-4.0.2a/bootstrap.js"></script>
+		<script>
+		Ext.onReady(function() {
+	          var p = new Ext.Panel({
+	            renderTo: Ext.getBody(), height: 200, width: 300, padding: 20,
+        	    layout: 'accordion',
+            	    items: [
+              		{title: 'Panel 1', html: 'Some content', dockedItems: [
+                  		{xtype: 'toolbar', dock: 'top', items: [ 'Top:', { text: 'Button 1' }] },
+                  		{xtype: 'toolbar', dock: 'bottom', items: [ 'Bottom:', { text: 'Button 2' }] }
+              	    	]},
+              	    	{ title: 'Panel 2', html: 'Some content' }
+            	    ]
+          	  });
+        	});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

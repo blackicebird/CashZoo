@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Failed test case</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+</head>
+<body>
+    <style>
+        .test1 {
+            border: 1px solid red;
+        }
+        .test2 {
+            color: blue;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+    Ext.onReady(function() {
+        Ext.create("Ext.window.Window", {
+        	layout:"fit",
+        	items:[
+        		{
+        			xtype:"textarea",
+        			fieldCls:"test1 test2"
+        		}
+        	]
+        }).show();
+    });
+    </script>
+</body>
+</html>

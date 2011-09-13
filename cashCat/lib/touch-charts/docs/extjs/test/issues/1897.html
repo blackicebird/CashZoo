@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EXTJSIV-1897</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+
+<style type="text/css" media="screen">
+    body {
+        margin: 10px 20px;
+    }
+    body h1 {
+        font-size: 20px;
+    }
+    body p, body h1 {
+        font-family: helvetica;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+    <h1>EXTJSIV-1897</h1>
+    
+    <p>Buffered store throws error when guaranteed range is not returned.</p>
+    
+    <script type="text/javascript" charset="utf-8">
+        
+    Ext.Loader.setConfig({enabled: true});
+    Ext.require([
+        'Ext.grid.*',
+        'Ext.data.*',
+        'Ext.util.*'
+    ]);
+    
+    Ext.define('Fake', {
+        extend: 'Ext.data.Model',
+        fields: [
+           {name: 'idx', type: 'int'},
+           {name: 'id'},
+           {name: 'AAA'},
+           {name: 'BBB'}
+        ]
+    });
+    
+    Ext.onReady(function(){
+
+        var store = Ext.create('Ext.data.Store', {
+            id: 'myStore',
+            pageSize: 30,
+            buffered: true,
+            purgePageCount: 0,
+            model: 'Fake',
+            proxy: {
+                type: 'ajax',
+                url: '1897.php',
+                reader: {
+                    type: 'json',
+                    root: 'data'
+                }
+            }
+        });
+    
+        var grid = Ext.create('Ext.grid.Panel', {
+            width: 700,
+            height: 500,
+            title: 'Bufffered Grid, testing guaranteed ranges',
+            store: store,
+            verticalScroller: {
+                xtype: 'paginggridscroller'
+            },
+            loadMask: true,
+            disableSelection: true,
+            invalidateScrollerOnRefresh: false,
+            columns:[{
+                text: 'ID',
+                flex: 1,
+                sortable: true,
+                dataIndex: 'id'
+            },{
+                text: 'AAA',
+                flex: 1,
+                sortable: true,
+                dataIndex: 'AAA'
+            },{
+                text: 'BBB',
+                flex: 1,
+                sortable: true,
+                dataIndex: 'BBB'
+            }],
+            renderTo: Ext.getBody()
+        });
+    
+        store.guaranteeRange(0, store.pageSize - 1);
+        //store.load();
+        
+    });
+    </script>
+</body>
+</html>

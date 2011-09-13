@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>SplitButton Menu (EXTJSIV-3408)</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript">
+Ext.require([
+    'Ext.menu.Menu',
+    'Ext.container.Viewport',
+    'Ext.button.Split'
+]);
+Ext.onReady(function() {
+
+    Ext.create('Ext.container.Viewport', {
+        layout : 'fit',
+        items  : {
+            xtype       : 'panel',
+            frame       : true,
+            html        : 'hi',
+            dockedItems : [
+                {
+                    xtype    : 'toolbar',
+                    dock     : 'bottom',
+                    height   : 50,
+                    defaults : { height : 40 },
+                    items    : [
+                        {
+                            xtype : 'splitbutton',
+                            text  : 'Add',
+                            menu  : Ext.create('Ext.menu.Menu', {
+                            items : [
+                                { text : 'Item 1' },
+                                { text : 'Item 2' }
+                            ]
+                        })
+                        }
+                    ]
+                },
+                {
+                    xtype : 'container',
+                    dock  : 'left',
+                    width : 200
+                }
+            ]
+        }
+    });
+
+});
+</script>
+</head>
+<body>
+</body>
+</html>

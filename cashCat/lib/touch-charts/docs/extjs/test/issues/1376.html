@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Shims</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+<script type="text/javascript">
+
+Ext.require('Ext.window.Window');
+
+Ext.onReady(function() {
+
+    var win0 = Ext.widget('window', {
+        width:200,
+        height:200,
+        x: 20,
+        y: 130,
+        title: 'Select',
+        closable: false,
+        bodyPadding: 30,
+        html: '<select><option selected>yadda yadda</option></select>'
+    }).show();
+
+    var win1 = Ext.widget('window', {
+        width:200,
+        height:200,
+        title: 'No Animation',
+        closeAction: 'hide'
+    });
+    var win2 = Ext.widget('window', {
+        width:200,
+        height:200,
+        title: 'With Animation',
+        closeAction: 'hide'
+    });
+
+    Ext.widget('button', {
+        renderTo: Ext.getBody(),
+        margin: 10,
+        text: 'No Animation',
+        handler: function() {
+            win1.show();
+        }
+    });
+
+    Ext.widget('button', {
+        renderTo: Ext.getBody(),
+        margin: 10,
+        text: 'With Animation',
+        handler: function() {
+            win2.animateTarget = this;
+            win2.show();
+        }
+    });
+
+});
+
+</script>
+</head>
+<body>
+    <p>This test is only relevant in IE6. After creating each window, drag it over the select box. With this bug,
+    when you drag the non-animated window over the select it will sync its shim correctly and the select will be
+    covered up. But when you drag the animated window over it, the select will poke through because the shim isn't
+    synced.</p>
+    <p>You can get it to start behaving by switching focus between windows, this seems to force the shim to get
+    synced correctly.</p>
+</body>
+</html>

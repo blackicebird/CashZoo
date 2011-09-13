@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">;Ext.chart.theme.Base = [
+    {
+        &quot;selector&quot;: &quot;chart&quot;,
+        &quot;style&quot;: {
+            &quot;padding&quot;: 10,
+            &quot;colors&quot;: [
+                &quot;#115fa6&quot;,
+                &quot;#94ae0a&quot;,
+                &quot;#a61120&quot;,
+                &quot;#ff8809&quot;,
+                &quot;#ffd13e&quot;,
+                &quot;#a61187&quot;,
+                &quot;#24ad9a&quot;,
+                &quot;#7c7474&quot;,
+                &quot;#a66111&quot;
+            ]
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis&quot;,
+        &quot;style&quot;: {
+            &quot;color&quot;: &quot;#354f6e&quot;,
+            &quot;fill&quot;: &quot;#354f6e&quot;,
+            &quot;stroke&quot;: &quot;#cccccc&quot;,
+            &quot;stroke-width&quot;: 1
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis label&quot;,
+        &quot;style&quot;: {
+            &quot;color&quot;: &quot;#354f6e&quot;,
+            &quot;fill&quot;: &quot;#354f6e&quot;,
+            &quot;font&quot;: &quot;12px Helvetica, Arial, sans-serif&quot;,
+            &quot;font-weight&quot;: &quot;bold&quot;,
+            &quot;spacing&quot;: 2,
+            &quot;padding&quot;: 5
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis title&quot;,
+        &quot;style&quot;: {
+            &quot;font&quot;: &quot;18px Helvetica, Arial, sans-serif&quot;,
+            &quot;color&quot;: &quot;#354f6e&quot;,
+            &quot;fill&quot;: &quot;#354f6e&quot;,
+            &quot;padding&quot;: 5
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis[position=\&quot;left\&quot;] title&quot;,
+        &quot;style&quot;: {
+            &quot;rotate&quot;: {
+                &quot;x&quot;: 0,
+                &quot;y&quot;: 0,
+                &quot;degrees&quot;: 270
+            }
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis[position=\&quot;right\&quot;] title&quot;,
+        &quot;style&quot;: {
+            &quot;rotate&quot;: {
+                &quot;x&quot;: 0,
+                &quot;y&quot;: 0,
+                &quot;degrees&quot;: 270
+            }
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis[position=\&quot;radial\&quot;]&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;none&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis[position=\&quot;radial\&quot;] label&quot;,
+        &quot;style&quot;: {
+            &quot;font&quot;: &quot;10px Helvetica, Arial, sans-serif&quot;,
+            &quot;text-anchor&quot;: &quot;middle&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis[position=\&quot;gauge\&quot;]&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;none&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis[position=\&quot;gauge\&quot;] label&quot;,
+        &quot;style&quot;: {
+            &quot;font&quot;: &quot;10px Helvetica, Arial, sans-serif&quot;,
+            &quot;text-anchor&quot;: &quot;middle&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series&quot;,
+        &quot;style&quot;: {
+            &quot;stroke-width&quot;: 1
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series label&quot;,
+        &quot;style&quot;: {
+            &quot;font&quot;: &quot;12px Helvetica, Arial, sans-serif&quot;,
+            &quot;fill&quot;: &quot;#333333&quot;,
+            &quot;display&quot;: &quot;none&quot;,
+            &quot;field&quot;: &quot;name&quot;,
+            &quot;minMargin&quot;: &quot;50&quot;,
+            &quot;orientation&quot;: &quot;horizontal&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series:nth-child(1)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#115fa6&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series:nth-child(2)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#94ae0a&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series:nth-child(3)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#a61120&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series:nth-child(4)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#ff8809&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series:nth-child(5)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#ffd13e&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series:nth-child(6)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#a61187&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series:nth-child(7)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#24ad9a&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series:nth-child(8)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#7c7474&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series:nth-child(9)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#a66111&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series:highlight&quot;,
+        &quot;style&quot;: {
+            &quot;radius&quot;: 20,
+            &quot;stroke-width&quot;: 5,
+            &quot;stroke&quot;: &quot;#ff5555&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series[type=\&quot;line\&quot;]:highlight&quot;,
+        &quot;style&quot;: {
+            &quot;stroke-width&quot;: 3
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series[type=\&quot;bar\&quot;]:highlight&quot;,
+        &quot;style&quot;: {
+            &quot;stroke-width&quot;: 3,
+            &quot;stroke&quot;: &quot;#5555cc&quot;,
+            &quot;opacity&quot;: 0.8
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series[type=\&quot;area\&quot;]:highlight&quot;,
+        &quot;style&quot;: {
+            &quot;stroke-width&quot;: 3,
+            &quot;stroke&quot;: &quot;#111111&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series[type=\&quot;pie\&quot;]:highlight&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;none&quot;,
+            &quot;stroke-width&quot;: 0
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series[type=\&quot;scatter\&quot;]:highlight&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;none&quot;,
+            &quot;stroke-width&quot;: 0
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart marker&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#ffffff&quot;,
+            &quot;stroke-width&quot;: 1,
+            &quot;type&quot;: &quot;circle&quot;,
+            &quot;fill&quot;: &quot;#000000&quot;,
+            &quot;radius&quot;: 5,
+            &quot;size&quot;: 5
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart marker:nth-child(1)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#115fa6&quot;,
+            &quot;type&quot;: &quot;circle&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart marker:nth-child(2)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#94ae0a&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart marker:nth-child(3)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#a61120&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart marker:nth-child(3)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#a61120&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart marker:nth-child(4)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#ff8809&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart marker:nth-child(5)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#ffd13e&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart marker:nth-child(6)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#a61187&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart marker:nth-child(7)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#24ad9a&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart marker:nth-child(8)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#7c7474&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart marker:nth-child(9)&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#a66111&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart interaction[type=\&quot;itemcompare\&quot;] circle&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;rgba(0, 0, 0, 0)&quot;,
+            &quot;stroke&quot;: &quot;#0d75f2&quot;,
+            &quot;radius&quot;: 5
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart interaction[type=\&quot;itemcompare\&quot;] line&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#0d75f2&quot;,
+            &quot;stroke-width&quot;: 3
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart interaction[type=\&quot;itemcompare\&quot;] arrow&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#0d75f2&quot;,
+            &quot;radius&quot;: 8
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart interaction[type=\&quot;piegrouping\&quot;] slice&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#0d75f2&quot;,
+            &quot;stroke-width&quot;: 2,
+            &quot;fill&quot;: &quot;#0d75f2&quot;,
+            &quot;opacity&quot;: 0.5
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart interaction[type=\&quot;piegrouping\&quot;] handle&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#0d75f2&quot;,
+            &quot;stroke-width&quot;: 2,
+            &quot;fill&quot;: &quot;#0d75f2&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    }
+];;Ext.chart.theme.Demo = [
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;area1\&quot;] axis[position=\&quot;left\&quot;] grid even&quot;,
+        &quot;style&quot;: {
+            &quot;opacity&quot;: 1,
+            &quot;fill&quot;: &quot;#dddddd&quot;,
+            &quot;stroke&quot;: &quot;#bbbbbb&quot;,
+            &quot;stroke-width&quot;: 1
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            4
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;area1\&quot;] axis[position=\&quot;bottom\&quot;] label&quot;,
+        &quot;style&quot;: {
+            &quot;rotate&quot;: {
+                &quot;degrees&quot;: 45
+            }
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;area1\&quot;] series&quot;,
+        &quot;style&quot;: {
+            &quot;opaciy&quot;: &quot;0.93&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;bar1\&quot;] axis[position=\&quot;bottom\&quot;] grid&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#cccccc&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;column1\&quot;]&quot;,
+        &quot;style&quot;: {
+            &quot;background&quot;: &quot;#111111&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            1
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;column1\&quot;] axis&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#eeeeee&quot;,
+            &quot;fill&quot;: &quot;#eeeeee&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;column1\&quot;] axis label&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#ffffff&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;column1\&quot;] axis title&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#ffffff&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;column1\&quot;] axis[position=\&quot;left\&quot;] grid odd&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#555555&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            4
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;column1\&quot;] axis[position=\&quot;left\&quot;] grid even&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#555555&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            4
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;column1\&quot;] series label&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#ffffff&quot;,
+            &quot;font&quot;: &quot;17px Arial&quot;,
+            &quot;display&quot;: &quot;insideEnd&quot;,
+            &quot;text-anchor&quot;: &quot;middle&quot;,
+            &quot;orientation&quot;: &quot;horizontal&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;barcombo1\&quot;] axis[position=\&quot;bottom\&quot;] grid&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#cccccc&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;piecombo1\&quot;]&quot;,
+        &quot;style&quot;: {
+            &quot;padding&quot;: 20
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            1
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;piecombo1\&quot;] series label&quot;,
+        &quot;style&quot;: {
+            &quot;display&quot;: &quot;rotate&quot;,
+            &quot;contrast&quot;: true,
+            &quot;font&quot;: &quot;14px Arial&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;gaugecombo1\&quot;]&quot;,
+        &quot;style&quot;: {
+            &quot;padding&quot;: 30
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            1
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;gaugecombo1\&quot;] axis&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#cccccc&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;gaugecombo1\&quot;] axis label&quot;,
+        &quot;style&quot;: {
+            &quot;font&quot;: &quot;15px Arial&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;radarcombo1\&quot;]&quot;,
+        &quot;style&quot;: {
+            &quot;padding&quot;: 20
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            1
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;radarcombo1\&quot;] axis&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#cccccc&quot;,
+            &quot;fill&quot;: &quot;none&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;radarcombo1\&quot;] axis label&quot;,
+        &quot;style&quot;: {
+            &quot;font&quot;: &quot;11px Arial&quot;,
+            &quot;text-anchor&quot;: &quot;middle&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;radarcombo1\&quot;] series&quot;,
+        &quot;style&quot;: {
+            &quot;opacity&quot;: 0.4
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;line1\&quot;] axis[position=\&quot;left\&quot;] grid odd&quot;,
+        &quot;style&quot;: {
+            &quot;opacity&quot;: 1,
+            &quot;fill&quot;: &quot;#dddddd&quot;,
+            &quot;stroke&quot;: &quot;#bbbbbb&quot;,
+            &quot;stroke-width&quot;: 0.5
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            4
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;line1\&quot;] marker&quot;,
+        &quot;style&quot;: {
+            &quot;size&quot;: 4,
+            &quot;radius&quot;: 4,
+            &quot;stroke-width&quot;: 0
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;line1\&quot;] series:nth-child(1) marker&quot;,
+        &quot;style&quot;: {
+            &quot;type&quot;: &quot;image&quot;,
+            &quot;height&quot;: &quot;46&quot;,
+            &quot;width&quot;: &quot;46&quot;,
+            &quot;src&quot;: &quot;\&quot;../resources/shared/img/iphone.png\&quot;&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;line1\&quot;] series:nth-child(2) marker&quot;,
+        &quot;style&quot;: {
+            &quot;type&quot;: &quot;image&quot;,
+            &quot;height&quot;: &quot;46&quot;,
+            &quot;width&quot;: &quot;46&quot;,
+            &quot;src&quot;: &quot;\&quot;../resources/shared/img/android.png\&quot;&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;line1\&quot;] series:nth-child(3) marker&quot;,
+        &quot;style&quot;: {
+            &quot;type&quot;: &quot;image&quot;,
+            &quot;height&quot;: &quot;46&quot;,
+            &quot;width&quot;: &quot;46&quot;,
+            &quot;src&quot;: &quot;\&quot;../resources/shared/img/ipad.png\&quot;&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;pie1\&quot;]&quot;,
+        &quot;style&quot;: {
+            &quot;padding&quot;: 10
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            1
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;pie1\&quot;] series label&quot;,
+        &quot;style&quot;: {
+            &quot;display&quot;: &quot;rotate&quot;,
+            &quot;contrast&quot;: true,
+            &quot;font&quot;: &quot;18px Helvetica, Arial, sans-serif&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;radar1\&quot;]&quot;,
+        &quot;style&quot;: {
+            &quot;padding&quot;: 20
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            1
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;radar1\&quot;] axis&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#cccccc&quot;,
+            &quot;fill&quot;: &quot;none&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;radar1\&quot;] axis label&quot;,
+        &quot;style&quot;: {
+            &quot;font&quot;: &quot;11px Arial&quot;,
+            &quot;text-anchor&quot;: &quot;middle&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;radar1\&quot;] series&quot;,
+        &quot;style&quot;: {
+            &quot;opacity&quot;: 0.4
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;scatter1\&quot;]&quot;,
+        &quot;style&quot;: {
+            &quot;padding&quot;: 40
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            1
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;scatter1\&quot;] axis[position=\&quot;left\&quot;] grid odd&quot;,
+        &quot;style&quot;: {
+            &quot;opacity&quot;: 1,
+            &quot;fill&quot;: &quot;#dddddd&quot;,
+            &quot;stroke&quot;: &quot;#bbbbbb&quot;,
+            &quot;stroke-width&quot;: 0.5
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            4
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;scatter1\&quot;] marker&quot;,
+        &quot;style&quot;: {
+            &quot;size&quot;: 8,
+            &quot;radius&quot;: 8
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;stock1\&quot;] axis label&quot;,
+        &quot;style&quot;: {
+            &quot;font&quot;: &quot;12px Arial&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;stock1\&quot;] axis[position=\&quot;left\&quot;] grid&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#cccccc&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            2,
+            3
+        ]
+    }
+];;Ext.chart.theme.Energy = [
+    {
+        &quot;selector&quot;: &quot;chart&quot;,
+        &quot;style&quot;: {
+            &quot;colors&quot;: [
+                &quot;rgba(17, 95, 166, 0.85)&quot;,
+                &quot;rgba(148, 174, 10, 0.85)&quot;,
+                &quot;rgba(166, 17, 32, 0.85)&quot;,
+                &quot;rgba(255, 136, 9, 0.85)&quot;,
+                &quot;rgba(255, 209, 62, 0.85)&quot;,
+                &quot;rgba(166, 17, 135, 0.85)&quot;,
+                &quot;rgba(36, 173, 154, 0.85)&quot;,
+                &quot;rgba(124, 116, 116, 0.85)&quot;,
+                &quot;rgba(166, 97, 17, 0.85)&quot;
+            ]
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series&quot;,
+        &quot;style&quot;: {
+            &quot;stroke-width&quot;: 2
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series grid odd&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#333333&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            4
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series grid even&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#222222&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            4
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#555555&quot;,
+            &quot;fill&quot;: &quot;#555555&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis label&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#666666&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis title&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#cccccc&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis[position=\&quot;radial\&quot;]&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;none&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis[position=\&quot;radial\&quot;] label&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#ffffff&quot;,
+            &quot;text-anchor&quot;: &quot;center&quot;,
+            &quot;translate&quot;: {
+                &quot;x&quot;: 0,
+                &quot;y&quot;: -10
+            }
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart[cls=\&quot;radar\&quot;]&quot;,
+        &quot;style&quot;: {
+            &quot;padding&quot;: 40
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            1
+        ]
+    }
+];;Ext.chart.theme.WorldData = [
+    {
+        &quot;selector&quot;: &quot;chart&quot;,
+        &quot;style&quot;: {
+            &quot;colors&quot;: [
+                &quot;#49080e&quot;,
+                &quot;#49080e&quot;,
+                &quot;#d7a400&quot;
+            ],
+            &quot;background&quot;: &quot;#dbddd8&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            1
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart series:highlight&quot;,
+        &quot;style&quot;: {
+            &quot;radius&quot;: 5,
+            &quot;stroke-width&quot;: 3,
+            &quot;stroke&quot;: &quot;#ffffff&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            1,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis&quot;,
+        &quot;style&quot;: {
+            &quot;stroke&quot;: &quot;#c2c4be&quot;,
+            &quot;fill&quot;: &quot;#c2c4be&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            2
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis label&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#909488&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            3
+        ]
+    },
+    {
+        &quot;selector&quot;: &quot;chart axis title&quot;,
+        &quot;style&quot;: {
+            &quot;fill&quot;: &quot;#43453e&quot;
+        },
+        &quot;specificity&quot;: [
+            0,
+            0,
+            3
+        ]
+    }
+];
+</pre>
+</body>
+</html>

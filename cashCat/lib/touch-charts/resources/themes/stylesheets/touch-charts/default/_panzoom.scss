@@ -1,0 +1,11 @@
+@mixin touch-charts-panzoom {
+
+    .x-panzoom-toggle-icon {
+        -webkit-mask-image: theme-image($theme-name, 'pictos/move.png');
+    }
+
+    .x-zooming > .x-panzoom-toggle-icon {
+        -webkit-mask-image: theme-image($theme-name, 'pictos/resize.png');
+    }
+
+}

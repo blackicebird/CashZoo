@@ -1,0 +1,233 @@
+@import 'include/variables';
+
+chart {
+    
+    padding: 10;
+
+    colors: rgba($chart-blue, $default-fill-alpha) rgba($chart-green, $default-fill-alpha) rgba($chart-red, $default-fill-alpha) rgba($chart-orange, $default-fill-alpha) rgba($chart-yellow, $default-fill-alpha) rgba($chart-purple, $default-fill-alpha) rgba($chart-teal, $default-fill-alpha) rgba($chart-grey, $default-fill-alpha) rgba($chart-brown, $default-fill-alpha);
+
+    axis {
+        @include readable-color($base-color, 30);
+        stroke: $axis-stroke-color;
+        stroke-width: 1;
+
+        label {
+            @include readable-color($base-color, 10);
+            font: 12px $font-family;
+            font-weight: bold;
+            spacing: 2;
+            padding: 5;
+        }
+
+        title {
+            font: 18px $font-family;
+            @include readable-color($base-color);
+            padding: 5;
+        }
+
+        &[position=left] {
+            title {
+                rotate: 0 0 270;
+            }
+        }
+
+        &[position=right] {
+            title {
+                rotate: 0 0 270;
+            }
+        }
+
+        &[position=radial] {
+            label {
+                font: 10px $font-family;
+                text-anchor: middle;
+            }
+            fill: none;
+        }
+
+        &[position=gauge] {
+            label {
+                font: 10px $font-family;
+                text-anchor: middle;
+            }
+            fill: none;
+        }
+
+    }
+
+    series {
+        stroke-width: 1;
+
+        label {
+            font: 12px $font-family;
+            fill: #333;
+            display: none;
+            field: name;
+            minMargin: 50;
+            orientation: horizontal;
+        }
+        
+        &:nth-child(1) {
+            fill: $chart-blue;
+        }
+
+        &:nth-child(2) {
+            fill: $chart-green;
+        }
+
+        &:nth-child(3) {
+            fill: $chart-red;
+        }
+
+        &:nth-child(4) {
+            fill: $chart-orange;
+        }
+
+        &:nth-child(5) {
+            fill: $chart-yellow;
+        }
+
+        &:nth-child(6) {
+            fill: $chart-purple;
+        }
+
+        &:nth-child(7) {
+            fill: $chart-teal;
+        }
+
+        &:nth-child(8) {
+            fill: $chart-grey;
+        }
+
+        &:nth-child(9) {
+            fill: $chart-brown;
+        }
+
+        &:highlight {
+            radius: 20;
+            stroke-width: 5;
+            stroke: #f55;
+        }
+    }
+
+    series[type=line] {
+        &:highlight {
+            stroke-width: 3;
+        }
+    }
+
+    series[type=bar] {
+        &:highlight {
+            stroke-width: 3;
+            stroke: #55c;
+            opacity: 0.8;
+        }
+    }
+    
+    series[type=area] {
+        &:highlight {
+            stroke-width: 3;
+            stroke: #111;
+        }
+    }
+
+    series[type=pie] {
+        &:highlight {
+            stroke: none;
+            stroke-width: 0;
+        }
+    }
+    
+    series[type=scatter] {
+        &:highlight {
+            stroke: none;
+            stroke-width: 0;
+        }
+    }
+    
+    marker {
+        stroke: #fff;
+        stroke-width: 1;
+        type: circle;
+        fill: #000;
+        radius: 5;
+        size: 5;
+
+        &:nth-child(1) {
+            fill: $chart-blue;
+            type: circle;
+        }
+
+        &:nth-child(2) {
+            fill: $chart-green;
+/*            type: cross;*/
+        }
+
+        &:nth-child(3) {
+            fill: $chart-red;
+/*            type: plus;*/
+        }
+        
+        &:nth-child(3) {
+            fill: $chart-red;
+        }
+        
+        &:nth-child(4) {
+            fill: $chart-orange;
+        }
+
+        &:nth-child(5) {
+            fill: $chart-yellow;
+        }
+
+        &:nth-child(6) {
+            fill: $chart-purple;
+        }
+
+        &:nth-child(7) {
+            fill: $chart-teal;
+        }
+
+        &:nth-child(8) {
+            fill: $chart-grey;
+        }
+
+        &:nth-child(9) {
+            fill: $chart-brown;
+        }
+    }
+    
+/*    interaction[type=]*/
+
+    interaction {
+        &[type=itemcompare] {
+            circle {
+                fill: rgba(#000, 0);
+                stroke: $pie-grouping-color;
+                radius: 5;
+            }
+            line {
+                stroke: $pie-grouping-color;
+                stroke-width: 3;
+            }
+            arrow {
+                fill: $pie-grouping-color;
+                radius: 8;
+            }
+        }
+
+        &[type=piegrouping] {
+            slice {
+                stroke: $pie-grouping-color;
+                stroke-width: 2;
+                fill: $pie-grouping-color;
+                opacity: 0.5;
+            }
+            handle {
+                stroke: $pie-grouping-color;
+                stroke-width: 2;
+                fill: $pie-grouping-color;
+            }
+        }
+    }
+}

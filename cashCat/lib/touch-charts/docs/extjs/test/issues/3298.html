@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Failed test case</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+</head>
+<body>
+    <script type="text/javascript" charset="utf-8">
+        Ext.Loader.setConfig({
+            enabled: true
+        });
+
+
+        Ext.require([
+            'Ext.form.field.ComboBox',
+            'Ext.form.FieldSet',
+            'Ext.tip.QuickTipManager',
+            'Ext.data.*'
+        ]);
+
+        Ext.onReady(function() {
+            Ext.tip.QuickTipManager.init();
+
+            // Define the model for a State
+            Ext.define('State', {
+                extend: 'Ext.data.Model',
+                fields: [
+                    {type: 'string', name: 'abbr'},
+                    {type: 'string', name: 'name'},
+                    {type: 'int', name: 'id'}
+                ],
+        	idProperty: 'id'
+            });
+
+            // The data for all states
+            var states = [
+                {"abbr":"AL","name":"Alabama","id":1},
+                {"abbr":"AK","name":"Alaska","id":2},
+                {"abbr":"AZ","name":"Arizona","id":3},
+                {"abbr":"AR","name":"Arkansas","id":4},
+                {"abbr":"CA","name":"California","id":5}
+            ];
+
+            // The data store holding the states; shared by each of the ComboBox examples below
+            var store = Ext.create('Ext.data.Store', {
+                model: 'State',
+                data: states
+            });
+
+            // Simple ComboBox using the data store
+            var simpleCombo = Ext.create('Ext.form.field.ComboBox', {
+                fieldLabel: 'Select a single state',
+                renderTo: Ext.getBody(),
+                displayField: 'name',
+                width: 320,
+                labelWidth: 130,
+                store: store,
+                queryMode: 'local',
+                typeAhead: true,
+        	valueField: 'id',
+        	displayField: 'abbr'
+            });
+
+            Ext.create('Ext.Button', {
+        	text: 'Set Value with quote',
+        	renderTo: Ext.getBody(),
+        	handler: function() {
+        	    simpleCombo.setValue('2');
+        	    alert("simpleCombo.setValue('2');");
+        	}
+            });
+
+            Ext.create('Ext.Button', {
+        	text: 'Set Value without quote',
+        	renderTo: Ext.getBody(),
+        	handler: function() {
+        	    simpleCombo.setValue(4);
+        	    alert("simpleCombo.setValue(4);");
+        	}
+            });
+        });
+        
+    </script>
+</body>
+</html>

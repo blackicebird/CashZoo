@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Failed test case</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+</head>
+<body>
+    <script type="text/javascript" charset="utf-8">
+        Ext.onReady(function() {
+            var viewport = Ext.create('Ext.container.Viewport', {
+                layout: 'fit',
+                items: {
+                    xtype: 'treepanel',
+                    title: 'Select some nodes and right-click one of them',
+                    width: 200,
+                    multiSelect: true,
+                    store: {
+                        root: {
+                            expanded: true,
+                            children: [
+                                {
+                                    text: 'Foo',
+                                    expanded: true,
+                                    children: [
+                                        { text: 'Blah', leaf: true},
+                                        { text: 'Blub', leaf: true},
+                                    ]
+                                },
+                                {
+                                    text: 'Bar',
+                                    expanded: true,
+                                    children: [
+                                        { text: 'Blah', leaf: true},
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    rootVisible: false,
+                    listeners: {
+                        itemcontextmenu: function( view, record, item, index, e, options) {
+                            new Ext.menu.Menu({
+                                items: [
+                                    {text: 'Some Entry'},
+                                    {text: 'Another Entry'},                    
+                                ]
+                            }).showAt(e.getXY());
+                    
+                            e.stopEvent();
+                        }
+                    }
+                }
+            });
+        });
+       
+    </script>
+</body>
+</html>

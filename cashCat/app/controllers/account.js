@@ -22,6 +22,9 @@ Ext.regController("account", {
         sorters: 'code'
     }),
     index: function() {
+//        this.accountStore.on('datachanged',function(){
+//            this.loadAccount()
+//        },this);
         var accountView = Ext.getCmp('accountView');
         var activeItem = accountView.getActiveItem();
         if (!activeItem) {
@@ -97,13 +100,16 @@ Ext.regController("account", {
                 this.accountParent = 0;
         }
     },
-    deleteAccount: function(list, index, item, event){
-        if(list && item) {
-            var record = list.getRecord(item);
-            this.accountStore.remove(record);
-            this.accountStore.sync();
-        }
-
-        return this.loadAccount();
+    deleteAccount: function(list, index, item, event) {
+        Ext.Msg.confirm(msg.prop('Delete Account'), msg.prop('Do you want to delete this Account?'), function(btn) {
+            if ('yes' == btn) {
+                if (list && item) {
+                    var record = list.getRecord(item);
+                    this.accountStore.remove(record);
+                    this.accountStore.sync();
+                }
+                console.log("deleted item: %o", index);
+            }
+        }, this);
     }
 });

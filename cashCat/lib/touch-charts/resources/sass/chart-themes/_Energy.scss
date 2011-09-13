@@ -1,0 +1,47 @@
+$default-fill-alpha: .85;
+
+@import 'include/variables';
+
+chart {
+    colors: rgba($chart-blue, $default-fill-alpha) rgba($chart-green, $default-fill-alpha) rgba($chart-red, $default-fill-alpha) rgba($chart-orange, $default-fill-alpha) rgba($chart-yellow, $default-fill-alpha) rgba($chart-purple, $default-fill-alpha) rgba($chart-teal, $default-fill-alpha) rgba($chart-grey, $default-fill-alpha) rgba($chart-brown, $default-fill-alpha);
+    
+    series {
+        stroke-width: 2;
+        
+        grid {
+            odd {
+                stroke: #333;
+            }
+            even {
+                stroke: #222;
+            }
+        }
+    }
+
+    axis {
+        stroke: #555;
+        fill: #555;
+
+        label {
+            fill: #666;
+        }
+
+        title {
+            fill: #ccc;
+        }
+    }
+
+    axis[position=radial] {
+        fill: none;
+
+        label {
+            fill: #fff;
+            text-anchor: center;
+            translate: 0 -10;
+        }
+    }
+}
+
+chart[cls=radar] {
+    padding: 40;
+}

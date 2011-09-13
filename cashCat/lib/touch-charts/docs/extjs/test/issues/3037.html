@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Failed test case</title>
+<link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+<script type="text/javascript" src="../../bootstrap.js"></script>
+</head>
+<body>
+    <script type="text/javascript" charset="utf-8">
+        Ext.require('Ext.tab.*');
+
+    Ext.application({
+        name: 'MVCE',
+
+        launch: function() {
+            var tabs = Ext.createWidget('tabpanel', {
+                renderTo: 'tabs1',
+                width: 450,
+    			maxTabWidth: 135,
+                items: [{
+                    title: 'Short Text',
+                    html: 'Testing'
+                }]
+            });
+
+            Ext.create('Ext.button.Button', {
+                text    : 'Set long title',
+                scope   : this,
+                handler : function() {
+                    var tab = tabs.getActiveTab();
+                    tab.setTitle('longlonglonglonglong');
+                },
+                renderTo : Ext.getBody()
+            });
+
+            Ext.create('Ext.button.Button', {
+                text    : 'Set short title',
+                scope   : this,
+                handler : function() {
+                    var tab = tabs.getActiveTab();
+                    tab.setTitle('short');
+                },
+                renderTo : Ext.getBody()
+            });
+
+        }
+    });
+    </script>
+    <div id="tabs1"></div>
+</body>
+</html>

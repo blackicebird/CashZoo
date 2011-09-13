@@ -1,0 +1,27 @@
+h1 {
+    clear: both;
+    font-size:14px;
+}
+.context {
+    background-color: yellow;
+    table-layout: fixed;
+    width: 30px;
+    height: 80px;
+    border: 1px solid black;
+}
+
+.inserted {
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    margin: 4px;
+}
+
+.test-block {
+    background: white;
+    padding: 10px; 
+    border: 1px solid black;
+    margin: 5px;
+    float: left; 
+}

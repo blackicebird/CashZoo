@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Failed test case</title>
+  <link rel="stylesheet" type="text/css" href="../../resources/css/ext-all.css" />
+  <!--<script type="text/javascript" src="../../bootstrap.js"></script>-->
+  <script type="text/javascript" src="/extjs/builds/4.0.2a/bootstrap.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+
+Ext.require('Ext.chart.*');
+Ext.require(['Ext.Window',
+    'Ext.data.JsonStore',
+    'Ext.fx.target.Sprite',
+    'Ext.layout.container.Fit'
+]);
+
+Ext.onReady(function ()
+{
+    var rawStore = Ext.create('Ext.data.JsonStore',
+    {
+        fields: [
+            {name: 'devAvg', type: 'float'},
+            {name: 'plotDate', type: 'int'}
+        ],
+
+        data:
+        [
+            {"plotDate":1302242400,"avg30":-4.568,"avg90":-5.192,"avgRC":-5.352},
+            {"plotDate":1302501600,"avg30":-4.084,"avg90":-5.2,"avgRC":-5.36},
+            {"plotDate":1302588000,"avg30":-4.403,"avg90":-5.233,"avgRC":-5.393},
+            {"plotDate":1302674400,"avg30":-5.134,"avg90":-5.285,"avgRC":-5.445},
+            {"plotDate":1302760800,"avg30":-5.454,"avg90":-5.301,"avgRC":-5.461},
+            {"plotDate":1302847200,"avg30":-5.724,"avg90":-5.322,"avgRC":-5.482},
+            {"plotDate":1302933600,"avg30":-5.836,"avg90":-5.378,"avgRC":-5.538},
+            {"plotDate":1303020000,"avg30":-5.638,"avg90":-5.36,"avgRC":-5.5200000000000005},
+            {"plotDate":1303106400,"avg30":-5.756,"avg90":-5.368,"avgRC":-5.5280000000000005},
+            {"plotDate":1303192800,"avg30":-5.714,"avg90":-5.341,"avgRC":-5.501},
+            {"plotDate":1303279200,"avg30":-5.687,"avg90":-5.341,"avgRC":-5.501},
+            {"plotDate":1303365600,"avg30":-5.671,"avg90":-5.352,"avgRC":-5.5120000000000005},
+            {"plotDate":1303538400,"avg30":-5.672,"avg90":-5.362,"avgRC":-5.522},
+            {"plotDate":1303711200,"avg30":-5.684,"avg90":-5.368,"avgRC":-5.5280000000000005},
+            {"plotDate":1303884000,"avg30":-5.573,"avg90":-5.388,"avgRC":-5.548},
+            {"plotDate":1303970400,"avg30":-5.539,"avg90":-5.349,"avgRC":-5.509},
+            {"plotDate":1304056800,"avg30":-5.524,"avg90":-5.349,"avgRC":-5.509},
+            {"plotDate":1304143200,"avg30":-5.507,"avg90":-5.353,"avgRC":-5.513},
+            {"plotDate":1304229600,"avg30":-5.507,"avg90":-5.332,"avgRC":-5.492},
+            {"plotDate":1304316000,"avg30":-5.464,"avg90":-5.361,"avgRC":-5.521},
+            {"plotDate":1304402400,"avg30":-5.429,"avg90":-5.34,"avgRC":-5.5},
+            {"plotDate":1304575200,"avg30":-5.401,"avg90":-5.378,"avgRC":-5.538},
+            {"plotDate":1304661600,"avg30":-5.452,"avg90":-5.417,"avgRC":-5.577},
+            {"plotDate":1304748000,"avg30":-5.456,"avg90":-5.418,"avgRC":-5.578},
+            {"plotDate":1304834400,"avg30":-5.466,"avg90":-5.392,"avgRC":-5.5520000000000005},
+            {"plotDate":1304920800,"avg30":-5.415,"avg90":-5.326,"avgRC":-5.486},
+            {"plotDate":1305093600,"avg30":-5.428,"avg90":-5.335,"avgRC":-5.495},
+            {"plotDate":1305180000,"avg30":-5.415,"avg90":-5.329,"avgRC":-5.489},
+            {"plotDate":1305266400,"avg30":-5.357,"avg90":-5.312,"avgRC":-5.472},
+            {"plotDate":1305352800,"avg30":-5.321,"avg90":-5.331,"avgRC":-5.4910000000000005},
+            {"plotDate":1305525600,"avg30":-5.205,"avg90":-5.356,"avgRC":-5.516},
+            {"plotDate":1305612000,"avg30":-5.227,"avg90":-5.343,"avgRC":-5.503},
+            {"plotDate":1305698400,"avg30":-5.202,"avg90":-5.338,"avgRC":-5.498},
+            {"plotDate":1305871200,"avg30":-5.21,"avg90":-5.348,"avgRC":-5.508},
+            {"plotDate":1305957600,"avg30":-5.213,"avg90":-5.346,"avgRC":-5.506},
+            {"plotDate":1306044000,"avg30":-5.241,"avg90":-5.363,"avgRC":-5.523000000000001},
+            {"plotDate":1306130400,"avg30":-5.18,"avg90":-5.337,"avgRC":-5.497},
+            {"plotDate":1306216800,"avg30":-5.162,"avg90":-5.337,"avgRC":-5.497},
+            {"plotDate":1306303200,"avg30":-5.149,"avg90":-5.34,"avgRC":-5.5},
+            {"plotDate":1306389600,"avg30":-5.173,"avg90":-5.372,"avgRC":-5.532},
+            {"plotDate":1306476000,"avg30":-5.247,"avg90":-5.364,"avgRC":-5.524},
+            {"plotDate":1306562400,"avg30":-5.229,"avg90":-5.354,"avgRC":-5.514},
+            {"plotDate":1306648800,"avg30":-5.253,"avg90":-5.409,"avgRC":-5.569},
+            {"plotDate":1306735200,"avg30":-5.287,"avg90":-5.415,"avgRC":-5.575},
+            {"plotDate":1306821600,"avg30":-5.29,"avg90":-5.41,"avgRC":-5.57},
+            {"plotDate":1306908000,"avg30":-5.307,"avg90":-5.42,"avgRC":-5.58},
+            {"plotDate":1306994400,"avg30":-5.332,"avg90":-5.409,"avgRC":-5.569},
+            {"plotDate":1307080800,"avg30":-5.383,"avg90":-5.402,"avgRC":-5.562},
+            {"plotDate":1307167200,"avg30":-5.318,"avg90":-5.38,"avgRC":-5.54},
+            {"plotDate":1307253600,"avg30":-5.2,"avg90":-5.345,"avgRC":-5.505},
+            {"plotDate":1307340000,"avg30":-5.194,"avg90":-5.316,"avgRC":-5.476},
+            {"plotDate":1307426400,"avg30":-5.213,"avg90":-5.299,"avgRC":-5.4590000000000005},
+            {"plotDate":1307685600,"avg30":-5.245,"avg90":-5.287,"avgRC":-5.447},
+            {"plotDate":1307858400,"avg30":-5.233,"avg90":-5.281,"avgRC":-5.441},
+            {"plotDate":1307944800,"avg30":-5.188,"avg90":-5.271,"avgRC":-5.431},
+            {"plotDate":1308031200,"avg30":-5.127,"avg90":-5.249,"avgRC":-5.409},
+            {"plotDate":1308117600,"avg30":-5.135,"avg90":-5.241,"avgRC":-5.401},
+            {"plotDate":1308204000,"avg30":-5.12,"avg90":-5.232,"avgRC":-5.392},
+            {"plotDate":1308376800,"avg30":-5.092,"avg90":-5.235,"avgRC":-5.3950000000000005},
+            {"plotDate":1308463200,"avg30":-5.072,"avg90":-5.227,"avgRC":-5.3870000000000005},
+            {"plotDate":1308549600,"avg30":-5.006,"avg90":-5.198,"avgRC":-5.3580000000000005},
+            {"plotDate":1308636000,"avg30":-4.885,"avg90":-5.17,"avgRC":-5.33},
+            {"plotDate":1308722400,"avg30":-4.933,"avg90":-5.166,"avgRC":-5.3260000000000005},
+            {"plotDate":1308808800,"avg30":-4.904,"avg90":-5.169,"avgRC":-5.329},
+            {"plotDate":1308895200,"avg30":-4.875,"avg90":-5.156,"avgRC":-5.316},
+            {"plotDate":1308981600,"avg30":-4.868,"avg90":-5.163,"avgRC":-5.323},
+            {"plotDate":1309068000,"avg30":-4.884,"avg90":-5.17,"avgRC":-5.33},
+            {"plotDate":1309154400,"avg30":-4.827,"avg90":-5.163,"avgRC":-5.323},
+            {"plotDate":1309240800,"avg30":-4.781,"avg90":-5.15,"avgRC":-5.3100000000000005},
+            {"plotDate":1309327200,"avg30":-4.757,"avg90":-5.157,"avgRC":-5.317},
+            {"plotDate":1309413600,"avg30":-4.795,"avg90":-5.168,"avgRC":-5.328},
+            {"plotDate":1309500000,"avg30":-4.727,"avg90":-5.154,"avgRC":-5.314},
+            {"plotDate":1309586400,"avg30":-4.728,"avg90":-5.154,"avgRC":-5.314},
+            {"plotDate":1309672800,"avg30":-4.707,"avg90":-5.153,"avgRC":-5.313},
+            {"plotDate":1309759200,"avg30":-4.734,"avg90":-5.147,"avgRC":-5.307}
+        ]
+    });
+
+    var maxAvg = 0.0;
+    //var minAvg = -5.836;
+    var minAvg = -6.00;
+
+   var chart = Ext.create('Ext.chart.Chart',
+   {
+        flex: 1,
+        width: 1000,
+        height: 600,
+        animate: false,
+        insetPadding: 15,
+        legend: {position: 'bottom'},
+        shadow: false,
+        store: rawStore,
+        //renderTo: Ext.getBody(),
+
+        axes: [
+        {
+            type: 'Numeric',
+            decimals: 2,
+            fields: ["avg30","avg90","avgRC"],
+            grid: true,
+            position: 'left',
+            maximum: 0,
+            minimum: -6,
+/**
+BUG
+change majorTickSteps here
+*/
+            majorTickSteps: 24,
+            //minorTickSteps: 1,
+            title: 'Deviation'
+        },{
+            type: 'Numeric',
+            position: 'bottom',
+            fields: 'plotDate',
+            grid: false,
+            roundToDecimal: false,
+            label:
+            {
+                renderer: function (value)
+                {
+                    var dt = new Date(value * 1000);
+                    var c = Ext.util.Format.date(dt, 'Y-m-d');
+                    return c;
+                },
+                rotate: {degrees: 315}
+            }
+        }
+        ],
+       series: [
+       {
+            type: 'line',
+            seriesId: id,
+            axis: 'left',
+            xField: 'plotDate',
+            yField: "avg30",
+            selectionTolerance: 10,
+            showMarkers: true,
+            markerConfig:
+            {
+                type: 'circle',
+                size: 3,
+                radius: 3,
+                "stroke-width": 0
+            },
+            title: 'Average 30 day',
+            tips:
+            {
+                height: 52,
+                width: 165,
+                trackMouse: true,
+                renderer: function(storeItem, item)
+                {
+                    var dt = new Date(storeItem.get('plotDate') * 1000);
+                        this.setTitle("Avg 30 day: " + '<br>' + 'Date: ' + Ext.util.Format.date(dt, 'Y-m-d')
+                        + '<br> Deviation: ' + Ext.util.Format.round(storeItem.get('avg30'), 2) );
+                }
+            }
+        }
+        ]
+   });
+
+    var form = new Ext.form.Panel(
+    {
+        height: 45,
+        bodyPadding: 5,
+        fieldDefaults:
+        {
+            labelWidth: 125,
+            margin: '0 5 0 5'
+        },
+        layout: 'hbox',
+        margin: 5,
+        padding: 5,
+        items: [
+        {
+            xtype: 'numberfield',
+            fieldLabel: 'Minimum Y axis value',
+            flex: 2,
+            id: 'min',
+            name: 'min',
+            value: minAvg
+        },{
+            xtype: 'numberfield',
+            fieldLabel: 'Maximum Y axis value',
+            flex: 2,
+            id: 'max',
+            name: 'max',
+            value: maxAvg
+        },{
+            xtype: 'button',
+            handler: function ()
+            {
+                var curMax = Ext.getCmp('max').getValue();
+                var curMin = Ext.getCmp('min').getValue();
+
+                var axe = chart.axes.getAt(0);
+                axe.maximum = curMax;
+                axe.minimum = curMin;
+
+                //var curSteps = (curMax - curMin);
+                //axe.majorTickSteps = curSteps;
+
+                chart.redraw();
+            },
+            id: 'recalc',
+            name: 'recalc',
+            text: 'Redraw'
+        }]
+    });
+
+    var vp = new Ext.container.Viewport(
+    {
+        layout: 'fit',
+        items:[
+        {
+            padding: 5,
+            layout:
+            {
+                type: 'vbox',
+                align: 'stretch',
+                padding: 5,
+                pack: 'start'
+            },
+            items :[chart, form]
+        }]
+    });
+
+});
+
+  </script>
+
+</body>
+</html>
