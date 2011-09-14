@@ -5,7 +5,7 @@
  * Time: 下午7:30
  * Email: mail.lgq@gmail.com
  */
-Ext.regController("account", {
+var accountController = {
     accountParent: 0,
     cache: {
         accounts: []
@@ -19,12 +19,12 @@ Ext.regController("account", {
     }),
     accountStore: new Ext.data.Store({
         model: 'Account',
-        sorters: 'code'
+        sorters: 'code',
+        listeners: {
+
+        }
     }),
     index: function() {
-//        this.accountStore.on('datachanged',function(){
-//            this.loadAccount()
-//        },this);
         var accountView = Ext.getCmp('accountView');
         var activeItem = accountView.getActiveItem();
         if (!activeItem) {
@@ -34,8 +34,10 @@ Ext.regController("account", {
                 store: this.cacheStore
             });
 
-            accountList.on('itemtap', this.loadAccount, this);
+            accountList.on('itemdoubletap', this.loadAccount, this);
             accountList.on('itemswipe', this.deleteAccount, this);
+
+            this.accountList = accountList;
 
             accountView.setActiveItem(accountList, 'slide');
         }
@@ -58,7 +60,13 @@ Ext.regController("account", {
                         this.cache.accounts = accounts;
                         this.accountParent = accountParent;
                     } else {
-                        console.log("no children")
+                        console.log("no children");
+                        if (this.cache.accounts.length == 0) {
+                            this.calcParent();
+                            return this.loadAccount();
+                        } else {
+                            return;
+                        }
                     }
 
                     console.log("cache: %o", this.cache);
@@ -109,7 +117,22 @@ Ext.regController("account", {
                     this.accountStore.sync();
                 }
                 console.log("deleted item: %o", index);
+                this.loadAccount();
             }
         }, this);
+    },
+    edit: function(options) {
+        console.log("edit account: %o", options.selectedRecord);
+
+    },
+    create: function(options){
+        var selectedRecords = this.accountList.getSelectedRecords();
+        var parent = this.accountParent;
+        if (selectedRecords && selectedRecords.length > 0) {
+            parent = selectedRecords[0].getId();
+        }
+
+        console.log('parent: %o', parent);
     }
-});
+};
+Ext.regController("account", accountController);

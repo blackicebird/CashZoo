@@ -594,11 +594,14 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
      * @param {Mixed} id The id of the record to remove
      */
     removeRecord: function(id) {
+        if (typeof(id) == "object"){
+            id = id.getId();
+        }
         var me = this;
 
         me.db.transaction(function(tx){
             var query = 'DELETE FROM ' + me.dbTable + ' WHERE ' + me.pkField +' = ?';
-            var args = [parseInt(id)];
+            var args = [id];
             if (Ext.debug) {
                 console.log(query, args);
             }

@@ -18,8 +18,28 @@ cashCat.views.AccountList = Ext.extend(Ext.List, {
     loadingText: msg.prop('Loading Accounts...'),
     grouped: false,
     itemTpl: '<span class="account-code">{code}</span> <span class="account-name">{name}</span>',
+    constructor: function(config) {
+
+        cashCat.views.AccountList.superclass.constructor.call(this, config);
+    },
     initComponent: function() {
         cashCat.views.AccountList.superclass.initComponent.apply(this, arguments);
+    },
+    afterRender: function() {
+        cashCat.views.AccountList.superclass.afterRender.call(this);
+
+        this.mon(this.el, 'taphold', this.onTapHold, this);
+    },
+    onTapHold: function(e) {
+        var item = this.findItemByChild(e.getTarget());
+        var record = this.getRecord(item);
+
+        Ext.dispatch({
+            controller: 'account',
+            action: 'edit',
+            historyUrl: 'account/index',
+            selectedRecord: record
+        });
     }
 });
 Ext.reg('cashCatAccountList', cashCat.views.AccountList);
@@ -71,7 +91,7 @@ cashCat.views.Account = Ext.extend(Ext.Panel, {
                             ui: 'action',
                             handler: function(btn, event) {
                                 Ext.dispatch({
-                                   controller: 'account',
+                                    controller: 'account',
                                     action: 'create',
                                     historyUrl: 'account/index'
                                 });
@@ -88,3 +108,9 @@ cashCat.views.Account = Ext.extend(Ext.Panel, {
 });
 
 Ext.reg('cashCatAccount', cashCat.views.Account);
+
+cashCat.views.AccountEditor = Ext.extend(Ext.Panel, {
+    fullscreen: true
+    
+});
+Ext.reg('accountEditor', cashCat.views.AccountEditor);
