@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0e4d4d59-75c0-4d8b-8a16-43208a669b7c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/account.js" afterPath="$PROJECT_DIR$/app/controllers/account.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/account.js" afterPath="$PROJECT_DIR$/app/views/account.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/browserDB/Ext.data.proxy.WebDB.js" afterPath="$PROJECT_DIR$/lib/browserDB/Ext.data.proxy.WebDB.js" />
     </list>
     <ignored path="cashCat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +28,7 @@
       <file leaf-file-name="account.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/account.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="20" selection-start="3277" selection-end="3277" vertical-scroll-proportion="0.7833935">
+            <state line="104" column="11" selection-start="3061" selection-end="3061" vertical-scroll-proportion="0.5397112">
               <folding />
             </state>
           </provider>
@@ -169,6 +166,7 @@
     </navigator>
     <panes>
       <pane id="Favorites" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -437,7 +435,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -506,7 +503,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25400457" sideWeight="0.32445922" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3417239" sideWeight="0.6705491" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3539283" sideWeight="0.6705491" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -562,6 +559,71 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/kiva/app/controllers/loans.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0018050541" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/twitter/app/views/Viewport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="17" selection-start="927" selection-end="927" vertical-scroll-proportion="0.35198557" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/twitter/app/views/Tweets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.08303249" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/twitter/app/views/Searches.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.025878003" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/twitter/app/views/SearchBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.9685767" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/docs/resources/ext-all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="130499" selection-start="130624" selection-end="130624" vertical-scroll-proportion="0.027726432" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/src/demos/piechart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="6" selection-start="408" selection-end="408" vertical-scroll-proportion="0.027726432" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/twitter/app/controllers/searches.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="24" selection-start="1334" selection-end="1342" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="0" selection-start="4335" selection-end="4335" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="6" selection-start="3857" selection-end="3857" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/kitchensink/src/demos/touch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="5" selection-start="3936" selection-end="4814" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/browserDB/Ext.data.proxy.WebDB.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="599" column="22" selection-start="17616" selection-end="17616" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="29" selection-start="2974" selection-end="2974" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="0" selection-start="820" selection-end="820" vertical-scroll-proportion="0.0" />
@@ -572,98 +634,9 @@
         <state line="82" column="34" selection-start="2003" selection-end="2003" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/browserDB/Ext.data.proxy.WebDB.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="599" column="22" selection-start="17616" selection-end="17616" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/kiva/app/controllers/loans.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0018050541">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/kitchensink/src/demos/touch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="5" selection-start="3936" selection-end="4814" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="29" selection-start="2974" selection-end="2974" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/twitter/app/views/Viewport.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="17" selection-start="927" selection-end="927" vertical-scroll-proportion="0.35198557">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/twitter/app/views/Tweets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.08303249">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/twitter/app/views/Searches.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.025878003">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/twitter/app/views/SearchBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.9685767">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/examples/twitter/app/controllers/searches.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="24" selection-start="1334" selection-end="1342" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/touch1.1.0/docs/resources/ext-all.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="130499" selection-start="130624" selection-end="130624" vertical-scroll-proportion="0.027726432">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/oppo-touching-2.0/charting/src/demos/piechart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="6" selection-start="408" selection-end="408" vertical-scroll-proportion="0.027726432">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="6" selection-start="3857" selection-end="3857" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="0" selection-start="4335" selection-end="4335" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/account.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="20" selection-start="3277" selection-end="3277" vertical-scroll-proportion="0.7833935">
+        <state line="104" column="11" selection-start="3061" selection-end="3061" vertical-scroll-proportion="0.5397112">
           <folding />
         </state>
       </provider>
