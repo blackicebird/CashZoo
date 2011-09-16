@@ -1,0 +1,12 @@
+m4s.ids
+.svn/
+.idea/
+target/
+*.log
+*.rptconfig
+.*.swp
+*~
+*.iml
+*.ipr
+*.iws
+atlassian-ide-plugin.xml
