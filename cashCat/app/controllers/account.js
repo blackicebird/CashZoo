@@ -25,23 +25,26 @@ var accountController = {
         }
     }),
     index: function() {
-        var accountView = Ext.getCmp('accountView');
-        var activeItem = accountView.getActiveItem();
-        if (!activeItem) {
+        this.viewport = Ext.getCmp('viewport');
+        this.accountView = Ext.getCmp('accountView');
 
-            var accountList = this.render({
+        if (!this.accountList) {
+            this.accountList = this.render({
+                mode: 'view',
                 xtype: 'cashCatAccountList',
                 store: this.cacheStore
             });
 
-            accountList.on('itemdoubletap', this.loadAccount, this);
-            accountList.on('itemswipe', this.deleteAccount, this);
-
-            this.accountList = accountList;
-
-            accountView.setActiveItem(accountList, 'slide');
+            this.enableViewEvent();
+        }
+        if (!this.accountListPanel) {
+            this.accountListPanel = this.render({
+                xtype: 'cashCatAccountListPanel'
+            });
+            this.accountListPanel.setActiveItem(this.accountList);
         }
 
+        this.accountView.setActiveItem(this.accountListPanel, 'slide');
         this.loadAccount();
     },
     loadAccount: function(list, index, item, event) {
@@ -73,7 +76,7 @@ var accountController = {
                     this.cacheStore.loadData(this.cache.accounts, false);
 
                     if (this.accountParent != 0) {
-                        Ext.getCmp('accountView').enableUpBtn();
+                        this.accountListPanel.enableUpBtn();
                     }
                 } else {
                     console.log("can't load accounts");
@@ -86,7 +89,7 @@ var accountController = {
         this.calcParent();
 
         if (this.accountParent == 0) {
-            Ext.getCmp('accountView').disableUpBtn();
+            this.accountListPanel.disableUpBtn();
         }
 
         this.loadAccount();
@@ -121,11 +124,22 @@ var accountController = {
             }
         }, this);
     },
-    edit: function(options) {
-        console.log("edit account: %o", options.selectedRecord);
+    edit: function() {
+        var account = this.accountList.getSelectedRecords();
+        console.log("edit account: %o", account);
 
+        if (!this.accountEditor) {
+            this.accountEditor = new cashCat.views.AccountEditor();
+
+            if (!this.accountEditorToolbar) {
+                this.initAccountEditorToolbar();
+                this.accountEditor.addDocked(this.accountEditorToolbar);
+            }
+        }
+        this.accountEditor.load(account);
+        this.accountView.setActiveItem(this.accountEditor);
     },
-    create: function(options){
+    create: function(options) {
         var selectedRecords = this.accountList.getSelectedRecords();
         var parent = this.accountParent;
         if (selectedRecords && selectedRecords.length > 0) {
@@ -133,6 +147,107 @@ var accountController = {
         }
 
         console.log('parent: %o', parent);
+    },
+    switchMode: function(options) {
+        console.log("mode: %s", options.mode);
+        var mode = options.mode;
+
+        if (!this.accountListToolbar) {
+            this.initAccountListToolbar();
+        }
+
+        if (mode == 'edit') {
+            this.accountList.addCls('account-list-edit');
+            this.accountListPanel.addDocked(this.accountListToolbar);
+            this.disableViewEvent();
+            this.enableEditEvent();
+            this.accountList.getSelectionModel().select(0);
+        } else {
+            this.accountList.removeCls('account-list-edit');
+            this.accountListPanel.removeDocked(this.accountListToolbar, false);
+            this.disableEditEvent();
+            this.enableViewEvent();
+            this.accountList.getSelectionModel().deselect(this.accountList.getSelectedRecords());
+        }
+    },
+    initAccountListToolbar: function() {
+        var editBtn = new Ext.Button({
+            text: msg.prop('Edit')
+        });
+        editBtn.on("tap", function(btn, event) {
+            Ext.dispatch({
+                controller: 'account',
+                action: 'edit',
+                historyUrl: 'account/index'
+            });
+        });
+        this.accountListToolbar = new Ext.Toolbar({
+                dock: 'bottom',
+                xtype: 'toolbar',
+                ui: 'light',
+                items:[
+                    {
+                        xtype: 'spacer'
+                    },
+                    editBtn
+                    ,
+                    {
+                        text: msg.prop('Delete')
+                    },
+                    {
+                        text: msg.prop('Create')
+                    },
+                    {
+                        text: msg.prop('Create Sub Account')
+                    },
+                    {
+                        xtype: 'spacer'
+                    }
+                ]
+            }
+        );
+    },
+    disableViewEvent :function () {
+        this.accountList.un('itemtap', this.loadAccount, this);
+    },
+    enableEditEvent: function() {
+
+    },
+    disableEditEvent: function() {
+
+    },
+    enableViewEvent: function() {
+        this.accountList.on('itemtap', this.loadAccount, this);
+    },
+    initAccountEditorToolbar :function() {
+        var saveBtn = new Ext.Button({
+            text: msg.prop('Save')
+        });
+        saveBtn.on('tap', function() {
+            this.accountView.setActiveItem(this.accountListPanel);
+        }, this);
+
+        var cancelBtn = new Ext.Button({
+            text: msg.prop('Cancel')
+        });
+        cancelBtn.on('tap', function() {
+            this.accountView.setActiveItem(this.accountListPanel);
+        }, this);
+
+        this.accountEditorToolbar = new Ext.Toolbar({
+            dock: 'bottom',
+            ui: 'light',
+            items: [
+                {
+                    xtype: 'spacer'
+                },
+                saveBtn,
+                cancelBtn,
+                {
+                    xtype: 'spacer'
+                }
+            ]
+        });
     }
 };
 Ext.regController("account", accountController);

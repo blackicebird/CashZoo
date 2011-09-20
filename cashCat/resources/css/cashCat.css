@@ -30,6 +30,9 @@
     font-weight: bold;
 }
 
+.account-list-edit {
+    background-color: #ffffaa;
+}
 .account-code {
     font-size: 11px;
     padding-right: 20px;

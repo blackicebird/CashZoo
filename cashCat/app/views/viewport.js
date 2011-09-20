@@ -44,8 +44,7 @@ cashCat.views.Viewport = Ext.extend(Ext.TabPanel, {
                 {
                     title: msg['account'],
                     xtype: 'cashCatAccount',
-                    iconCls: 'star',
-                    appPanel: this
+                    iconCls: 'star'
                 },
                 {
                     title: msg['ledger'],
