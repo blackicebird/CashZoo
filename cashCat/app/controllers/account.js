@@ -24,6 +24,11 @@ var accountController = {
 
         }
     }),
+    accountTypeStore: new Ext.data.Store({
+        autoLoad: true,
+        model: 'AccountType',
+        sorters: 'seq'
+    }),
     index: function() {
         this.viewport = Ext.getCmp('viewport');
         this.accountView = Ext.getCmp('accountView');
@@ -77,6 +82,7 @@ var accountController = {
 
                     if (this.accountParent != 0) {
                         this.accountListPanel.enableUpBtn();
+                        this.accountListPanel.enableModeBtn();
                     }
                 } else {
                     console.log("can't load accounts");
@@ -90,6 +96,9 @@ var accountController = {
 
         if (this.accountParent == 0) {
             this.accountListPanel.disableUpBtn();
+            this.accountListPanel.disableModeBtn();
+            this.switchMode('view');
+            this.accountListPanel.modeBtn.mode = 'view';
         }
 
         this.loadAccount();
@@ -125,19 +134,69 @@ var accountController = {
         }, this);
     },
     edit: function() {
-        var account = this.accountList.getSelectedRecords();
+        var account = this.accountList.getSelectedRecords()[0];
         console.log("edit account: %o", account);
 
         if (!this.accountEditor) {
-            this.accountEditor = new cashCat.views.AccountEditor();
-
-            if (!this.accountEditorToolbar) {
-                this.initAccountEditorToolbar();
-                this.accountEditor.addDocked(this.accountEditorToolbar);
-            }
+            this.accountEditor = new cashCat.views.AccountEditor({
+                parentStore: new Ext.data.Store({
+                    autoLoad: true,
+                    model: 'Account',
+                    sorters: 'code'}),
+                typeStore: this.accountTypeStore
+            });
         }
+
         this.accountEditor.load(account);
         this.accountView.setActiveItem(this.accountEditor);
+    },
+    refreshParentAccountList: function() {
+        this.accountStore.clearFilter();
+        this.accountStore.load({
+                scope: this,
+                callback: function(records, operation, success) {
+                    if (success) {
+                        if (records) {
+                            var parentList = [
+                                {
+                                    text: msg.prop('Root Account'),
+                                    value: 0
+                                }
+                            ];
+                            for (var i = 0; i < records.length; i++) {
+                                var account = records[i];
+                                parentList.push({
+                                    text: account.get('name'),
+                                    value: account.get('code')
+                                });
+                            }
+                            this.accountEditor.updateParentList(parentList);
+                        }
+                    }
+                }}
+        );
+    },
+    refreshAccountTypeList : function() {
+        this.accountTypeStore.load(
+            {
+                scope: this,
+                callback: function(records, operation, success) {
+                    if (success) {
+                        if (records) {
+                            var types = new Array();
+                            for (var i = 0; i < records.length; i++) {
+                                var name = records[i].get('name');
+                                types.push({
+                                    text: name,
+                                    value: name
+                                })
+                            }
+                            this.accountEditor.updateTypeList(types);
+                        }
+                    }
+                }
+            }
+        );
     },
     create: function(options) {
         var selectedRecords = this.accountList.getSelectedRecords();
@@ -219,35 +278,11 @@ var accountController = {
     enableViewEvent: function() {
         this.accountList.on('itemtap', this.loadAccount, this);
     },
-    initAccountEditorToolbar :function() {
-        var saveBtn = new Ext.Button({
-            text: msg.prop('Save')
-        });
-        saveBtn.on('tap', function() {
-            this.accountView.setActiveItem(this.accountListPanel);
-        }, this);
-
-        var cancelBtn = new Ext.Button({
-            text: msg.prop('Cancel')
-        });
-        cancelBtn.on('tap', function() {
-            this.accountView.setActiveItem(this.accountListPanel);
-        }, this);
-
-        this.accountEditorToolbar = new Ext.Toolbar({
-            dock: 'bottom',
-            ui: 'light',
-            items: [
-                {
-                    xtype: 'spacer'
-                },
-                saveBtn,
-                cancelBtn,
-                {
-                    xtype: 'spacer'
-                }
-            ]
-        });
+    saveAccount: function(option) {
+        this.accountView.setActiveItem(this.accountListPanel);
+    },
+    cancelAccount: function(option) {
+        this.accountView.setActiveItem(this.accountListPanel);
     }
 };
 Ext.regController("account", accountController);

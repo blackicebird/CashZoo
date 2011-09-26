@@ -37,8 +37,8 @@ Ext.regModel("Account", {
         {name: "currency", type: "string"},
         {name: "color", type: "string"},
         {name: "memo", type: "string"},
-        {name: "editable", type: "boolean", defaultValue: true},
-        {name: "visible", type: "boolean", defaultValue: true},
+        {name: "editable", type: "boolean", defaultValue: 1},
+        {name: "visible", type: "boolean", defaultValue: 1},
         {name: "parent", type: "int", defaultValue: 0},
         {name: "type", type: "string"},
         {name: "childrenNum", type: 'int', defaultValue: 0}
@@ -60,6 +60,8 @@ Ext.regModel("Account", {
             writeAllFields: false
         },
         initialData: [
+//            {name: msg.prop("Root"), type: msg.prop("Root"), code: 0 , description: msg.prop("Root account")},
+
             {name: msg.prop("Assets"), type: msg.prop("Asset"), code: 10000 , description: msg.prop("Asset account")},
 
             {name: msg.prop("Current Assets"), type: msg.prop("Asset"), code: 11000 , description: msg.prop("Current Assets"), parent: 10000},

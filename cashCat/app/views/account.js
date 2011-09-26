@@ -63,34 +63,41 @@ cashCat.views.AccountListPanel = Ext.extend(Ext.Panel, {
             });
         }
     }),
+    modeBtn : new Ext.Button({
+        text: msg.prop('Edit Mode'),
+        disabled: true,
+        ui: 'action',
+        mode: 'view',
+        handler: function(btn, event) {
+            if (this.mode == 'view') {
+                this.mode = 'edit';
+                this.setText(msg.prop('View Model'));
+            } else {
+                this.mode = 'view';
+                this.setText(msg.prop('Edit Model'));
+            }
+
+            Ext.dispatch({
+                controller: 'account',
+                action: 'switchMode',
+                historyUrl: 'account/index',
+                mode: this.mode
+            });
+        }
+    }),
     disableUpBtn: function() {
         this.upBtn.disable(true);
     },
     enableUpBtn: function() {
         this.upBtn.enable(true);
     },
+    disableModeBtn: function() {
+        this.modeBtn.disable();
+    },
+    enableModeBtn: function() {
+        this.modeBtn.enable();
+    },
     initComponent: function() {
-        var modeBtn = new Ext.Button({
-            text: msg.prop('Edit Mode'),
-            ui: 'action',
-            mode: 'view',
-            handler: function(btn, event) {
-                if (this.mode == 'view') {
-                    this.mode = 'edit';
-                    this.setText(msg.prop('View Model'));
-                } else {
-                    this.mode = 'view';
-                    this.setText(msg.prop('Edit Model'));
-                }
-
-                Ext.dispatch({
-                    controller: 'account',
-                    action: 'switchMode',
-                    historyUrl: 'account/index',
-                    mode: this.mode
-                });
-            }
-        });
         Ext.apply(this, {
             dockedItems: [
                 {
@@ -103,7 +110,7 @@ cashCat.views.AccountListPanel = Ext.extend(Ext.Panel, {
                         {
                             xtype: 'spacer'
                         },
-                        modeBtn
+                        this.modeBtn
                     ]
                 }
             ],
@@ -137,7 +144,42 @@ cashCat.views.Account = Ext.extend(Ext.Panel, {
 Ext.reg('cashCatAccount', cashCat.views.Account);
 
 cashCat.views.AccountEditor = Ext.extend(Ext.form.FormPanel, {
+    constructor: function(config) {
+        if (!config || !config.parentStore || !config.typeStore) {
+            throw new Error('Invalid parameters');
+        }
+        this.parentStore = config.parentStore;
+        this.typeStore = config.typeStore;
+
+        cashCat.views.AccountEditor.superclass.constructor.call(this, config);
+    },
     initComponent: function() {
+        this.parentSelect = new Ext.form.Select({
+            xtype: 'selectfield',
+            autoComplete : true,
+            name: 'parent',
+            layout: 'hbox',
+            label: msg.prop('Parent'),
+            placeHolder: msg.prop('Parent Account'),
+            required: true,
+            useClearIcon: true,
+            store: this.parentStore,
+            displayField: 'name',
+            valueField: 'code'
+        });
+        this.typeSelect = new Ext.form.Select({
+            xtype: 'selectfield',
+            autoComplete : true,
+            name: 'type',
+            layout: 'hbox',
+            label: msg.prop('Type'),
+            placeHolder: msg.prop('Account Type'),
+            required: true,
+            useClearIcon: true,
+            store: this.typeStore,
+            displayField: 'name',
+            valueField: 'name'
+        });
         Ext.apply(this, {
             title: msg.prop("Account Info"),
             fullscreen: false,
@@ -152,37 +194,54 @@ cashCat.views.AccountEditor = Ext.extend(Ext.form.FormPanel, {
                     dock: 'top',
                     xtype: 'toolbar',
                     title: msg.prop('Account Info')
+                },
+                {
+                    dock: 'bottom',
+                    xtype: 'toolbar',
+                    ui: 'light',
+                    items: [
+                        {
+                            xtype: 'spacer'
+                        },
+                        {
+                            xtype: 'button',
+                            text: msg.prop('Save'),
+                            listeners: {
+                                tap: {
+                                    scope: this,
+                                    fn: function() {
+                                        Ext.dispatch({
+                                            controller: 'account',
+                                            action: 'saveAccount'
+                                        });
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            text: msg.prop('Cancel'),
+                            listeners: {
+                                tap: {
+                                    fn: function() {
+                                        Ext.dispatch({
+                                            controller: 'account',
+                                            action: 'cancelAccount'
+                                        });
+                                    }
+                                }
+                            }
+
+                        },
+                        {
+                            xtype: 'spacer'
+                        }
+                    ]
                 }
             ],
             items:[
-                {
-                    xtype: 'selectfield',
-                    name: 'parent',
-                    label: msg.prop('Parent'),
-                    placeHolder: msg.prop('Parent Account'),
-                    required: true,
-                    useClearIcon: true,
-                    options: [
-                        {
-                            text: msg.prop('Asset'),
-                            value: 'asset'
-                        }
-                    ]
-                },
-                {
-                    xtype: 'selectfield',
-                    name: 'type',
-                    label: msg.prop('Type'),
-                    placeHolder: msg.prop('Account Type'),
-                    required: true,
-                    useClearIcon: true,
-                    options: [
-                        {
-                            text: msg.prop('Asset'),
-                            value: 'asset'
-                        }
-                    ]
-                },
+                this.parentSelect,
+                this.typeSelect,
                 {
                     xtype: 'textfield',
                     name: 'name',
@@ -245,14 +304,52 @@ cashCat.views.AccountEditor = Ext.extend(Ext.form.FormPanel, {
                     name: 'editable',
                     label: msg.prop('Editable'),
                     placeHolder: msg.prop('Is account editable?'),
-                    useClearIcon: true
+                    useClearIcon: true,
+                    plugins: {
+                        init: function (c) {
+                            var origGet = c.getValue,
+                                origSet = c.setValue,
+                                reverter = function () {
+                                    c.getValue = origGet;
+                                    c.setValue = origSet;
+                                    c.setValue(c.value);
+                                    c.un('afterrender', reverter);
+                                };
+                            c.on('afterrender', reverter);
+                            c.setValue = function (value) {
+                                c.value = value;
+                            };
+                            c.getValue = function () {
+                                return c.value;
+                            };
+                        }
+                    }
                 },
                 {
                     xtype: 'togglefield',
                     name: 'visible',
                     label: msg.prop('Visible'),
                     placeHolder: msg.prop('Is account visible?'),
-                    useClearIcon: true
+                    useClearIcon: true,
+                    plugins: {
+                        init: function (c) {
+                            var origGet = c.getValue,
+                                origSet = c.setValue,
+                                reverter = function () {
+                                    c.getValue = origGet;
+                                    c.setValue = origSet;
+                                    c.setValue(c.value);
+                                    c.un('afterrender', reverter);
+                                };
+                            c.on('afterrender', reverter);
+                            c.setValue = function (value) {
+                                c.value = value;
+                            };
+                            c.getValue = function () {
+                                return c.value;
+                            };
+                        }
+                    }
                 },
                 {
                     xtype: 'textareafield',
@@ -264,7 +361,11 @@ cashCat.views.AccountEditor = Ext.extend(Ext.form.FormPanel, {
                 }
             ]
         });
+
         cashCat.views.AccountEditor.superclass.initComponent.apply(this, arguments);
+    },
+    load: function() {
+        cashCat.views.AccountEditor.superclass.load.apply(this, arguments);
     }
 });
 Ext.reg('accountEditor', cashCat.views.AccountEditor);
