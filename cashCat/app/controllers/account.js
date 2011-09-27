@@ -29,6 +29,11 @@ var accountController = {
         model: 'AccountType',
         sorters: 'seq'
     }),
+    accountListStore: new Ext.data.Store({
+        autoLoad: true,
+        model: 'Account',
+        sorters: 'code'
+    }),
     index: function() {
         this.viewport = Ext.getCmp('viewport');
         this.accountView = Ext.getCmp('accountView');
@@ -51,6 +56,10 @@ var accountController = {
 
         this.accountView.setActiveItem(this.accountListPanel, 'slide');
         this.loadAccount();
+
+        if (this.accountListPanel.modeBtn.mode == 'edit') {
+            this.switchMode({mode:'view'});
+        }
     },
     loadAccount: function(list, index, item, event) {
         var accountParent = this.accountParent;
@@ -97,8 +106,7 @@ var accountController = {
         if (this.accountParent == 0) {
             this.accountListPanel.disableUpBtn();
             this.accountListPanel.disableModeBtn();
-            this.switchMode('view');
-            this.accountListPanel.modeBtn.mode = 'view';
+            this.switchMode({mode:'view'});
         }
 
         this.loadAccount();
@@ -139,64 +147,13 @@ var accountController = {
 
         if (!this.accountEditor) {
             this.accountEditor = new cashCat.views.AccountEditor({
-                parentStore: new Ext.data.Store({
-                    autoLoad: true,
-                    model: 'Account',
-                    sorters: 'code'}),
+                parentStore: this.accountListStore,
                 typeStore: this.accountTypeStore
             });
         }
 
         this.accountEditor.load(account);
         this.accountView.setActiveItem(this.accountEditor);
-    },
-    refreshParentAccountList: function() {
-        this.accountStore.clearFilter();
-        this.accountStore.load({
-                scope: this,
-                callback: function(records, operation, success) {
-                    if (success) {
-                        if (records) {
-                            var parentList = [
-                                {
-                                    text: msg.prop('Root Account'),
-                                    value: 0
-                                }
-                            ];
-                            for (var i = 0; i < records.length; i++) {
-                                var account = records[i];
-                                parentList.push({
-                                    text: account.get('name'),
-                                    value: account.get('code')
-                                });
-                            }
-                            this.accountEditor.updateParentList(parentList);
-                        }
-                    }
-                }}
-        );
-    },
-    refreshAccountTypeList : function() {
-        this.accountTypeStore.load(
-            {
-                scope: this,
-                callback: function(records, operation, success) {
-                    if (success) {
-                        if (records) {
-                            var types = new Array();
-                            for (var i = 0; i < records.length; i++) {
-                                var name = records[i].get('name');
-                                types.push({
-                                    text: name,
-                                    value: name
-                                })
-                            }
-                            this.accountEditor.updateTypeList(types);
-                        }
-                    }
-                }
-            }
-        );
     },
     create: function(options) {
         var selectedRecords = this.accountList.getSelectedRecords();
@@ -210,6 +167,7 @@ var accountController = {
     switchMode: function(options) {
         console.log("mode: %s", options.mode);
         var mode = options.mode;
+        this.accountListPanel.modeBtn.mode = mode;
 
         if (!this.accountListToolbar) {
             this.initAccountListToolbar();
@@ -270,18 +228,24 @@ var accountController = {
         this.accountList.un('itemtap', this.loadAccount, this);
     },
     enableEditEvent: function() {
-
+        this.accountList.on('itemdoubletap', this.loadAccount, this);
     },
     disableEditEvent: function() {
-
+        this.accountList.un('itemdoubletap', this.loadAccount, this);
     },
     enableViewEvent: function() {
         this.accountList.on('itemtap', this.loadAccount, this);
     },
     saveAccount: function(option) {
+        var account = this.accountEditor.getRecord();
+        this.accountEditor.updateRecord(account);
+        account.setDirty();
+        this.accountStore.sync();
+        
         this.accountView.setActiveItem(this.accountListPanel);
     },
     cancelAccount: function(option) {
+        this.accountEditor.reset();
         this.accountView.setActiveItem(this.accountListPanel);
     }
 };

@@ -43,13 +43,13 @@ Ext.regModel("Account", {
         {name: "type", type: "string"},
         {name: "childrenNum", type: 'int', defaultValue: 0}
     ],
-    validations: [
+    /*validations: [
         {type: "presence", field: "name"},
         {type: "presence", field: "type"},
         {type: "length", field: "name", min: 2, max: 32},
-        {type: "inclusion", field: "name",
+        {type: "inclusion", field: "type",
             list: [msg.prop("Asset"), msg.prop("Liability"), msg.prop("Income"), msg.prop("Expense"), msg.prop("Equity")]}
-    ],
+    ],*/
     proxy: {
         type: "websqlproxy",
         dbName: cashCat.dbName,

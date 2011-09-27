@@ -556,7 +556,7 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
     updateRecord: function(record) {
         var me = this,
             id = record.internalId || record[me.pkField],
-            key = me.getReader().getIdProperty(),
+            key = me.getReader().idProperty,
             modifiedData = record.modified,
             newData = record.data,
             pairs = [],

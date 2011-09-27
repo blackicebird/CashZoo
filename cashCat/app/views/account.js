@@ -55,7 +55,7 @@ cashCat.views.AccountListPanel = Ext.extend(Ext.Panel, {
     upBtn : new Ext.Button({
         text: msg.prop('Up Level'),
         ui: 'action',
-        disabled: true,
+        hidden: true,
         handler: function(btn, event) {
             Ext.dispatch({
                 controller: "account",
@@ -65,7 +65,8 @@ cashCat.views.AccountListPanel = Ext.extend(Ext.Panel, {
     }),
     modeBtn : new Ext.Button({
         text: msg.prop('Edit Mode'),
-        disabled: true,
+        hidden: true,
+        disabled: false,
         ui: 'action',
         mode: 'view',
         handler: function(btn, event) {
@@ -86,16 +87,16 @@ cashCat.views.AccountListPanel = Ext.extend(Ext.Panel, {
         }
     }),
     disableUpBtn: function() {
-        this.upBtn.disable(true);
+        this.upBtn.hide(true);
     },
     enableUpBtn: function() {
-        this.upBtn.enable(true);
+        this.upBtn.show(true);
     },
     disableModeBtn: function() {
-        this.modeBtn.disable();
+        this.modeBtn.hide(true);
     },
     enableModeBtn: function() {
-        this.modeBtn.enable();
+        this.modeBtn.show(true);
     },
     initComponent: function() {
         Ext.apply(this, {
@@ -363,9 +364,6 @@ cashCat.views.AccountEditor = Ext.extend(Ext.form.FormPanel, {
         });
 
         cashCat.views.AccountEditor.superclass.initComponent.apply(this, arguments);
-    },
-    load: function() {
-        cashCat.views.AccountEditor.superclass.load.apply(this, arguments);
     }
 });
 Ext.reg('accountEditor', cashCat.views.AccountEditor);
