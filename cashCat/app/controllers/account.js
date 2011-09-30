@@ -128,15 +128,16 @@ var accountController = {
                 this.accountParent = 0;
         }
     },
-    deleteAccount: function(list, index, item, event) {
+    delete: function() {
         Ext.Msg.confirm(msg.prop('Delete Account'), msg.prop('Do you want to delete this Account?'), function(btn) {
             if ('yes' == btn) {
-                if (list && item) {
-                    var record = list.getRecord(item);
+                var items = this.accountList.getSelectedRecords();
+                if (items && items.length > 0) {
+                    var record = items[0];
                     this.accountStore.remove(record);
                     this.accountStore.sync();
+                    console.log("deleted item: %o", record);
                 }
-                console.log("deleted item: %o", index);
                 this.loadAccount();
             }
         }, this);
@@ -169,60 +170,19 @@ var accountController = {
         var mode = options.mode;
         this.accountListPanel.modeBtn.mode = mode;
 
-        if (!this.accountListToolbar) {
-            this.initAccountListToolbar();
-        }
-
         if (mode == 'edit') {
             this.accountList.addCls('account-list-edit');
-            this.accountListPanel.addDocked(this.accountListToolbar);
+            this.accountListPanel.showAccountToolbar();
             this.disableViewEvent();
             this.enableEditEvent();
             this.accountList.getSelectionModel().select(0);
         } else {
             this.accountList.removeCls('account-list-edit');
-            this.accountListPanel.removeDocked(this.accountListToolbar, false);
+            this.accountListPanel.hideAccountToolbar();
             this.disableEditEvent();
             this.enableViewEvent();
             this.accountList.getSelectionModel().deselect(this.accountList.getSelectedRecords());
         }
-    },
-    initAccountListToolbar: function() {
-        var editBtn = new Ext.Button({
-            text: msg.prop('Edit')
-        });
-        editBtn.on("tap", function(btn, event) {
-            Ext.dispatch({
-                controller: 'account',
-                action: 'edit',
-                historyUrl: 'account/index'
-            });
-        });
-        this.accountListToolbar = new Ext.Toolbar({
-                dock: 'bottom',
-                xtype: 'toolbar',
-                ui: 'light',
-                items:[
-                    {
-                        xtype: 'spacer'
-                    },
-                    editBtn
-                    ,
-                    {
-                        text: msg.prop('Delete')
-                    },
-                    {
-                        text: msg.prop('Create')
-                    },
-                    {
-                        text: msg.prop('Create Sub Account')
-                    },
-                    {
-                        xtype: 'spacer'
-                    }
-                ]
-            }
-        );
     },
     disableViewEvent :function () {
         this.accountList.un('itemtap', this.loadAccount, this);

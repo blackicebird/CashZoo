@@ -24,6 +24,7 @@ cashCat.views.AccountList = Ext.extend(Ext.List, {
         cashCat.views.AccountList.superclass.constructor.call(this, config);
     },
     initComponent: function() {
+        this.enableBubble('selectionchange');
         cashCat.views.AccountList.superclass.initComponent.apply(this, arguments);
     },
     afterRender: function() {
@@ -86,6 +87,57 @@ cashCat.views.AccountListPanel = Ext.extend(Ext.Panel, {
             });
         }
     }),
+    accountListToolbar :new Ext.Toolbar({
+            dock: 'bottom',
+            xtype: 'toolbar',
+            ui: 'light',
+            items:[
+                {
+                    xtype: 'spacer'
+                },
+                {
+                    text: msg.prop('Edit'),
+                    listeners: {
+                        tap: function() {
+                            Ext.dispatch({
+                                controller: 'account',
+                                action: 'edit',
+                                historyUrl: 'account/index'
+                            });
+
+                        }
+                    }
+                }
+                ,
+                {
+                    text: msg.prop('Delete'),
+                    listeners: {
+                        'tap': function() {
+                            Ext.dispatch({
+                                controller: 'account',
+                                action: 'delete'
+                            }, this);
+                        }
+                    }
+                },
+                {
+                    text: msg.prop('Create')
+                },
+                {
+                    text: msg.prop('Create Sub Account')
+                },
+                {
+                    xtype: 'spacer'
+                }
+            ]
+        }
+    ),
+    showAccountToolbar: function() {
+        this.addDocked(this.accountListToolbar);
+    }   ,
+    hideAccountToolbar: function() {
+        this.removeDocked(this.accountListToolbar, false);
+    }   ,
     disableUpBtn: function() {
         this.upBtn.hide(true);
     },
@@ -99,6 +151,12 @@ cashCat.views.AccountListPanel = Ext.extend(Ext.Panel, {
         this.modeBtn.show(true);
     },
     initComponent: function() {
+        this.on('selectionchange', function(selectionModel, records){
+            if (records && records.length > 0) {
+                this.selectedItem = records[0];
+                console.log('selectedItem: %o', this.selectedItem);
+            }
+        }, this)  ;
         Ext.apply(this, {
             dockedItems: [
                 {
