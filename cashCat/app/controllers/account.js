@@ -142,28 +142,36 @@ var accountController = {
             }
         }, this);
     },
-    edit: function() {
-        var account = this.accountList.getSelectedRecords()[0];
-        console.log("edit account: %o", account);
-
+    initAccountEditor: function(){
         if (!this.accountEditor) {
             this.accountEditor = new cashCat.views.AccountEditor({
                 parentStore: this.accountListStore,
                 typeStore: this.accountTypeStore
             });
         }
+        return this.accountEditor;
 
+    },
+    edit: function() {
+        var account = this.accountList.getSelectedRecords()[0];
+        console.log("edit account: %o", account);
+
+        this.accountEditor = this.initAccountEditor();
         this.accountEditor.load(account);
         this.accountView.setActiveItem(this.accountEditor);
     },
     create: function(options) {
-        var selectedRecords = this.accountList.getSelectedRecords();
-        var parent = this.accountParent;
-        if (selectedRecords && selectedRecords.length > 0) {
-            parent = selectedRecords[0].getId();
-        }
+        var sibling = this.accountList.getStore().first();
+        console.log('parent: %o', sibling);
 
-        console.log('parent: %o', parent);
+        var account = Ext.ModelMgr.create({
+            parent: sibling.get('parent'),
+            type: sibling.get('type')
+        }, 'Account');
+        this.accountEditor = this.initAccountEditor();
+        this.accountEditor.reset();
+        this.accountEditor.load(account);
+        this.accountView.setActiveItem(this.accountEditor);
     },
     switchMode: function(options) {
         console.log("mode: %s", options.mode);
@@ -199,9 +207,16 @@ var accountController = {
     saveAccount: function(option) {
         var account = this.accountEditor.getRecord();
         this.accountEditor.updateRecord(account);
-        account.setDirty();
+        if (account.phantom) {
+            console.log('new account: %o', account);
+            this.accountStore.insert(this.accountStore.getCount()-1, account);
+        } else {
+            console.log('existed account: %o', account);
+            account.setDirty();
+        }
+
         this.accountStore.sync();
-        
+        this.loadAccount();
         this.accountView.setActiveItem(this.accountListPanel);
     },
     cancelAccount: function(option) {

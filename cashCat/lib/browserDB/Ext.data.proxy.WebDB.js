@@ -571,6 +571,9 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
             pairs.push(i+' = ?');
             values.push(newData[i]);
         }
+        if (pairs.length <= 0) {
+            return true;
+        }
         values.push(id);
 
          me.db.transaction(function(tx){
@@ -582,7 +585,7 @@ Ext.data.WebSQLProxy = Ext.extend(Ext.data.DataProxy, {
             tx.executeSql(query,
                 args,
                 onSuccess,  //on success
-                Ext.createDelegate(me.setRecord, me, [record]));        // on error
+                Ext.createDelegate(me.onError, me, [record]));        // on error
         });
 
         return true;

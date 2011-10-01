@@ -112,7 +112,7 @@ cashCat.views.AccountListPanel = Ext.extend(Ext.Panel, {
                 {
                     text: msg.prop('Delete'),
                     listeners: {
-                        'tap': function() {
+                        tap: function() {
                             Ext.dispatch({
                                 controller: 'account',
                                 action: 'delete'
@@ -121,10 +121,18 @@ cashCat.views.AccountListPanel = Ext.extend(Ext.Panel, {
                     }
                 },
                 {
-                    text: msg.prop('Create')
-                },
-                {
-                    text: msg.prop('Create Sub Account')
+                    text: msg.prop('Create'),
+                    listeners: {
+                        tap: {
+                            fn: function() {
+                                Ext.dispatch({
+                                    controller: 'account',
+                                    action: 'create'
+                                });
+                            },
+                            scope: this
+                        }
+                    }
                 },
                 {
                     xtype: 'spacer'
