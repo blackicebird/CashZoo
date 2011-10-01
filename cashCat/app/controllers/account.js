@@ -128,7 +128,7 @@ var accountController = {
                 this.accountParent = 0;
         }
     },
-    delete: function() {
+    remove: function() {
         Ext.Msg.confirm(msg.prop('Delete Account'), msg.prop('Do you want to delete this Account?'), function(btn) {
             if ('yes' == btn) {
                 var items = this.accountList.getSelectedRecords();
@@ -159,6 +159,19 @@ var accountController = {
         this.accountEditor = this.initAccountEditor();
         this.accountEditor.load(account);
         this.accountView.setActiveItem(this.accountEditor);
+        this.accountEditor.setMode('edit');
+    },
+    view: function(options) {
+        if (!options.record) {
+            return;
+        }
+        var account = options.record;
+        console.log("view account: %o", account);
+
+        this.accountEditor = this.initAccountEditor();
+        this.accountEditor.load(account);
+        this.accountView.setActiveItem(this.accountEditor);
+        this.accountEditor.setMode('view');
     },
     create: function(options) {
         var sibling = this.accountList.getStore().first();
@@ -171,7 +184,9 @@ var accountController = {
         this.accountEditor = this.initAccountEditor();
         this.accountEditor.reset();
         this.accountEditor.load(account);
+
         this.accountView.setActiveItem(this.accountEditor);
+        this.accountEditor.setMode('edit');
     },
     switchMode: function(options) {
         console.log("mode: %s", options.mode);
@@ -183,6 +198,7 @@ var accountController = {
             this.accountListPanel.showAccountToolbar();
             this.disableViewEvent();
             this.enableEditEvent();
+            this.accountList.getSelectionModel().deselect(this.accountList.getSelectedRecords());
             this.accountList.getSelectionModel().select(0);
         } else {
             this.accountList.removeCls('account-list-edit');

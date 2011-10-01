@@ -9,7 +9,7 @@
 cashCat.views.AccountList = Ext.extend(Ext.List, {
     displayField: 'name',
     pinHeaders:true,
-    multiSelect: true,
+    multiSelect: false,
     indexBar: {
         dock    : 'right',
         overlay : true,
@@ -38,9 +38,8 @@ cashCat.views.AccountList = Ext.extend(Ext.List, {
 
         Ext.dispatch({
             controller: 'account',
-            action: 'edit',
-            historyUrl: 'account/index',
-            selectedRecord: record
+            action: 'view',
+            record: record
         });
     }
 });
@@ -115,7 +114,7 @@ cashCat.views.AccountListPanel = Ext.extend(Ext.Panel, {
                         tap: function() {
                             Ext.dispatch({
                                 controller: 'account',
-                                action: 'delete'
+                                action: 'remove'
                             }, this);
                         }
                     }
@@ -247,6 +246,49 @@ cashCat.views.AccountEditor = Ext.extend(Ext.form.FormPanel, {
             displayField: 'name',
             valueField: 'name'
         });
+        this.editToolbar = new Ext.Toolbar({
+            dock: 'bottom',
+            xtype: 'toolbar',
+            ui: 'light',
+            items: [
+                {
+                    xtype: 'spacer'
+                },
+                {
+                    xtype: 'button',
+                    text: msg.prop('Save'),
+                    listeners: {
+                        tap: {
+                            scope: this,
+                            fn: function() {
+                                Ext.dispatch({
+                                    controller: 'account',
+                                    action: 'saveAccount'
+                                });
+                            }
+                        }
+                    }
+                },
+                {
+                    xtype: 'button',
+                    text: msg.prop('Cancel'),
+                    listeners: {
+                        tap: {
+                            fn: function() {
+                                Ext.dispatch({
+                                    controller: 'account',
+                                    action: 'cancelAccount'
+                                });
+                            }
+                        }
+                    }
+
+                },
+                {
+                    xtype: 'spacer'
+                }
+            ]
+        });
         Ext.apply(this, {
             title: msg.prop("Account Info"),
             fullscreen: false,
@@ -262,49 +304,7 @@ cashCat.views.AccountEditor = Ext.extend(Ext.form.FormPanel, {
                     xtype: 'toolbar',
                     title: msg.prop('Account Info')
                 },
-                {
-                    dock: 'bottom',
-                    xtype: 'toolbar',
-                    ui: 'light',
-                    items: [
-                        {
-                            xtype: 'spacer'
-                        },
-                        {
-                            xtype: 'button',
-                            text: msg.prop('Save'),
-                            listeners: {
-                                tap: {
-                                    scope: this,
-                                    fn: function() {
-                                        Ext.dispatch({
-                                            controller: 'account',
-                                            action: 'saveAccount'
-                                        });
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            xtype: 'button',
-                            text: msg.prop('Cancel'),
-                            listeners: {
-                                tap: {
-                                    fn: function() {
-                                        Ext.dispatch({
-                                            controller: 'account',
-                                            action: 'cancelAccount'
-                                        });
-                                    }
-                                }
-                            }
-
-                        },
-                        {
-                            xtype: 'spacer'
-                        }
-                    ]
-                }
+                this.editToolbar
             ],
             items:[
                 this.parentSelect,
@@ -430,6 +430,27 @@ cashCat.views.AccountEditor = Ext.extend(Ext.form.FormPanel, {
         });
 
         cashCat.views.AccountEditor.superclass.initComponent.apply(this, arguments);
+    },
+    /**
+     * Set editor mode: edit or view, must be invoked after render caused by toggle field bugs.
+     * @param mode editor mode, 'edit' or 'view'
+     */
+    setMode: function(mode){
+        if (mode == 'view') {
+            this.removeDocked(this.editToolbar, false);
+            this.mon(this.el, 'singletap', this.backToList, this);
+            this.disable();
+        } else {
+            this.addDocked(this.editToolbar);
+            this.mun(this.el, 'singletap', this.backToList);
+            this.enable();
+        }
+    },
+    backToList: function(){
+        Ext.dispatch({
+            controller: 'account',
+            action: 'cancelAccount'
+        });
     }
 });
 Ext.reg('accountEditor', cashCat.views.AccountEditor);
