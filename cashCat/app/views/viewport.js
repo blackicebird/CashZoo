@@ -48,12 +48,12 @@ cashCat.views.Viewport = Ext.extend(Ext.TabPanel, {
                 },
                 {
                     title: msg['ledger'],
-                    html: '<h1>General ledger</h1>',
+                    xtype: 'cashCatRegister',
                     iconCls: 'bookmarks'
                 },
                 {
                     title: msg['report'],
-                    html: '<h1>Report</h1>',
+                    xtype: 'cashCatReporting',
                     iconCls: 'search'
                 }
             ]

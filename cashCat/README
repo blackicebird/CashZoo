@@ -1,2 +1,12 @@
+1.icons
 action, add, arrow_down, arrow_left, arrow_right, arrow_up, bookmarks, compose, delete, download, favorites, home, info,
  locate, maps, more, organize, refresh, reply, search, settings, star, team, time, trash, and user.
+
+2.types
+The data type for automatic conversion from received data to the stored value if convert has not been specified. This may be specified as a string value. Possible values are
+auto (Default, implies no conversion)
+string
+int
+float
+boolean
+date
